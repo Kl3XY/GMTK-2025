@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=8 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://dyq111h61xncf" path="res://sprites/playerShadow.png" id="2_3li8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lohc2"]
 
@@ -28,7 +29,12 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+texture_filter = 3
 script = ExtResource("1_v6fml")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("2_3li8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lohc2")
