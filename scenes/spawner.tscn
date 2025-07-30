@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://drso77q7v4hd1"]
+
+[ext_resource type="Script" uid="uid://ib33dpuatu54" path="res://scripts/spawner.gd" id="1_2vbf6"]
+
+[sub_resource type="Curve2D" id="Curve2D_32lhk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -180.125, -107.872, 0, 0, 0, 0, 183.098, -106.915, 0, 0, 0, 0, 184.107, 113.275, 0, 0, 0, 0, -179.116, 112.318, 0, 0, 0, 0, -180.125, -106.915)
+}
+point_count = 5
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_32lhk")
+script = ExtResource("1_2vbf6")
