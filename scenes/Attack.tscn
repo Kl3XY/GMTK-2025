@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfje3eb4pqq8y"]
+
+[ext_resource type="Texture2D" uid="uid://dvaimiolcashi" path="res://sprites/frooty_loop_staff.png" id="1_ry3m3"]
+[ext_resource type="Script" uid="uid://de3mwsdxj70po" path="res://scenes/attack.gd" id="2_c1b5g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1b5g"]
+radius = 5.09902
+
+[node name="Attack" type="Sprite2D"]
+texture_filter = 3
+texture = ExtResource("1_ry3m3")
+script = ExtResource("2_c1b5g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_c1b5g")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

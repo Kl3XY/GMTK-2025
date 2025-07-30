@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://evuunvvwf0ai" path="res://sprites/Tilesets/Forest.png" id="1_7g83o"]
 [ext_resource type="PackedScene" uid="uid://dnpkjtix0emqi" path="res://scenes/Player.tscn" id="1_kqs1s"]
-[ext_resource type="PackedScene" uid="uid://drso77q7v4hd1" path="res://scenes/spawner.tscn" id="2_7g83o"]
+[ext_resource type="PackedScene" path="res://scenes/spawner.tscn" id="2_7g83o"]
 [ext_resource type="PackedScene" uid="uid://pkkydt76etb3" path="res://scenes/FrootLoop.tscn" id="3_7g83o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1c63"]
@@ -126,7 +126,6 @@ texture_region_size = Vector2i(8, 8)
 6:2/0/terrains_peering_bit/bottom_side = 0
 6:2/0/terrains_peering_bit/left_side = 0
 4:2/0 = 0
-4:2/0/terrain = 0
 4:3/size_in_atlas = Vector2i(2, 3)
 4:3/0 = 0
 0:1/0 = 0
@@ -140,7 +139,6 @@ texture_region_size = Vector2i(8, 8)
 2:5/0 = 0
 3:6/0 = 0
 3:5/0 = 0
-3:5/0/terrain = 0
 3:4/0 = 0
 2:4/0 = 0
 2:6/0 = 0
@@ -160,7 +158,6 @@ texture_region_size = Vector2i(8, 8)
 7:6/0 = 0
 7:5/0 = 0
 6:5/0 = 0
-6:5/0/terrain = 0
 6:6/0 = 0
 6:4/0 = 0
 7:4/0 = 0
@@ -200,8 +197,9 @@ layer_0/tile_data = PackedInt32Array(1114093, 262144, 3, 1376214, 262144, 3, 720
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_kqs1s")]
 position = Vector2(276, 215)
+character_type = 0
 
-[node name="Path2D" parent="Player" instance=ExtResource("2_7g83o")]
+[node name="Player#Path2D" parent="." instance=ExtResource("2_7g83o")]
 position = Vector2(1.52663, -4.32178)
 scale = Vector2(0.991124, 1.04455)
 enemies = Array[PackedScene]([ExtResource("3_7g83o")])
