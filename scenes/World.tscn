@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxndlukc63w11"]
+
+[ext_resource type="PackedScene" uid="uid://dnpkjtix0emqi" path="res://scenes/Player.tscn" id="1_kqs1s"]
+[ext_resource type="Texture2D" uid="uid://dvaimiolcashi" path="res://sprites/frooty_loop_staff.png" id="2_32lhk"]
+
+[node name="World" type="Node2D"]
+texture_filter = 1
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_kqs1s")]
+position = Vector2(276, 215)
+
+[node name="FrootyLoopStaff" type="Sprite2D" parent="."]
+position = Vector2(357, 231)
+texture = ExtResource("2_32lhk")
