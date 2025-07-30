@@ -1,0 +1,24 @@
+extends Path2D
+
+@export var enemies: Array[PackedScene]
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+    randomize()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+    if randi() % 100 != 42:
+        return
+        
+    var point: Vector2 = self.curve.samplef(randf() * 4) + get_parent().position
+    
+    var enemy: Node2D = enemies.pick_random().instantiate() 
+    
+    enemy.position = point
+    
+    get_parent().get_parent().add_child(
+        enemy
+    )
+    

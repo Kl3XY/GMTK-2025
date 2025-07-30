@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://pkkydt76etb3"]
+
+[ext_resource type="Script" uid="uid://cymtfnkubrid1" path="res://scenes/enemy.gd" id="1_cgghf"]
+[ext_resource type="Texture2D" uid="uid://c23obvkdh1w0n" path="res://sprites/froot_loop_basic_enemy.png" id="3_cgghf"]
+[ext_resource type="PackedScene" uid="uid://lggam6luofdi" path="res://scenes/Shadow.tscn" id="3_x28wd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x28wd"]
+radius = 2.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owgmq"]
+atlas = ExtResource("3_cgghf")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm8lu"]
+atlas = ExtResource("3_cgghf")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtcc4"]
+atlas = ExtResource("3_cgghf")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sphl7"]
+atlas = ExtResource("3_cgghf")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqi6a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owgmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm8lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtcc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm8lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sphl7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+texture_filter = 3
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
+platform_floor_layers = 4294967040
+safe_margin = 0.2
+script = ExtResource("1_cgghf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_x28wd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dqi6a")
+autoplay = "default"
+frame_progress = 0.954475
+
+[node name="Shadow" parent="." instance=ExtResource("3_x28wd")]

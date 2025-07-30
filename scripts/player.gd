@@ -2,13 +2,35 @@ extends CharacterBody2D
 
 const SPEED = 80.0
 
+enum CharacterType {
+    Wizard,
+    Archer,
+    Warrior
+}
+
 @onready var sprite = $AnimatedSprite2D
+@export var character_type: CharacterType
+
+func get_animation() -> String:
+    match self.character_type:
+        CharacterType.Wizard:
+            return "wizard"
+        CharacterType.Warrior:
+            return "warrior"
+        CharacterType.Archer:
+            return "archer"
+            
+    return "default"
+    
+func _ready() -> void:
+    sprite.play(self.get_animation())
+    sprite.stop()
 
 func _physics_process(delta: float) -> void:
     var direction := Input.get_vector("left", "right", "up", "down")
     if direction != Vector2.ZERO:
         velocity = direction * SPEED
-        sprite.play("default")
+        sprite.play(self.get_animation())
     else:
         velocity = velocity.move_toward(Vector2.ZERO, SPEED)
         sprite.stop()

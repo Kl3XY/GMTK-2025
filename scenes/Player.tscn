@@ -1,10 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=13 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
-[ext_resource type="Texture2D" uid="uid://dyq111h61xncf" path="res://sprites/playerShadow.png" id="2_3li8b"]
+[ext_resource type="PackedScene" uid="uid://lggam6luofdi" path="res://scenes/Shadow.tscn" id="2_qu4a1"]
+[ext_resource type="Texture2D" uid="uid://d3bnwkug721ye" path="res://sprites/archer.png" id="3_qu4a1"]
+[ext_resource type="Texture2D" uid="uid://cfpg7f6kt0350" path="res://sprites/warrior.png" id="4_70d11"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lohc2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qu4a1"]
+radius = 3.04138
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw2d6"]
+atlas = ExtResource("3_qu4a1")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khinc"]
+atlas = ExtResource("3_qu4a1")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bruh7"]
+atlas = ExtResource("4_70d11")
+region = Rect2(0, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eu24e"]
 atlas = ExtResource("1_a2o12")
@@ -18,30 +33,57 @@ region = Rect2(8, 0, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cw2d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khinc")
+}],
+"loop": true,
+"name": &"archer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bruh7")
+}],
+"loop": true,
+"name": &"warrior",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_eu24e")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_11yg5")
 }],
 "loop": true,
-"name": &"default",
+"name": &"wizard",
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 3
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
+platform_floor_layers = 4294967040
+safe_margin = 0.2
 script = ExtResource("1_v6fml")
+character_type = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" parent="." instance=ExtResource("2_qu4a1")]
 position = Vector2(0, 1)
-texture = ExtResource("2_3li8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lohc2")
+position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_qu4a1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dqi6a")
-frame_progress = 0.473076
+animation = &"archer"
+frame_progress = 0.35102
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
