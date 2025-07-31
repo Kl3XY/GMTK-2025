@@ -106,3 +106,51 @@ zoom = Vector2(4, 4)
 [node name="BasicMageWand7" parent="Attacks" instance=ExtResource("6_70d11")]
 
 [node name="BasicMageWand8" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand9" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand10" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand11" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand12" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand13" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand14" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand15" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand16" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand17" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand18" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand19" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand20" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand21" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand22" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand23" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand24" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand25" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand26" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand27" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand28" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand29" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand30" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand31" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand32" parent="Attacks" instance=ExtResource("6_70d11")]

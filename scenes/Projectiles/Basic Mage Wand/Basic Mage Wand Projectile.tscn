@@ -141,7 +141,7 @@ metadata/_custom_type_script = "uid://3vqfdlk0rung"
 texture_filter = 3
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_fd4j1")
-frame_progress = 0.473845
+frame_progress = 0.301882
 
 [node name="DamageArea" type="Area2D" parent="."]
 

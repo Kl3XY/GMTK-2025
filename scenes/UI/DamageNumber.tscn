@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://b65sola32olvc"]
+
+[ext_resource type="Script" uid="uid://bama8aqlrqkke" path="res://scenes/UI/damage_number.gd" id="1_hjxc3"]
+[ext_resource type="FontFile" uid="uid://coq1aojhddgk0" path="res://fonts/cc.yal.6w4.ttf" id="2_8t1r2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2ik8"]
+resource_local_to_scene = true
+font = ExtResource("2_8t1r2")
+font_color = Color(1, 0.335514, 0.269596, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DamageNumber" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hjxc3")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset = Vector2(20, 11.5)
+text = "-30"
+label_settings = SubResource("LabelSettings_h2ik8")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.709
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
