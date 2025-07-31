@@ -29,6 +29,9 @@ func _on_health_component_health_depleted() -> void:
 
 func _on_health_component_health_changed(Health: float) -> void:
     var health = $HealthComponent;
+    if health.Health != health.Max_Health:
+        $TextureProgressBar.visible = true;
+    
     var perc = (health.Health / health.Max_Health) * 100;
     $TextureProgressBar.value = perc;
     
