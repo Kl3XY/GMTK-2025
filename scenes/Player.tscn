@@ -101,6 +101,7 @@ zoom = Vector2(4, 4)
 
 [node name="XP" parent="Components" instance=ExtResource("7_6eyey")]
 unique_name_in_owner = true
+Max_XP = 300.0
 
 [node name="Attacks" type="Node2D" parent="."]
 

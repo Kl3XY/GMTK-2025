@@ -25,9 +25,10 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
 
 func _on_health_component_health_depleted() -> void:
     queue_free()
-    var inst = XP_ORB.instantiate();
-    inst.position = position;
-    get_tree().current_scene.add_child(inst);
+    if randi_range(0, 100) < 50:
+        var inst = XP_ORB.instantiate();
+        inst.position = position;
+        get_tree().current_scene.add_child(inst);
 
 
 func _on_health_component_health_changed(Health: float) -> void:
