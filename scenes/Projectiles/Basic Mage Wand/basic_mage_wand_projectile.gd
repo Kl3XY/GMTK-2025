@@ -4,11 +4,8 @@ const DAMAGE_NUMBER = preload("res://scenes/UI/DamageNumber.tscn")
 
 func _on_damage_area_body_entered(body: Node2D):
     if body is Enemy:
-        body.queue_free();
+        body.TookDamage.emit(30, get_tree().get_first_node_in_group("player"));
         queue_free();
-        var dmgNumInst = DAMAGE_NUMBER.instantiate();
-        dmgNumInst.position = body.position;
-        get_tree().current_scene.add_child(dmgNumInst);
 
 func _process(delta: float) -> void:
     rotation = direction.angle();

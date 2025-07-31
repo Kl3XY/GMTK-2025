@@ -54,3 +54,11 @@ func _physics_process(delta: float) -> void:
     
     if Input.is_action_just_pressed("cycle"):
         self.cycle()
+
+
+func _on_health_component_health_changed(Health: float) -> void:
+    $"UI placeholder/Label".text = "Health: " + str(Health);
+
+func _on_health_component_health_depleted() -> void:
+    # kill das game wie den spieler pog.
+    get_tree().quit();

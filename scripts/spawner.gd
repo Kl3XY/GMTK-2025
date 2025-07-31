@@ -10,7 +10,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     
-    if randi_range(0, 100) <= 90:
+    
+    if get_tree().get_node_count_in_group("enemies") >= 400:
+        return
+    
+    if randi_range(0, 100) > 50:
         return
         
     var point: Vector2 = self.curve.samplef(randf() * 4) + get_parent().position
@@ -18,7 +22,9 @@ func _process(delta: float) -> void:
     var enemy: Node2D = enemies.pick_random().instantiate() 
     
     enemy.position = point
-    
+
+    enemy.add_to_group("enemies")
+
     get_parent().get_parent().add_child(
         enemy
     )

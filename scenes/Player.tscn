@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=15 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3bnwkug721ye" path="res://sprites/archer.png" id="3_qu4a1"]
 [ext_resource type="Texture2D" uid="uid://cfpg7f6kt0350" path="res://sprites/warrior.png" id="4_70d11"]
 [ext_resource type="PackedScene" uid="uid://cngoj6pdvb1el" path="res://scenes/Attacks/Basic Mage Wand/BasicMageWand.tscn" id="6_70d11"]
+[ext_resource type="PackedScene" uid="uid://cowso8awu5lpp" path="res://components/HealthComponent.tscn" id="6_cw2d6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qu4a1"]
 radius = 3.04138
@@ -89,6 +90,10 @@ frame_progress = 0.35102
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
+[node name="Components" type="Node2D" parent="."]
+
+[node name="HealthComponent" parent="Components" instance=ExtResource("6_cw2d6")]
+
 [node name="Attacks" type="Node2D" parent="."]
 
 [node name="BasicMageWand" parent="Attacks" instance=ExtResource("6_70d11")]
@@ -154,3 +159,61 @@ zoom = Vector2(4, 4)
 [node name="BasicMageWand31" parent="Attacks" instance=ExtResource("6_70d11")]
 
 [node name="BasicMageWand32" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand33" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand34" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand35" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand36" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand37" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand38" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand39" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand40" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand41" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand42" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand43" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand44" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand45" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand46" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand47" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand48" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand49" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand50" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand51" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand52" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand53" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand54" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand55" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand56" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="UI placeholder" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="UI placeholder"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health:"
+
+[connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
+[connection signal="health_depleted" from="Components/HealthComponent" to="." method="_on_health_component_health_depleted"]

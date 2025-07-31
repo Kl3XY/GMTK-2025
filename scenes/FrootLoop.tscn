@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://pkkydt76etb3"]
+[gd_scene load_steps=14 format=3 uid="uid://pkkydt76etb3"]
 
 [ext_resource type="Script" uid="uid://cymtfnkubrid1" path="res://scenes/enemy.gd" id="1_cgghf"]
 [ext_resource type="Texture2D" uid="uid://c23obvkdh1w0n" path="res://sprites/froot_loop_basic_enemy.png" id="3_cgghf"]
 [ext_resource type="PackedScene" uid="uid://lggam6luofdi" path="res://scenes/Shadow.tscn" id="3_x28wd"]
+[ext_resource type="Texture2D" uid="uid://dveil8vyd0vom" path="res://sprites/UI/EnemyHealthBar3.png" id="4_f5ynd"]
+[ext_resource type="PackedScene" uid="uid://cowso8awu5lpp" path="res://components/HealthComponent.tscn" id="4_wudbl"]
+[ext_resource type="Texture2D" uid="uid://cy8yp2e43qgo0" path="res://sprites/UI/EnemyHealthBar1.png" id="5_evj1p"]
+[ext_resource type="Texture2D" uid="uid://c7tqjxvybdvyu" path="res://sprites/UI/EnemyHealthBar2.png" id="6_iwuxl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x28wd"]
 radius = 2.5
@@ -66,3 +70,24 @@ autoplay = "default"
 frame_progress = 0.954475
 
 [node name="Shadow" parent="." instance=ExtResource("3_x28wd")]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+z_index = 3
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 4.0
+offset_bottom = 2.0
+texture_under = ExtResource("4_f5ynd")
+texture_over = ExtResource("5_evj1p")
+texture_progress = ExtResource("6_iwuxl")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_wudbl")]
+Max_Health = 60.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="TookDamage" from="." to="." method="_on_took_damage"]
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
+[connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]
