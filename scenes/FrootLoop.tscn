@@ -72,6 +72,7 @@ frame_progress = 0.954475
 [node name="Shadow" parent="." instance=ExtResource("3_x28wd")]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
 z_index = 3
 offset_left = -4.0
 offset_top = -6.0
@@ -82,6 +83,7 @@ texture_over = ExtResource("5_evj1p")
 texture_progress = ExtResource("6_iwuxl")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_wudbl")]
+Health = 60.0
 Max_Health = 60.0
 
 [node name="Timer" type="Timer" parent="."]
