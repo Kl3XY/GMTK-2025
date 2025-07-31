@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://evuunvvwf0ai" path="res://sprites/Tilesets/Forest.png" id="1_7g83o"]
 [ext_resource type="PackedScene" uid="uid://dnpkjtix0emqi" path="res://scenes/Player.tscn" id="1_kqs1s"]
-[ext_resource type="PackedScene" path="res://scenes/spawner.tscn" id="2_7g83o"]
+[ext_resource type="PackedScene" uid="uid://drso77q7v4hd1" path="res://scenes/spawner.tscn" id="2_7g83o"]
 [ext_resource type="PackedScene" uid="uid://pkkydt76etb3" path="res://scenes/FrootLoop.tscn" id="3_7g83o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1c63"]
@@ -199,7 +199,7 @@ layer_0/tile_data = PackedInt32Array(1114093, 262144, 3, 1376214, 262144, 3, 720
 position = Vector2(276, 215)
 character_type = 0
 
-[node name="Player#Path2D" parent="." instance=ExtResource("2_7g83o")]
-position = Vector2(1.52663, -4.32178)
+[node name="Player#Path2D" parent="CharacterBody2D" instance=ExtResource("2_7g83o")]
+position = Vector2(-274.473, -219.322)
 scale = Vector2(0.991124, 1.04455)
 enemies = Array[PackedScene]([ExtResource("3_7g83o")])
