@@ -1,0 +1,151 @@
+[gd_scene load_steps=34 format=3 uid="uid://ctqipwu0hawj4"]
+
+[ext_resource type="Script" uid="uid://42hopnpapo1" path="res://scenes/Projectiles/Basic Mage Wand/basic_mage_wand_projectile.gd" id="1_h3r1b"]
+[ext_resource type="Texture2D" uid="uid://d1wgi2mnyg1uu" path="res://sprites/Spells/basic_mage_spell.png_0.png" id="2_h3r1b"]
+[ext_resource type="Texture2D" uid="uid://du5wkb4j5hck6" path="res://sprites/Spells/basic_mage_spell.png_1.png" id="3_qe5dm"]
+[ext_resource type="Texture2D" uid="uid://c0mw4kyoty0nw" path="res://sprites/Spells/basic_mage_spell.png_2.png" id="4_7k38a"]
+[ext_resource type="Texture2D" uid="uid://h6gxuv0xics2" path="res://sprites/Spells/basic_mage_spell.png_3.png" id="5_un2hx"]
+[ext_resource type="Texture2D" uid="uid://iimtf1bxlq52" path="res://sprites/Spells/basic_mage_spell.png_4.png" id="6_mghol"]
+[ext_resource type="Texture2D" uid="uid://bqbsu8vdpcgs2" path="res://sprites/Spells/basic_mage_spell.png_5.png" id="7_w5f5x"]
+[ext_resource type="Texture2D" uid="uid://bfvk25mod10sx" path="res://sprites/Spells/basic_mage_spell.png_6.png" id="8_ge1bv"]
+[ext_resource type="Texture2D" uid="uid://ctuvd0tgysjsq" path="res://sprites/Spells/basic_mage_spell.png_7.png" id="9_a8rvw"]
+[ext_resource type="Texture2D" uid="uid://duq7d3xnfsar8" path="res://sprites/Spells/basic_mage_spell.png_8.png" id="10_6jvak"]
+[ext_resource type="Texture2D" uid="uid://ch3u77e14hlvq" path="res://sprites/Spells/basic_mage_spell.png_9.png" id="11_6yrdn"]
+[ext_resource type="Texture2D" uid="uid://b8bmm1uy1pbvf" path="res://sprites/Spells/basic_mage_spell.png_10.png" id="12_tqvvs"]
+[ext_resource type="Texture2D" uid="uid://ct0s7afhhbar5" path="res://sprites/Spells/basic_mage_spell.png_11.png" id="13_uujch"]
+[ext_resource type="Texture2D" uid="uid://cu4osegf4l1cj" path="res://sprites/Spells/basic_mage_spell.png_12.png" id="14_ms0n3"]
+[ext_resource type="Texture2D" uid="uid://dyjnp6o76hkpm" path="res://sprites/Spells/basic_mage_spell.png_13.png" id="15_18gjx"]
+[ext_resource type="Texture2D" uid="uid://c5g8kukspykik" path="res://sprites/Spells/basic_mage_spell.png_14.png" id="16_ugcrk"]
+[ext_resource type="Texture2D" uid="uid://bfi6k2kk3046c" path="res://sprites/Spells/basic_mage_spell.png_15.png" id="17_tb2qu"]
+[ext_resource type="Texture2D" uid="uid://dy3momhcvbj1g" path="res://sprites/Spells/basic_mage_spell.png_16.png" id="18_riauy"]
+[ext_resource type="Texture2D" uid="uid://djsuu87qp7mvp" path="res://sprites/Spells/basic_mage_spell.png_17.png" id="19_r5yvk"]
+[ext_resource type="Texture2D" uid="uid://dlgwlw2hm6wno" path="res://sprites/Spells/basic_mage_spell.png_18.png" id="20_dc1mj"]
+[ext_resource type="Texture2D" uid="uid://dht663bb6siod" path="res://sprites/Spells/basic_mage_spell.png_19.png" id="21_juuh1"]
+[ext_resource type="Texture2D" uid="uid://ci3wqdterdsen" path="res://sprites/Spells/basic_mage_spell.png_20.png" id="22_uoi64"]
+[ext_resource type="Texture2D" uid="uid://bvxuxn20bkvvy" path="res://sprites/Spells/basic_mage_spell.png_21.png" id="23_l6qsa"]
+[ext_resource type="Texture2D" uid="uid://bqw4xvhdbnk6p" path="res://sprites/Spells/basic_mage_spell.png_22.png" id="24_x0nhm"]
+[ext_resource type="Texture2D" uid="uid://br4adhpuohx0a" path="res://sprites/Spells/basic_mage_spell.png_23.png" id="25_xnscs"]
+[ext_resource type="Texture2D" uid="uid://ddqmfx7md6eg6" path="res://sprites/Spells/basic_mage_spell.png_24.png" id="26_iu0s4"]
+[ext_resource type="Texture2D" uid="uid://cqyfjkvh0q5ob" path="res://sprites/Spells/basic_mage_spell.png_25.png" id="27_ap0m1"]
+[ext_resource type="Texture2D" uid="uid://c6wiywvak1xw0" path="res://sprites/Spells/basic_mage_spell.png_26.png" id="28_opw2g"]
+[ext_resource type="Texture2D" uid="uid://d1e18b8weivxm" path="res://sprites/Spells/basic_mage_spell.png_27.png" id="29_ltf5c"]
+[ext_resource type="Texture2D" uid="uid://v00nubd4feo6" path="res://sprites/Spells/basic_mage_spell.png_28.png" id="30_6riyy"]
+[ext_resource type="Texture2D" uid="uid://d14jjj2x2102g" path="res://sprites/Spells/basic_mage_spell.png_29.png" id="31_1l0xd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fd4j1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h3r1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qe5dm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7k38a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_un2hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mghol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w5f5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ge1bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a8rvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6jvak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6yrdn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_tqvvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_uujch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ms0n3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_18gjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ugcrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tb2qu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_riauy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_r5yvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dc1mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_juuh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_uoi64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_l6qsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_x0nhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_xnscs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_iu0s4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ap0m1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_opw2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ltf5c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_6riyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_1l0xd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h3r1b"]
+radius = 7.0
+
+[node name="BasicMageWandProjectile" type="Node2D"]
+script = ExtResource("1_h3r1b")
+metadata/_custom_type_script = "uid://3vqfdlk0rung"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_fd4j1")
+frame_progress = 0.473845
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_h3r1b")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

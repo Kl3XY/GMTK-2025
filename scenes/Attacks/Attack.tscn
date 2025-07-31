@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfje3eb4pqq8y"]
+
+[ext_resource type="Script" uid="uid://de3mwsdxj70po" path="res://scenes/Attacks/attack.gd" id="2_c1b5g"]
+
+[node name="Attack" type="Node2D"]
+texture_filter = 3
+script = ExtResource("2_c1b5g")

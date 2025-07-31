@@ -1,0 +1,41 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://coq1aojhddgk0"
+path="res://.godot/imported/cc.yal.6w4.ttf-a6f4851c65bd34086ad538a2e46a888e.fontdata"
+
+[deps]
+
+source_file="res://fonts/cc.yal.6w4.ttf"
+dest_files=["res://.godot/imported/cc.yal.6w4.ttf-a6f4851c65bd34086ad538a2e46a888e.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=true
+disable_embedded_bitmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=false
+force_autohinter=false
+hinting=0
+subpixel_positioning=2
+keep_rounding_remainders=false
+oversampling=10.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "Neue Konfiguration",
+"size": Vector2i(16, 0),
+&"variation_embolden": 0.0
+}]
+language_support={}
+script_support={}
+opentype_features={}

@@ -1,11 +1,6 @@
 extends Area2D
 
-const ATTACK = preload("res://scenes/Attacks/Attack.tscn")
-
-var closest_enemy: Enemy;
-
-func _physics_process(delta: float) -> void:
-    closest_enemy = find_closest_enemy();
+signal enemy_is_in_area_on_tick(enemy: Enemy);
     
 func find_closest_enemy() -> Enemy:
     var all_bodies = get_overlapping_bodies()
@@ -22,9 +17,9 @@ func find_closest_enemy() -> Enemy:
 
 
 func _on_attack_timer_timeout() -> void:
-    if closest_enemy != null:
-        print("video james")
-        var inst = ATTACK.instantiate();
-        inst.direction = global_position.direction_to(closest_enemy.position);
-        inst.position = global_position;
-        get_tree().current_scene.add_child(inst);
+    var closest_enemy = find_closest_enemy();
+    $"../Attack Timer".wait_time = randf_range(0.2, 1.0)
+    if find_closest_enemy():
+        print("skibidi toilet")
+        enemy_is_in_area_on_tick.emit(closest_enemy);
+        
