@@ -23,7 +23,6 @@ func find_closest_enemy() -> Enemy:
 
 func _on_attack_timer_timeout() -> void:
     if closest_enemy != null:
-        print("video james")
         var inst = ATTACK.instantiate();
         inst.direction = global_position.direction_to(closest_enemy.position);
         inst.position = global_position;
