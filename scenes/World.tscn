@@ -199,7 +199,7 @@ layer_0/tile_data = PackedInt32Array(1114093, 262144, 3, 1376214, 262144, 3, 720
 position = Vector2(276, 215)
 character_type = 0
 
-[node name="Player#Path2D" parent="." instance=ExtResource("2_7g83o")]
-position = Vector2(1.52663, -4.32178)
+[node name="Player#Path2D" parent="CharacterBody2D" instance=ExtResource("2_7g83o")]
+position = Vector2(-274.473, -219.322)
 scale = Vector2(0.991124, 1.04455)
 enemies = Array[PackedScene]([ExtResource("3_7g83o")])
