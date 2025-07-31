@@ -20,6 +20,5 @@ func _on_attack_timer_timeout() -> void:
     var closest_enemy = find_closest_enemy();
     $"../Attack Timer".wait_time = randf_range(0.2, 1.0)
     if find_closest_enemy():
-        print("skibidi toilet")
         enemy_is_in_area_on_tick.emit(closest_enemy);
         

@@ -1,0 +1,105 @@
+[gd_scene load_steps=20 format=3 uid="uid://cupfwke6uqws6"]
+
+[ext_resource type="Texture2D" uid="uid://dyq111h61xncf" path="res://sprites/playerShadow.png" id="1_1grv5"]
+[ext_resource type="Texture2D" uid="uid://dpfbuekfegaqb" path="res://sprites/Objects/XPorbs/spr_orbs1.png" id="1_kcnjf"]
+[ext_resource type="Script" uid="uid://b1vd5crpb5rl" path="res://scenes/XPOrbs/xp_orb.gd" id="1_l22vw"]
+[ext_resource type="Texture2D" uid="uid://3hupk73vgrj7" path="res://sprites/Objects/XPorbs/spr_orbs2.png" id="2_1grv5"]
+[ext_resource type="Texture2D" uid="uid://cxcqw4v2j1usj" path="res://sprites/Objects/XPorbs/spr_orbs3.png" id="3_l22vw"]
+[ext_resource type="Texture2D" uid="uid://ca788t0tv6k7e" path="res://sprites/Objects/XPorbs/spr_orbs4.png" id="4_iqw18"]
+[ext_resource type="Texture2D" uid="uid://chgchjiu8o1n2" path="res://sprites/Objects/XPorbs/spr_orbs5.png" id="5_1nag5"]
+[ext_resource type="Texture2D" uid="uid://ccixdrina30s7" path="res://sprites/Objects/XPorbs/spr_orbs6.png" id="6_3metw"]
+[ext_resource type="Texture2D" uid="uid://b5t78odhof28i" path="res://sprites/Objects/XPorbs/spr_orbs7.png" id="7_3r4tl"]
+[ext_resource type="Texture2D" uid="uid://b242p0xdjrauv" path="res://sprites/Objects/XPorbs/spr_orbs8.png" id="8_3amgg"]
+[ext_resource type="Texture2D" uid="uid://bqc6hl0kv5xmy" path="res://sprites/Objects/XPorbs/spr_orbs9.png" id="9_eujgq"]
+[ext_resource type="Texture2D" uid="uid://cdgfx2ywf1qk2" path="res://sprites/Objects/XPorbs/spr_orbs10.png" id="10_ndr6b"]
+[ext_resource type="Texture2D" uid="uid://c52im23pnlp1f" path="res://sprites/Objects/XPorbs/spr_orbs11.png" id="11_21i7r"]
+[ext_resource type="Texture2D" uid="uid://dcp0b0v63j52r" path="res://sprites/Objects/XPorbs/spr_orbs12.png" id="12_gqeeo"]
+[ext_resource type="Texture2D" uid="uid://ds00efrsxqsed" path="res://sprites/Objects/XPorbs/spr_orbs13.png" id="13_1bdo0"]
+[ext_resource type="Texture2D" uid="uid://64rhn4ylbmlx" path="res://sprites/Objects/XPorbs/spr_orbs14.png" id="14_wgj23"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsxif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kcnjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1grv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l22vw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iqw18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1nag5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3metw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3r4tl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3amgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eujgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ndr6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_21i7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gqeeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1bdo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wgj23")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1grv5"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l22vw"]
+
+[node name="XpOrb" type="Node2D"]
+script = ExtResource("1_l22vw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1grv5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fsxif")
+
+[node name="Init" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Init"]
+shape = SubResource("CircleShape2D_1grv5")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="PlayerCollision" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
+shape = SubResource("CircleShape2D_l22vw")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[connection signal="body_entered" from="Init" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]

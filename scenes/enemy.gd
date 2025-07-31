@@ -3,6 +3,7 @@ class_name Enemy
 
 const SPEED = 50.0
 const DAMAGE_NUMBER = preload("res://scenes/UI/DamageNumber.tscn")
+const XP_ORB = preload("res://scenes/XPOrbs/XPOrb.tscn")
 signal TookDamage(damage: int, damage_from: CharacterBody2D)
 
 func _physics_process(delta: float) -> void:
@@ -14,7 +15,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
     if $Timer.time_left == 0.0:
-        print("sigma")
         $HealthComponent.Health -= damage;
         position += damage_from.position.direction_to(global_position) * 15
         $Timer.start();
@@ -25,6 +25,9 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
 
 func _on_health_component_health_depleted() -> void:
     queue_free()
+    var inst = XP_ORB.instantiate();
+    inst.position = position;
+    get_tree().current_scene.add_child(inst);
 
 
 func _on_health_component_health_changed(Health: float) -> void:
