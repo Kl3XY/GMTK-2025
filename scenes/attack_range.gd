@@ -7,6 +7,8 @@ var closest_enemy: Enemy;
 func _physics_process(delta: float) -> void:
     closest_enemy = find_closest_enemy();
     
+@onready var player = get_tree().get_first_node_in_group("player")
+    
 func find_closest_enemy() -> Enemy:
     var all_bodies = get_overlapping_bodies()
     var nearest_enemy: CharacterBody2D;
@@ -14,8 +16,8 @@ func find_closest_enemy() -> Enemy:
     
     for body in all_bodies:
         if body is Enemy:
-            if global_position.distance_to(body.position) < nearest_enemy_distance:
-                nearest_enemy_distance = global_position.distance_to(body.position);
+            if player.global_position.distance_to(body.position) < nearest_enemy_distance:
+                nearest_enemy_distance = player.global_position.distance_to(body.position);
                 nearest_enemy = body;
     
     return nearest_enemy;

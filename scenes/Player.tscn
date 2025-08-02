@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=19 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cowso8awu5lpp" path="res://components/HealthComponent.tscn" id="6_cw2d6"]
 [ext_resource type="PackedScene" uid="uid://b5yigcx8ej36i" path="res://components/XPComponent.tscn" id="7_6eyey"]
 [ext_resource type="Texture2D" uid="uid://bep07t61eny41" path="res://sprites/UI/XPBar3.png" id="8_bruh7"]
+[ext_resource type="Script" uid="uid://deo7ghxynwka8" path="res://scripts/attacks.gd" id="8_d3wef"]
 [ext_resource type="Texture2D" uid="uid://bgohh64k8m0oi" path="res://sprites/UI/XPBar2.png" id="9_6eyey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qu4a1"]
@@ -105,6 +106,7 @@ unique_name_in_owner = true
 Max_XP = 300.0
 
 [node name="Attacks" type="Node2D" parent="."]
+script = ExtResource("8_d3wef")
 
 [node name="BasicMageWand" parent="Attacks" instance=ExtResource("6_70d11")]
 
@@ -182,3 +184,6 @@ vertical_alignment = 1
 [connection signal="health_depleted" from="Components/HealthComponent" to="." method="_on_health_component_health_depleted"]
 [connection signal="level_up" from="Components/XP" to="." method="_on_xp_level_up"]
 [connection signal="xp_change" from="Components/XP" to="." method="_on_xp_xp_change"]
+[connection signal="child_entered_tree" from="Attacks" to="Attacks" method="layout"]
+[connection signal="child_exiting_tree" from="Attacks" to="Attacks" method="layout"]
+[connection signal="child_order_changed" from="Attacks" to="Attacks" method="layout"]
