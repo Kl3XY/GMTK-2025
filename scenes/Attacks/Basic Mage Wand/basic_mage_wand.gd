@@ -7,4 +7,4 @@ func _on_area_2d_enemy_is_in_area_on_tick(enemy: Enemy) -> void:
     inst.direction = global_position.direction_to(enemy.position);
     inst.position = global_position + inst.direction * 7;
     get_tree().current_scene.add_child(inst);
-    $FrootyLoopStaff2.perc = 1.0;
+    $FrootyLoopStaff2.perc = 0.5;
