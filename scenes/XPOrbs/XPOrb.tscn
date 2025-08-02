@@ -85,7 +85,7 @@ texture_filter = 3
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fsxif")
 autoplay = "default"
-frame_progress = 0.819238
+frame_progress = 0.737199
 
 [node name="Init" type="Area2D" parent="."]
 collision_layer = 2
