@@ -30,10 +30,6 @@ Button/styles/hover = SubResource("StyleBoxEmpty_ism2r")
 Button/styles/normal = SubResource("StyleBoxEmpty_estw7")
 Button/styles/pressed = SubResource("StyleBoxEmpty_15uo5")
 
-[sub_resource type="LabelSettings" id="LabelSettings_1i3ks"]
-font = ExtResource("1_65kbn")
-font_size = 20
-
 [sub_resource type="LabelSettings" id="LabelSettings_ism2r"]
 font = ExtResource("1_65kbn")
 font_size = 8
@@ -53,6 +49,10 @@ expand_margin_left = 2.0
 [sub_resource type="Theme" id="Theme_im4cs"]
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_estw7")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_15uo5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1i3ks"]
+font = ExtResource("1_65kbn")
+font_size = 20
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -133,25 +133,17 @@ text = "Extra Credits"
 alignment = 0
 script = ExtResource("4_estw7")
 
-[node name="Main Menu3" type="Button" parent="GridContainer"]
+[node name="Options" type="Button" parent="GridContainer"]
 layout_mode = 2
 theme = SubResource("Theme_mslyy")
 text = "Options"
 alignment = 0
 
-[node name="Main Menu4" type="Button" parent="GridContainer"]
+[node name="Exit" type="Button" parent="GridContainer"]
 layout_mode = 2
 theme = SubResource("Theme_mslyy")
 text = "Exit"
 alignment = 0
-
-[node name="Credts" type="Label" parent="GridContainer"]
-layout_mode = 2
-text = "Made for the GMTK 2025 Game Jam
-Developed by:
-Martin \"Kl3XY\" Gaffke
-Killian \"Hoetty\" Behnke"
-label_settings = SubResource("LabelSettings_1i3ks")
 
 [node name="Locker" type="ColorRect" parent="."]
 visible = false
@@ -345,8 +337,27 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_skvia")
 
+[node name="Credts" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -73.0
+offset_right = 215.0
+offset_bottom = -18.8
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(0, 54.2)
+text = "Made for the GMTK 2025 Game Jam
+Developed by:
+Martin \"Kl3XY\" Gaffke
+Kilian \"Hoetty\" Behnke"
+label_settings = SubResource("LabelSettings_1i3ks")
+
 [connection signal="pressed" from="GridContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="GridContainer/Achievements" to="GridContainer/Achievements" method="_on_pressed"]
 [connection signal="button_down" from="GridContainer/Extra Credits" to="GridContainer/Extra Credits" method="_on_button_down"]
+[connection signal="pressed" from="GridContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Extra Credits/TextureButton" to="Extra Credits" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Achievements/TextureButton" to="Achievements" method="_on_texture_button_pressed"]

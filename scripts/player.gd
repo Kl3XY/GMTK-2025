@@ -17,17 +17,8 @@ enum CharacterType {
 @export var wand: PackedScene
 
 func cycle():
-    match self.character_type:
-        CharacterType.Wizard:
-            self.character_type = CharacterType.Warrior
-        CharacterType.Warrior:
-             self.character_type = CharacterType.Archer
-        CharacterType.Archer:
-             self.character_type = CharacterType.Wizard
-            
-    sprite.play(self.get_animation())
-    sprite.stop()
-
+    print("dont work lmao")
+    
 func get_animation() -> String:
     match self.character_type:
         CharacterType.Wizard:
@@ -67,6 +58,9 @@ func _physics_process(delta: float) -> void:
         
     if Input.is_action_just_pressed("ui_up"):
         attacks.add_child(wand.instantiate())
+        
+    if Input.is_action_just_pressed("Toggle Pause Menu"):
+        get_tree().change_scene_to_file("res://scenes/Main Menu.tscn");
 
 
 func _on_health_component_health_changed(Health: float) -> void:
