@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxndlukc63w11"]
+[gd_scene load_steps=10 format=3 uid="uid://bxndlukc63w11"]
 
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_1lgw5"]
+[ext_resource type="Script" uid="uid://sbg2brb6dh6r" path="res://scripts/world.gd" id="1_1lgw5"]
 [ext_resource type="Texture2D" uid="uid://evuunvvwf0ai" path="res://sprites/Tilesets/Forest.png" id="1_7g83o"]
 [ext_resource type="PackedScene" uid="uid://dnpkjtix0emqi" path="res://scenes/Player.tscn" id="1_kqs1s"]
 [ext_resource type="PackedScene" uid="uid://drso77q7v4hd1" path="res://scenes/spawner.tscn" id="2_7g83o"]
 [ext_resource type="PackedScene" uid="uid://pkkydt76etb3" path="res://scenes/FrootLoop.tscn" id="3_7g83o"]
+[ext_resource type="PackedScene" uid="uid://cngoj6pdvb1el" path="res://scenes/Attacks/Basic Mage Wand/BasicMageWand.tscn" id="4_hlk0d"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1lgw5"]
 noise_type = 2
@@ -239,7 +240,7 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.692327, 2.88785e-06, 0.411608, 1)
 sources/0 = SubResource("TileSetAtlasSource_d1c63")
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=["world"]]
 texture_filter = 1
 script = ExtResource("1_1lgw5")
 noise = SubResource("FastNoiseLite_1lgw5")
@@ -262,10 +263,9 @@ use_parent_material = true
 tile_set = SubResource("TileSet_1lgw5")
 
 [node name="Player" parent="." instance=ExtResource("1_kqs1s")]
-position = Vector2(276, 215)
 character_type = 0
+wand = ExtResource("4_hlk0d")
 
 [node name="Player#Path2D" parent="Player" instance=ExtResource("2_7g83o")]
-position = Vector2(-274.473, -219.322)
 scale = Vector2(0.991124, 1.04455)
 enemies = Array[PackedScene]([ExtResource("3_7g83o")])
