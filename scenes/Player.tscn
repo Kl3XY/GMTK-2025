@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=22 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cowso8awu5lpp" path="res://components/HealthComponent.tscn" id="6_cw2d6"]
 [ext_resource type="PackedScene" uid="uid://b5yigcx8ej36i" path="res://components/XPComponent.tscn" id="7_6eyey"]
 [ext_resource type="Texture2D" uid="uid://bep07t61eny41" path="res://sprites/UI/XPBar3.png" id="8_bruh7"]
-[ext_resource type="Script" uid="uid://deo7ghxynwka8" path="res://scripts/attacks.gd" id="8_d3wef"]
+[ext_resource type="Script" path="res://scripts/attacks.gd" id="8_d3wef"]
 [ext_resource type="Texture2D" uid="uid://bgohh64k8m0oi" path="res://sprites/UI/XPBar2.png" id="9_6eyey"]
 [ext_resource type="Texture2D" uid="uid://douc2v4urovg5" path="res://sprites/mage_loading.png" id="10_lkdrv"]
 [ext_resource type="Script" uid="uid://6cxn1jgjg6fg" path="res://scenes/to_dark_player.gd" id="11_o4126"]
