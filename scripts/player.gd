@@ -12,7 +12,9 @@ enum CharacterType {
 }
 
 @onready var sprite = $AnimatedSprite2D
+@onready var attacks = $Attacks
 @export var character_type: CharacterType
+@export var wand: PackedScene
 
 func cycle():
     match self.character_type:
@@ -59,6 +61,12 @@ func _physics_process(delta: float) -> void:
     
     if Input.is_action_just_pressed("cycle"):
         self.cycle()
+        
+    if Input.is_action_just_pressed("ui_down") && attacks.get_child_count() > 0:
+        attacks.get_child(0).queue_free()
+        
+    if Input.is_action_just_pressed("ui_up"):
+        attacks.add_child(wand.instantiate())
 
 
 func _on_health_component_health_changed(Health: float) -> void:
