@@ -14,6 +14,9 @@ func _physics_process(delta: float) -> void:
     move_and_slide()
 
 func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
+    if self.is_queued_for_deletion():
+        return
+    
     if $Timer.time_left == 0.0:
         $HealthComponent.Health -= damage;
         position += damage_from.position.direction_to(global_position) * 15
@@ -24,11 +27,11 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
         add_child(dmgNumInst);
 
 func _on_health_component_health_depleted() -> void:
-    queue_free()
     if randi_range(0, 100) < 50:
         var inst = XP_ORB.instantiate();
         inst.position = position;
-        get_tree().current_scene.add_child(inst);
+        get_tree().current_scene.call_deferred("add_child", inst);
+    queue_free()
 
 
 func _on_health_component_health_changed(Health: float) -> void:
