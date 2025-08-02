@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     
     
-    if get_tree().get_node_count_in_group("enemies") >= 40:
+    if get_tree().get_node_count_in_group("enemies") >= 64:
         return
     
     if randi_range(0, 100) > 50:

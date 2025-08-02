@@ -1,6 +1,9 @@
 extends CharacterBody2D
+class_name Player;
 
 const SPEED = 80.0
+var Level = 1;
+
 
 enum CharacterType {
     Wizard,
@@ -64,3 +67,16 @@ func _on_health_component_health_changed(Health: float) -> void:
 func _on_health_component_health_depleted() -> void:
     # kill das game wie den spieler pog.
     get_tree().quit();
+
+
+func _on_xp_xp_change(xp: float) -> void:
+    var XP = %XP as XPComponent;
+
+    var perc = (XP.XP / XP.Max_XP) * 100;
+    $"UI placeholder/TextureProgressBar".value = perc;
+    
+
+
+func _on_xp_level_up() -> void:
+    Level += 1;
+    $"UI placeholder/Label2".text = "Level\n" + str(Level)
