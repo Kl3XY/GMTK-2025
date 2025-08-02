@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://br17kshn6mq2a"]
+
+[ext_resource type="FontFile" uid="uid://coq1aojhddgk0" path="res://fonts/cc.yal.6w4.ttf" id="1_ualev"]
+[ext_resource type="Texture2D" uid="uid://hlorn0qbabxg" path="res://sprites/window_rect.png" id="1_wh4ij"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ualev"]
+texture = ExtResource("1_wh4ij")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[node name="PowerUpMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.380392)
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -100.0
+offset_right = 160.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect/GridContainer"]
+texture_filter = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ualev")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_ualev")
+text = "POWER UP
+- WEAPON -
+
+COOL ASS WAND"
+
+[node name="Button2" type="Button" parent="CanvasLayer/ColorRect/GridContainer"]
+texture_filter = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ualev")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_ualev")
+text = "POWER UP
+- WEAPON -
+
+COOL ASS WAND"
+
+[node name="Button3" type="Button" parent="CanvasLayer/ColorRect/GridContainer"]
+texture_filter = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ualev")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_ualev")
+text = "POWER UP
+- WEAPON -
+
+COOL ASS WAND"

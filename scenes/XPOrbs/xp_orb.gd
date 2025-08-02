@@ -25,3 +25,7 @@ func _on_player_collision_body_entered(body: Node2D) -> void:
         var xp = player.get_node("Components").get_node("XP") as XPComponent;
         xp.XP += xp_amount;
         queue_free();
+
+
+func _on_timer_timeout() -> void:
+    queue_free();

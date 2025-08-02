@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=56 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
@@ -13,6 +13,23 @@
 [ext_resource type="Texture2D" uid="uid://bgohh64k8m0oi" path="res://sprites/UI/XPBar2.png" id="9_6eyey"]
 [ext_resource type="Texture2D" uid="uid://douc2v4urovg5" path="res://sprites/mage_loading.png" id="10_lkdrv"]
 [ext_resource type="Script" uid="uid://6cxn1jgjg6fg" path="res://scenes/to_dark_player.gd" id="11_o4126"]
+[ext_resource type="Script" uid="uid://b0qdylq0ty4s1" path="res://scenes/pause_menu.gd" id="14_axnmu"]
+[ext_resource type="Texture2D" uid="uid://c4n0i6lb46nll" path="res://sprites/top_left_vignette.png" id="14_fgkxt"]
+[ext_resource type="FontFile" uid="uid://coq1aojhddgk0" path="res://fonts/cc.yal.6w4.ttf" id="14_p7iby"]
+[ext_resource type="Texture2D" uid="uid://81hfp6vnexwk" path="res://sprites/logo2.png" id="15_xsi7p"]
+[ext_resource type="Script" uid="uid://cn2l7mdtoa1gr" path="res://scenes/achievements.gd" id="17_1jpwa"]
+[ext_resource type="Script" uid="uid://bvf6bdawd7ban" path="res://scenes/new_game.gd" id="17_pfeki"]
+[ext_resource type="Script" uid="uid://daqpscnjmt0v" path="res://scenes/Extra Credits.gd" id="18_pfeki"]
+[ext_resource type="Script" uid="uid://b4jokettx2sp2" path="res://scenes/options.gd" id="19_axnmu"]
+[ext_resource type="Texture2D" uid="uid://hlorn0qbabxg" path="res://sprites/window_rect.png" id="20_fvsjc"]
+[ext_resource type="Script" uid="uid://b88dc6jiwp254" path="res://scenes/back_to_main_menu.gd" id="20_xsi7p"]
+[ext_resource type="Script" uid="uid://5gddj0y888bf" path="res://scenes/exit_btn.gd" id="21_1jpwa"]
+[ext_resource type="Script" uid="uid://d2a11s5emdwf4" path="res://scenes/extra_credits.gd" id="21_hxdpb"]
+[ext_resource type="Script" uid="uid://cgife5tbk4cmh" path="res://scenes/achievements_menu.gd" id="22_agngo"]
+[ext_resource type="Script" uid="uid://bp27oldyb23im" path="res://scenes/options_menu.gd" id="23_qrixf"]
+[ext_resource type="Texture2D" uid="uid://c152n3cyb74pm" path="res://sprites/spr_grabber1.png" id="24_qmt83"]
+[ext_resource type="Texture2D" uid="uid://ddpka8m8hkdui" path="res://sprites/spr_grabber2.png" id="25_m4as6"]
+[ext_resource type="Script" uid="uid://chpnfy51y8p1m" path="res://scenes/to_dark_pause.gd" id="28_1jpwa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qu4a1"]
 radius = 3.04138
@@ -76,6 +93,71 @@ frame_0/texture = ExtResource("10_lkdrv")
 frame_1/texture = ExtResource("10_lkdrv")
 frame_1/duration = 1.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qgd8p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1i3ks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ism2r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_estw7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15uo5"]
+
+[sub_resource type="Theme" id="Theme_b1r6t"]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("14_p7iby")
+Button/styles/disabled = SubResource("StyleBoxEmpty_qgd8p")
+Button/styles/focus = SubResource("StyleBoxEmpty_1i3ks")
+Button/styles/hover = SubResource("StyleBoxEmpty_ism2r")
+Button/styles/normal = SubResource("StyleBoxEmpty_estw7")
+Button/styles/pressed = SubResource("StyleBoxEmpty_15uo5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qv10x"]
+font = ExtResource("14_p7iby")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_c0asu"]
+font = ExtResource("14_p7iby")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fq1a3"]
+font = ExtResource("14_p7iby")
+font_size = 8
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gu4mg"]
+texture = ExtResource("20_fvsjc")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_tk6la"]
+font = ExtResource("14_p7iby")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_estw7"]
+expand_margin_left = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15uo5"]
+
+[sub_resource type="Theme" id="Theme_yrxk4"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_estw7")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_15uo5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_eg1p0"]
+font = ExtResource("14_p7iby")
+font_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2lsp"]
+bg_color = Color(0.10748, 0.10748, 0.10748, 1)
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_x2u8p"]
+HSlider/icons/grabber = ExtResource("24_qmt83")
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = ExtResource("25_m4as6")
+HSlider/icons/tick = null
+HSlider/styles/slider = SubResource("StyleBoxFlat_b2lsp")
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 3
 collision_layer = 2
@@ -97,8 +179,7 @@ shape = SubResource("CircleShape2D_qu4a1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dqi6a")
-animation = &"archer"
-frame_progress = 0.35102
+animation = &"wizard"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -161,11 +242,14 @@ script = ExtResource("8_d3wef")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="UI placeholder"]
 texture_filter = 3
-offset_right = 8.0
+anchors_preset = 10
+anchor_right = 1.0
 offset_bottom = 8.0
-scale = Vector2(144, 4)
+grow_horizontal = 2
+size_flags_horizontal = 3
 texture_under = ExtResource("8_bruh7")
 texture_progress = ExtResource("9_6eyey")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI placeholder"]
 offset_top = 18.0
@@ -213,6 +297,451 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AnimatedTexture_p7iby")
 
+[node name="Pause Menu" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("14_axnmu")
+
+[node name="BG -- Hier kommt der BG shader" type="ColorRect" parent="Pause Menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.447059)
+
+[node name="Vignette" type="TextureRect" parent="Pause Menu"]
+texture_filter = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_fgkxt")
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause Menu"]
+offset_left = -64.0
+offset_top = -36.0
+offset_right = -24.0
+offset_bottom = 4.0
+
+[node name="anim container" type="Control" parent="Pause Menu"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Logo" type="TextureRect" parent="Pause Menu/anim container"]
+texture_filter = 3
+layout_mode = 0
+offset_right = 139.0
+offset_bottom = 47.0
+scale = Vector2(3.674, 3.674)
+texture = ExtResource("15_xsi7p")
+
+[node name="GridContainer" type="GridContainer" parent="Pause Menu/anim container"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 198.0
+offset_right = 185.0
+offset_bottom = 483.0
+scale = Vector2(1.53, 1.53)
+theme_override_constants/v_separation = 17
+
+[node name="New Game" type="Button" parent="Pause Menu/anim container/GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b1r6t")
+text = "Continue
+"
+alignment = 0
+script = ExtResource("17_pfeki")
+
+[node name="Achievements" type="Button" parent="Pause Menu/anim container/GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b1r6t")
+text = "Achievements"
+alignment = 0
+script = ExtResource("17_1jpwa")
+
+[node name="Extra Credits" type="Button" parent="Pause Menu/anim container/GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b1r6t")
+text = "Extra Credits"
+alignment = 0
+script = ExtResource("18_pfeki")
+
+[node name="Options" type="Button" parent="Pause Menu/anim container/GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b1r6t")
+text = "Options"
+alignment = 0
+script = ExtResource("19_axnmu")
+
+[node name="Back to Main Menu" type="Button" parent="Pause Menu/anim container/GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b1r6t")
+text = "Back to Main Menu
+"
+alignment = 0
+script = ExtResource("20_xsi7p")
+
+[node name="Exit" type="Button" parent="Pause Menu/anim container/GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b1r6t")
+text = "Exit"
+alignment = 0
+script = ExtResource("21_1jpwa")
+
+[node name="Credts" type="Label" parent="Pause Menu/anim container"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 535.0
+offset_right = 215.0
+offset_bottom = 589.2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(0, 54.2)
+text = "Made for the GMTK 2025 Game Jam
+Developed by:
+Martin \"Kl3XY\" Gaffke
+Kilian \"Hoetty\" Behnke"
+label_settings = SubResource("LabelSettings_qv10x")
+
+[node name="Locker" type="ColorRect" parent="Pause Menu"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.607843)
+
+[node name="Extra Credits" type="NinePatchRect" parent="Pause Menu"]
+visible = false
+texture_filter = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -82.0
+offset_right = 56.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(56, 51)
+texture = ExtResource("20_fvsjc")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource("21_hxdpb")
+
+[node name="RichTextLabel" type="Label" parent="Pause Menu/Extra Credits"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.0
+offset_right = 38.0
+offset_bottom = 9.0
+grow_horizontal = 2
+text = "Special thanks to:"
+label_settings = SubResource("LabelSettings_c0asu")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Pause Menu/Extra Credits"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 16.2
+offset_right = 45.0
+offset_bottom = 20.2
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Pause Menu/Extra Credits/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "enekoassets - 2D Burn & dissolve shader"
+label_settings = SubResource("LabelSettings_fq1a3")
+
+[node name="TextureButton" type="Button" parent="Pause Menu/Extra Credits"]
+layout_mode = 0
+offset_top = 105.0
+offset_right = 112.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("14_p7iby")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/focus = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gu4mg")
+text = "Close"
+
+[node name="Achievements" type="NinePatchRect" parent="Pause Menu"]
+visible = false
+texture_filter = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.9999
+offset_top = -29.0
+offset_right = 82.0001
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(56, 58)
+texture = ExtResource("20_fvsjc")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource("22_agngo")
+
+[node name="RichTextLabel" type="Label" parent="Pause Menu/Achievements"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_right = 56.0
+offset_bottom = 9.0
+grow_horizontal = 2
+text = "Achievements"
+label_settings = SubResource("LabelSettings_tk6la")
+horizontal_alignment = 1
+
+[node name="AchievementList" type="RichTextLabel" parent="Pause Menu/Achievements"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 13.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_yrxk4")
+theme_override_fonts/normal_font = ExtResource("14_p7iby")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]
+[color=darkgray]Beginner Slayer - 100 Enemies Slain[/color]"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="Button" parent="Pause Menu/Achievements"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 51.5
+offset_right = 56.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_p7iby")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/focus = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gu4mg")
+text = "Close"
+
+[node name="Options" type="NinePatchRect" parent="Pause Menu"]
+visible = false
+texture_filter = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.9999
+offset_top = -29.0
+offset_right = 82.0001
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(56, 58)
+texture = ExtResource("20_fvsjc")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource("23_qrixf")
+
+[node name="RichTextLabel" type="Label" parent="Pause Menu/Options"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_right = 56.0
+offset_bottom = 9.0
+grow_horizontal = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_tk6la")
+horizontal_alignment = 1
+
+[node name="Master Volume" type="Label" parent="Pause Menu/Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.6
+offset_top = 14.4
+offset_right = -20.6
+offset_bottom = 18.9
+grow_horizontal = 2
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_eg1p0")
+
+[node name="Master Volume Slider" type="HSlider" parent="Pause Menu/Options/Master Volume"]
+layout_mode = 0
+offset_left = 31.6
+offset_top = 0.600006
+offset_right = 324.6
+offset_bottom = 16.6
+scale = Vector2(0.25, 0.25)
+theme = SubResource("Theme_x2u8p")
+value = 100.0
+
+[node name="Music Volume" type="Label" parent="Pause Menu/Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.8
+offset_top = 21.4
+offset_right = -24.8
+offset_bottom = 25.9
+grow_horizontal = 2
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_eg1p0")
+
+[node name="Music Volume" type="HSlider" parent="Pause Menu/Options/Music Volume"]
+layout_mode = 0
+offset_left = 31.8
+offset_top = 2.2
+offset_right = 324.8
+offset_bottom = 18.2
+scale = Vector2(0.25, 0.25)
+theme = SubResource("Theme_x2u8p")
+value = 100.0
+
+[node name="SFX Volume" type="Label" parent="Pause Menu/Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_top = 28.4
+offset_right = -8.00001
+offset_bottom = 32.9
+grow_horizontal = 2
+text = "SFX Volume"
+label_settings = SubResource("LabelSettings_eg1p0")
+
+[node name="Music Volume2" type="HSlider" parent="Pause Menu/Options/SFX Volume"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 1.8
+offset_right = 325.0
+offset_bottom = 17.8
+scale = Vector2(0.25, 0.25)
+theme = SubResource("Theme_x2u8p")
+value = 100.0
+
+[node name="TextureButton" type="Button" parent="Pause Menu/Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 51.5
+offset_right = 56.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_p7iby")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/focus = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_gu4mg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gu4mg")
+text = "Close"
+
+[node name="ToDark" type="ColorRect" parent="Pause Menu"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("28_1jpwa")
+
 [connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="health_depleted" from="Components/HealthComponent" to="." method="_on_health_component_health_depleted"]
 [connection signal="level_up" from="Components/XP" to="." method="_on_xp_level_up"]
@@ -220,3 +749,13 @@ texture = SubResource("AnimatedTexture_p7iby")
 [connection signal="child_entered_tree" from="Attacks" to="Attacks" method="layout"]
 [connection signal="child_exiting_tree" from="Attacks" to="Attacks" method="layout"]
 [connection signal="child_order_changed" from="Attacks" to="Attacks" method="layout"]
+[connection signal="visibility_changed" from="Pause Menu" to="Pause Menu" method="_on_visibility_changed"]
+[connection signal="pressed" from="Pause Menu/anim container/GridContainer/New Game" to="Pause Menu/anim container/GridContainer/New Game" method="_on_pressed"]
+[connection signal="pressed" from="Pause Menu/anim container/GridContainer/Achievements" to="Pause Menu/anim container/GridContainer/Achievements" method="_on_pressed"]
+[connection signal="button_down" from="Pause Menu/anim container/GridContainer/Extra Credits" to="Pause Menu/anim container/GridContainer/Extra Credits" method="_on_button_down"]
+[connection signal="pressed" from="Pause Menu/anim container/GridContainer/Options" to="Pause Menu/anim container/GridContainer/Options" method="_on_pressed"]
+[connection signal="pressed" from="Pause Menu/anim container/GridContainer/Back to Main Menu" to="Pause Menu/anim container/GridContainer/Back to Main Menu" method="_on_pressed"]
+[connection signal="pressed" from="Pause Menu/anim container/GridContainer/Exit" to="Pause Menu/anim container/GridContainer/Exit" method="_on_pressed"]
+[connection signal="pressed" from="Pause Menu/Extra Credits/TextureButton" to="Pause Menu/Extra Credits" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Pause Menu/Achievements/TextureButton" to="Pause Menu/Achievements" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Pause Menu/Options/TextureButton" to="Pause Menu/Options" method="_on_texture_button_pressed"]

@@ -15,24 +15,24 @@
 [ext_resource type="Texture2D" uid="uid://c152n3cyb74pm" path="res://sprites/spr_grabber1.png" id="11_b2lsp"]
 [ext_resource type="Texture2D" uid="uid://ddpka8m8hkdui" path="res://sprites/spr_grabber2.png" id="12_mtiyh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qgd8p"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mtiyh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1i3ks"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ma6vl"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ism2r"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_es6bt"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_estw7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3c6x"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15uo5"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ld6kw"]
 
 [sub_resource type="Theme" id="Theme_mslyy"]
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_65kbn")
-Button/styles/disabled = SubResource("StyleBoxEmpty_qgd8p")
-Button/styles/focus = SubResource("StyleBoxEmpty_1i3ks")
-Button/styles/hover = SubResource("StyleBoxEmpty_ism2r")
-Button/styles/normal = SubResource("StyleBoxEmpty_estw7")
-Button/styles/pressed = SubResource("StyleBoxEmpty_15uo5")
+Button/styles/disabled = SubResource("StyleBoxEmpty_mtiyh")
+Button/styles/focus = SubResource("StyleBoxEmpty_ma6vl")
+Button/styles/hover = SubResource("StyleBoxEmpty_es6bt")
+Button/styles/normal = SubResource("StyleBoxEmpty_l3c6x")
+Button/styles/pressed = SubResource("StyleBoxEmpty_ld6kw")
 
 [sub_resource type="LabelSettings" id="LabelSettings_skvia"]
 font = ExtResource("1_65kbn")
@@ -51,20 +51,20 @@ texture_margin_bottom = 4.0
 [sub_resource type="LabelSettings" id="LabelSettings_n0q5r"]
 font = ExtResource("1_65kbn")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_estw7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fbba"]
 expand_margin_left = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15uo5"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sepmt"]
 
 [sub_resource type="Theme" id="Theme_im4cs"]
-VScrollBar/styles/grabber = SubResource("StyleBoxFlat_estw7")
-VScrollBar/styles/scroll = SubResource("StyleBoxFlat_15uo5")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_1fbba")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_sepmt")
 
 [sub_resource type="LabelSettings" id="LabelSettings_7fusm"]
 font = ExtResource("1_65kbn")
 font_size = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2lsp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uk30l"]
 bg_color = Color(0.10748, 0.10748, 0.10748, 1)
 expand_margin_top = 3.0
 expand_margin_bottom = 3.0
@@ -74,7 +74,7 @@ HSlider/icons/grabber = ExtResource("11_b2lsp")
 HSlider/icons/grabber_disabled = null
 HSlider/icons/grabber_highlight = ExtResource("12_mtiyh")
 HSlider/icons/tick = null
-HSlider/styles/slider = SubResource("StyleBoxFlat_b2lsp")
+HSlider/styles/slider = SubResource("StyleBoxFlat_uk30l")
 
 [sub_resource type="LabelSettings" id="LabelSettings_1i3ks"]
 font = ExtResource("1_65kbn")
