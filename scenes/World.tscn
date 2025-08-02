@@ -239,7 +239,7 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.692327, 2.88785e-06, 0.411608, 1)
 sources/0 = SubResource("TileSetAtlasSource_d1c63")
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=["world"]]
 texture_filter = 1
 script = ExtResource("1_1lgw5")
 noise = SubResource("FastNoiseLite_1lgw5")
@@ -262,7 +262,6 @@ use_parent_material = true
 tile_set = SubResource("TileSet_1lgw5")
 
 [node name="Player" parent="." instance=ExtResource("1_kqs1s")]
-position = Vector2(276, 215)
 character_type = 0
 
 [node name="Player#Path2D" parent="Player" instance=ExtResource("2_7g83o")]

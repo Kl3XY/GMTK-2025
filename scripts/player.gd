@@ -37,6 +37,8 @@ func get_animation() -> String:
 func _ready() -> void:
     sprite.play(self.get_animation())
     sprite.stop()
+    
+    self.global_position = get_tree().get_first_node_in_group("world").player_spawn_pos()
 
 func _physics_process(delta: float) -> void:
     var direction := Input.get_vector("left", "right", "up", "down")
