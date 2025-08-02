@@ -6,7 +6,7 @@ const XP_ORB = preload("res://scenes/XPOrbs/XPOrb.tscn")
 signal TookDamage(damage: int, damage_from: CharacterBody2D)
 var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources/player_enemies_killed.tres")
 
-
+const CASTERLOOP_PROJ = preload("res://scenes/casterloopProj.tscn")
 
 func _physics_process(delta: float) -> void:
     var player = get_tree().get_first_node_in_group("player")
@@ -47,3 +47,15 @@ func _on_health_component_health_changed(Health: float) -> void:
     
     var perc = (health.Health / health.Max_Health) * 100;
     $TextureProgressBar.value = perc;
+
+
+func _on_cast_timer_timeout() -> void:
+    print("casterrr")
+    var dirslice = 360 / 8;
+    for i in range(8):
+        var inst = CASTERLOOP_PROJ.instantiate();
+        inst.position = global_position;
+        
+        print(dirslice * i)
+        inst.direction = Vector2.RIGHT.rotated(dirslice * i)
+        get_tree().current_scene.add_child(inst);

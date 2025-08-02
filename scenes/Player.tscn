@@ -34,7 +34,7 @@
 
 [sub_resource type="Resource" id="Resource_fvsjc"]
 script = ExtResource("2_fvsjc")
-attack = 30
+attack = 10
 speed = 80
 metadata/_custom_type_script = "uid://bpgc278woycng"
 
@@ -193,9 +193,14 @@ animation = &"wizard"
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
+[node name="Invinicibilty" type="Timer" parent="."]
+one_shot = true
+
 [node name="Components" type="Node2D" parent="."]
 
 [node name="HealthComponent" parent="Components" instance=ExtResource("6_cw2d6")]
+Health = 3.0
+Max_Health = 3.0
 
 [node name="XP" parent="Components" instance=ExtResource("7_6eyey")]
 unique_name_in_owner = true
@@ -710,7 +715,9 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("28_1jpwa")
 
+[connection signal="TakeDamage" from="." to="." method="_on_take_damage"]
 [connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
+[connection signal="health_damaged" from="Components/HealthComponent" to="." method="_on_health_component_health_damaged"]
 [connection signal="health_depleted" from="Components/HealthComponent" to="." method="_on_health_component_health_depleted"]
 [connection signal="level_up" from="Components/XP" to="." method="_on_xp_level_up"]
 [connection signal="xp_change" from="Components/XP" to="." method="_on_xp_xp_change"]

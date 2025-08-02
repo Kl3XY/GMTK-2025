@@ -4,11 +4,14 @@ class_name Player;
 var Level = 1;
 
 const POWER_UP_MENU = preload("res://scenes/Power Up Menu.tscn")
+@onready var health_component: HealthComponent = $Components/HealthComponent
 
 @export var stats: PlayerStats;
 @onready var sprite = $AnimatedSprite2D
 @onready var attacks = $Attacks
-    
+
+signal TakeDamage(damage: int, damage_from: CharacterBody2D);
+
 func get_animation() -> String:
     return "wizard"
     
@@ -62,3 +65,13 @@ func _on_xp_level_up() -> void:
     Engine.time_scale = 0.0;
     
     $"UI placeholder/Label2".text = "Level\n" + str(Level)
+
+
+func _on_health_component_health_damaged() -> void:
+    $"Damage Cooldown".start();
+
+
+func _on_take_damage(damage: int, damage_from: CharacterBody2D) -> void:
+    if $Invinicibilty.is_stopped():
+        $Invinicibilty.start();
+        health_component.Health -= damage

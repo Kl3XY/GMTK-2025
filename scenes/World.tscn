@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dnpkjtix0emqi" path="res://scenes/Player.tscn" id="1_kqs1s"]
 [ext_resource type="PackedScene" uid="uid://drso77q7v4hd1" path="res://scenes/spawner.tscn" id="2_7g83o"]
 [ext_resource type="PackedScene" uid="uid://pkkydt76etb3" path="res://scenes/FrootLoop.tscn" id="3_7g83o"]
-[ext_resource type="PackedScene" uid="uid://cngoj6pdvb1el" path="res://scenes/Attacks/Basic Mage Wand/BasicMageWand.tscn" id="4_hlk0d"]
+[ext_resource type="PackedScene" uid="uid://bijoeqe7v55se" path="res://scenes/CasterLoop.tscn" id="6_hlk0d"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1lgw5"]
 noise_type = 2
@@ -263,9 +263,7 @@ use_parent_material = true
 tile_set = SubResource("TileSet_1lgw5")
 
 [node name="Player" parent="." instance=ExtResource("1_kqs1s")]
-character_type = 0
-wand = ExtResource("4_hlk0d")
 
 [node name="Player#Path2D" parent="Player" instance=ExtResource("2_7g83o")]
 scale = Vector2(0.991124, 1.04455)
-enemies = Array[PackedScene]([ExtResource("3_7g83o")])
+enemies = Array[PackedScene]([ExtResource("3_7g83o"), ExtResource("6_hlk0d")])

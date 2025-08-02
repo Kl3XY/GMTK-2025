@@ -2,12 +2,15 @@ extends Node2D
 class_name HealthComponent
 
 signal health_depleted;
+signal health_damaged;
 signal health_changed(Health: float)
 
 @export var Health: float = 100.0 :
     set(val):
         if val > Max_Health:
             val = Max_Health;
+        if val < Health:
+            health_damaged.emit();
         if val <= 0:
             health_depleted.emit();
         Health = val;
