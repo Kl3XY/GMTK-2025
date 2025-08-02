@@ -14,6 +14,7 @@ metadata/_custom_type_script = "uid://de3mwsdxj70po"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 3
+monitorable = false
 script = ExtResource("2_etwjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

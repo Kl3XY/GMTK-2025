@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://ud3la1rwxa5j"]
+
+[ext_resource type="PackedScene" uid="uid://pkkydt76etb3" path="res://scenes/Enemies/Enemy.tscn" id="1_dtuj8"]
+[ext_resource type="Texture2D" uid="uid://c5834ro27ycle" path="res://sprites/bomb_loop-Sheet.png" id="2_dtuj8"]
+[ext_resource type="PackedScene" uid="uid://lggam6luofdi" path="res://scenes/Shadow.tscn" id="3_cnwtj"]
+[ext_resource type="Script" uid="uid://cb817x8a8gm2e" path="res://scenes/Enemies/bomb_spawner.gd" id="4_ibdgm"]
+[ext_resource type="PackedScene" uid="uid://boyjiyeh4l28r" path="res://scenes/Enemies/FrootBomb.tscn" id="5_cnwtj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibdgm"]
+atlas = ExtResource("2_dtuj8")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnwtj"]
+atlas = ExtResource("2_dtuj8")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjxe5"]
+atlas = ExtResource("2_dtuj8")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to4ey"]
+atlas = ExtResource("2_dtuj8")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52sh8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibdgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnwtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibdgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjxe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to4ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjxe5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmucy"]
+radius = 4.03113
+
+[node name="CharacterBody2D" instance=ExtResource("1_dtuj8")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_52sh8")
+autoplay = "default"
+frame_progress = 0.262653
+
+[node name="Shadow" parent="." index="4" instance=ExtResource("3_cnwtj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+shape = SubResource("CircleShape2D_tmucy")
+
+[node name="BombSpawner" type="Node" parent="." index="6"]
+script = ExtResource("4_ibdgm")
+bomb = ExtResource("5_cnwtj")
+
+[connection signal="health_depleted" from="HealthComponent" to="BombSpawner" method="_on_health_component_health_depleted"]

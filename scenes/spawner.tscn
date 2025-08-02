@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://drso77q7v4hd1"]
+[gd_scene load_steps=5 format=3 uid="uid://drso77q7v4hd1"]
 
 [ext_resource type="Script" uid="uid://ib33dpuatu54" path="res://scripts/spawner.gd" id="1_2vbf6"]
+[ext_resource type="PackedScene" uid="uid://bjqx5yyafrdxx" path="res://scenes/Enemies/FrootLoopEnemy.tscn" id="2_ik2nu"]
+[ext_resource type="PackedScene" uid="uid://ud3la1rwxa5j" path="res://scenes/Enemies/BombLoopEnemy.tscn" id="3_tx2ig"]
 
 [sub_resource type="Curve2D" id="Curve2D_32lhk"]
 _data = {
@@ -11,3 +13,4 @@ point_count = 5
 [node name="Path2D" type="Path2D"]
 curve = SubResource("Curve2D_32lhk")
 script = ExtResource("1_2vbf6")
+enemies = Array[PackedScene]([ExtResource("2_ik2nu"), ExtResource("3_tx2ig")])

@@ -1,24 +1,21 @@
 extends Area2D
 
-signal enemy_is_in_area_on_tick(enemy: Enemy);
+signal enemy_is_in_area_on_tick(enemy: Enemy)
+    
+func is_enemy(any) -> bool:
+    return any is Enemy
     
 func find_closest_enemy() -> Enemy:
-    var all_bodies = get_overlapping_bodies()
-    var nearest_enemy: CharacterBody2D;
-    var nearest_enemy_distance: float = INF;
+    var bodies = get_overlapping_bodies().filter(is_enemy)
     
-    for body in all_bodies:
-        if body is Enemy:
-            if global_position.distance_to(body.position) < nearest_enemy_distance:
-                nearest_enemy_distance = global_position.distance_to(body.position);
-                nearest_enemy = body;
+    if bodies.is_empty():
+        return null
     
-    return nearest_enemy;
-
+    return bodies.pick_random()
 
 func _on_attack_timer_timeout() -> void:
-    var closest_enemy = find_closest_enemy();
+    var closest_enemy = find_closest_enemy()
     $"../Attack Timer".wait_time = randf_range(0.2, 1.0)
     if find_closest_enemy():
-        enemy_is_in_area_on_tick.emit(closest_enemy);
+        enemy_is_in_area_on_tick.emit(closest_enemy)
         

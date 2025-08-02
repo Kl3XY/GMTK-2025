@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://glhlq2sy2llx"]
+
+[ext_resource type="Shader" uid="uid://dpp6iyv001l7y" path="res://scenes/Enemies/explosion.gdshader" id="1_eghk1"]
+[ext_resource type="Script" uid="uid://yadyw0keeka2" path="res://scenes/Enemies/explosion.gd" id="2_vifdt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l8hpg"]
+noise_type = 2
+frequency = 0.0213
+fractal_type = 2
+fractal_lacunarity = 1.8
+fractal_gain = 0.6
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6kaqa"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_l8hpg")
+
+[sub_resource type="Gradient" id="Gradient_xwvw5"]
+offsets = PackedFloat32Array(0.0337079, 0.280899, 0.691011, 1)
+colors = PackedColorArray(0.165656, 0.165656, 0.165656, 1, 0.701961, 0.337255, 0.00784314, 1, 1, 0.67451, 0.14902, 1, 1, 0.862745, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nxmxd"]
+gradient = SubResource("Gradient_xwvw5")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ns4ae"]
+noise_type = 2
+offset = Vector3(0, 30.77, 0)
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l8hpg"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_ns4ae")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6kaqa"]
+frequency = 0.0146
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xwvw5"]
+width = 128
+height = 128
+seamless = true
+noise = SubResource("FastNoiseLite_6kaqa")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8hpg"]
+resource_local_to_scene = true
+shader = ExtResource("1_eghk1")
+shader_parameter/offset_multiplier = 0.462
+shader_parameter/offset = SubResource("NoiseTexture2D_xwvw5")
+shader_parameter/fade = SubResource("NoiseTexture2D_l8hpg")
+shader_parameter/color = SubResource("GradientTexture1D_nxmxd")
+shader_parameter/bobble = SubResource("NoiseTexture2D_6kaqa")
+shader_parameter/time = 0.0
+shader_parameter/pixels = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eghk1"]
+size = Vector2(50, 50)
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_l8hpg")
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = 8.0
+script = ExtResource("2_vifdt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_eghk1")

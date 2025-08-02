@@ -88,6 +88,7 @@ sprite_frames = SubResource("SpriteFrames_fsxif")
 [node name="Init" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Init"]
 shape = SubResource("CircleShape2D_1grv5")
@@ -96,6 +97,7 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 [node name="PlayerCollision" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
 shape = SubResource("CircleShape2D_l22vw")
