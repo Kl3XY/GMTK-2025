@@ -1,15 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://20om3omb3vo5"]
+[gd_scene load_steps=23 format=3 uid="uid://dm287p021fl0w"]
 
 [ext_resource type="Texture2D" uid="uid://c4n0i6lb46nll" path="res://sprites/top_left_vignette.png" id="1_1i3ks"]
 [ext_resource type="FontFile" uid="uid://coq1aojhddgk0" path="res://fonts/cc.yal.6w4.ttf" id="1_65kbn"]
-[ext_resource type="Script" uid="uid://bda8ssah5vlyv" path="res://scenes/main_menu.gd" id="1_n0q5r"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_n0q5r"]
 [ext_resource type="Texture2D" uid="uid://81hfp6vnexwk" path="res://sprites/logo2.png" id="1_qgd8p"]
-[ext_resource type="Script" uid="uid://cn2l7mdtoa1gr" path="res://scenes/achievements.gd" id="4_15uo5"]
-[ext_resource type="Script" uid="uid://daqpscnjmt0v" path="res://scenes/Extra Credits.gd" id="4_estw7"]
+[ext_resource type="Script" path="res://scenes/achievements.gd" id="4_15uo5"]
+[ext_resource type="Script" path="res://scenes/Extra Credits.gd" id="4_estw7"]
 [ext_resource type="Texture2D" uid="uid://hlorn0qbabxg" path="res://sprites/window_rect.png" id="4_ism2r"]
-[ext_resource type="Script" uid="uid://d2a11s5emdwf4" path="res://scenes/extra_credits.gd" id="7_im4cs"]
-[ext_resource type="Script" uid="uid://cgife5tbk4cmh" path="res://scenes/achievements_menu.gd" id="7_mslyy"]
-[ext_resource type="Script" uid="uid://c27smnf6nh3he" path="res://scenes/to_dark.gd" id="10_skvia"]
+[ext_resource type="Script" path="res://scenes/extra_credits.gd" id="7_im4cs"]
+[ext_resource type="Script" path="res://scenes/achievements_menu.gd" id="7_mslyy"]
+[ext_resource type="Script" path="res://scenes/to_dark.gd" id="10_skvia"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qgd8p"]
 
@@ -150,7 +150,7 @@ layout_mode = 2
 text = "Made for the GMTK 2025 Game Jam
 Developed by:
 Martin \"Kl3XY\" Gaffke
-Killian \"Hoetty\" Behnke"
+Kilian \"Hoetty\" Behnke"
 label_settings = SubResource("LabelSettings_1i3ks")
 
 [node name="Locker" type="ColorRect" parent="."]
