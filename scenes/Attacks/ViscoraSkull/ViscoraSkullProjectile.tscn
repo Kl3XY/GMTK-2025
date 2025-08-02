@@ -1,0 +1,158 @@
+[gd_scene load_steps=35 format=3 uid="uid://b2cv10qqjn8w6"]
+
+[ext_resource type="Script" uid="uid://brsun4ol3oeyk" path="res://scenes/Attacks/ViscoraSkull/viscora_skull_projectile.gd" id="1_r2ldr"]
+[ext_resource type="Texture2D" uid="uid://jfoq2gkx4ww6" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_0.png" id="2_r2ldr"]
+[ext_resource type="Texture2D" uid="uid://dsdnrifi8obs4" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_1.png" id="3_f3prs"]
+[ext_resource type="Texture2D" uid="uid://bidt1pi3gnrqj" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_2.png" id="4_qytjg"]
+[ext_resource type="Texture2D" uid="uid://dsenhwo0buhyo" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_3.png" id="5_2ae46"]
+[ext_resource type="Texture2D" uid="uid://chq62xc3rjcfw" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_4.png" id="6_2eyp2"]
+[ext_resource type="Texture2D" uid="uid://clrbxbt0vx604" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_5.png" id="7_lug7p"]
+[ext_resource type="Texture2D" uid="uid://c65t8nxlp5gja" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_6.png" id="8_skuy3"]
+[ext_resource type="Texture2D" uid="uid://dlqe42bbtjrsw" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_7.png" id="9_vhsxf"]
+[ext_resource type="Texture2D" uid="uid://boc3insk7en1i" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_8.png" id="10_nhb0u"]
+[ext_resource type="Texture2D" uid="uid://dw08chel4q4ke" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_9.png" id="11_i4kd0"]
+[ext_resource type="Texture2D" uid="uid://i74qeoyex3ww" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_10.png" id="12_x08l8"]
+[ext_resource type="Texture2D" uid="uid://clslv2omy66lm" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_11.png" id="13_n8css"]
+[ext_resource type="Texture2D" uid="uid://c7p773q3s77mk" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_12.png" id="14_br2ec"]
+[ext_resource type="Texture2D" uid="uid://b5xwa5650go06" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_13.png" id="15_y20t4"]
+[ext_resource type="Texture2D" uid="uid://ctjqrbfebosyj" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_14.png" id="16_q6voq"]
+[ext_resource type="Texture2D" uid="uid://d0insnsvfj4oy" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_15.png" id="17_dgwye"]
+[ext_resource type="Texture2D" uid="uid://bil0o0pwsakym" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_16.png" id="18_4plaa"]
+[ext_resource type="Texture2D" uid="uid://ceah3fpj2qbvr" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_17.png" id="19_6scuo"]
+[ext_resource type="Texture2D" uid="uid://7cjg1wwq0t4c" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_18.png" id="20_o1lka"]
+[ext_resource type="Texture2D" uid="uid://cbbjafrmosmb2" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_19.png" id="21_ftxjx"]
+[ext_resource type="Texture2D" uid="uid://cakxx5otrk3mm" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_20.png" id="22_e73cb"]
+[ext_resource type="Texture2D" uid="uid://b7a21guycwgij" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_21.png" id="23_alx1s"]
+[ext_resource type="Texture2D" uid="uid://o476b02b74dk" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_22.png" id="24_wf01n"]
+[ext_resource type="Texture2D" uid="uid://yj5346p2uaap" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_23.png" id="25_7fgv8"]
+[ext_resource type="Texture2D" uid="uid://oifvp03o3kc3" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_24.png" id="26_qxm6p"]
+[ext_resource type="Texture2D" uid="uid://7dxbliiokaiu" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_25.png" id="27_ccllx"]
+[ext_resource type="Texture2D" uid="uid://bq4jlm1sdc4sg" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_26.png" id="28_ye0qo"]
+[ext_resource type="Texture2D" uid="uid://d0enjty18nkf7" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_27.png" id="29_u482j"]
+[ext_resource type="Texture2D" uid="uid://2ppyfrbypdew" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_28.png" id="30_wmorx"]
+[ext_resource type="Texture2D" uid="uid://c7gqv3h5xf5lf" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_29.png" id="31_ccj7s"]
+[ext_resource type="Script" uid="uid://8ch0h7waxjcw" path="res://scenes/Attacks/ViscoraSkull/timer.gd" id="32_f3prs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q8hxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r2ldr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f3prs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qytjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2ae46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2eyp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lug7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_skuy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vhsxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nhb0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_i4kd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_x08l8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_n8css")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_br2ec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_y20t4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_q6voq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dgwye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4plaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6scuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_o1lka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ftxjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_e73cb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_alx1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_wf01n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_7fgv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_qxm6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ccllx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ye0qo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_u482j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_wmorx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ccj7s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r2ldr"]
+radius = 19.105
+
+[node name="ViscoraSkullProjectile" type="Node2D"]
+script = ExtResource("1_r2ldr")
+damage = 5
+metadata/_custom_type_script = "uid://3vqfdlk0rung"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_q8hxs")
+autoplay = "default"
+frame_progress = 0.382501
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_r2ldr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+script = ExtResource("32_f3prs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

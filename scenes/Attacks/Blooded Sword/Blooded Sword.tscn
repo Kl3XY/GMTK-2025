@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1inoc54un6wi"]
+
+[ext_resource type="Script" uid="uid://cuwve8c21ixqt" path="res://scenes/Attacks/Blooded Sword/blooded_sword.gd" id="1_u8581"]
+[ext_resource type="Script" uid="uid://dv7xuknwi7b8q" path="res://scenes/Attacks/Blooded Sword/area_2d.gd" id="2_u8581"]
+[ext_resource type="Shader" uid="uid://bv8qbv1dou5qg" path="res://scenes/Attacks/Basic Mage Wand/FlashShader.gdshader" id="3_mbjwe"]
+[ext_resource type="Texture2D" uid="uid://8whmr1qiclqj" path="res://sprites/lifesteal_sword.png" id="4_ave1a"]
+[ext_resource type="Script" uid="uid://bpwesbsfjierm" path="res://scenes/Attacks/Blooded Sword/sword.gd" id="5_u8581"]
+[ext_resource type="PackedScene" uid="uid://lggam6luofdi" path="res://scenes/Shadow.tscn" id="6_dka7h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etwjh"]
+radius = 64.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yupr2"]
+resource_local_to_scene = true
+shader = ExtResource("3_mbjwe")
+shader_parameter/percentage = 0.0
+
+[node name="Blooded Sword" type="Node2D"]
+script = ExtResource("1_u8581")
+metadata/_custom_type_script = "uid://de3mwsdxj70po"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
+monitorable = false
+script = ExtResource("2_u8581")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_etwjh")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Attack Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="Sword" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_yupr2")
+texture = ExtResource("4_ave1a")
+script = ExtResource("5_u8581")
+
+[node name="Shadow" parent="." instance=ExtResource("6_dka7h")]
+texture_filter = 3
+position = Vector2(0, 3)
+
+[connection signal="enemy_is_in_area_on_tick" from="Area2D" to="." method="_on_area_2d_enemy_is_in_area_on_tick"]
+[connection signal="timeout" from="Attack Timer" to="Area2D" method="_on_attack_timer_timeout"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpgveyin7ycgv"]
+
+[ext_resource type="Script" uid="uid://buoxfufqeqd71" path="res://scenes/Attacks/Blooded Sword/sword_projectile.gd" id="1_n3eqy"]
+[ext_resource type="Texture2D" uid="uid://8whmr1qiclqj" path="res://sprites/lifesteal_sword.png" id="1_nqeru"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n3eqy"]
+radius = 5.09902
+
+[node name="SwordProjectile" type="Node2D"]
+modulate = Color(1, 1, 1, 0.45098)
+script = ExtResource("1_n3eqy")
+metadata/_custom_type_script = "uid://3vqfdlk0rung"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+rotation = 0.785398
+scale = Vector2(1, 1)
+texture = ExtResource("1_nqeru")
+
+[node name="Return" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+modulate = Color(1, 1, 1, 0.34902)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_n3eqy")
+
+[connection signal="timeout" from="Return" to="." method="_on_return_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

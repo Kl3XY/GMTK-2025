@@ -1,9 +1,8 @@
 extends Path2D
 
 @export var enemies: Array[SceneWeight]
-
+var DIFFICULTY = preload("res://Difficulty/difficulty.tres")
 var rng = RandomNumberGenerator.new();
-var difficulty = 2.0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,10 +30,10 @@ func get_enemy() -> PackedScene:
 
 
 func _on_difficulty_increaser_timeout() -> void:
-    difficulty += 1;
+    DIFFICULTY.difficulty += 1;
 
 func _on_spawn_timer_timeout() -> void:
-    #$SpawnTimer.wait_time = max(2 - difficulty / 100, 0.001);
+    $SpawnTimer.wait_time = max(2 - DIFFICULTY.difficulty / 100, 0.001);
     $SpawnTimer.start()
     
     if get_tree().get_node_count_in_group("enemies") >= 512:
@@ -44,7 +43,7 @@ func _on_spawn_timer_timeout() -> void:
     
     var enemy: Node2D = get_enemy().instantiate();
 
-    enemy.difficulty = difficulty;
+    enemy.difficulty = DIFFICULTY.difficulty;
     
     enemy.position = point
 

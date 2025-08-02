@@ -9,6 +9,7 @@ var xp_amount = 10;
 func _on_area_2d_body_entered(body: Node2D) -> void:
     if body is Player:
         follow_player = true;
+        $Init/CollisionShape2D.disabled = true;
 
 func _ready() -> void:
     player = get_tree().get_first_node_in_group("player");
@@ -27,8 +28,8 @@ func _on_player_collision_body_entered(body: Node2D) -> void:
     if body is Player:
         var xp = player.get_node("Components").get_node("XP") as XPComponent;
         xp.XP += xp_amount;
-        queue_free();
+        call_deferred("queue_free");
 
 
 func _on_timer_timeout() -> void:
-    queue_free();
+    call_deferred("queue_free");

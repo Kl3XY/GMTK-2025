@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player;
 
 var Level = 1;
-
+var DIFFICULTY = preload("res://Difficulty/difficulty.tres")
 const POWER_UP_MENU = preload("res://scenes/Power Up Menu.tscn")
 @onready var health_component: HealthComponent = $Components/HealthComponent
 
@@ -10,19 +10,20 @@ const POWER_UP_MENU = preload("res://scenes/Power Up Menu.tscn")
 @onready var sprite = $AnimatedSprite2D
 @onready var attacks = $Attacks
 
-signal TakeDamage(damage: int, damage_from: CharacterBody2D);
+signal TakeDamage(damage: int);
 
 func get_animation() -> String:
     return "wizard"
     
 func _ready() -> void:
-    Engine.time_scale = 6.0;
     sprite.play(self.get_animation())
     sprite.stop()
     
     self.global_position = get_tree().get_first_node_in_group("world").player_spawn_pos()
 
-func _physics_process(delta: float) -> void:
+func _player_physics_process(delta: float):
+    $"UI placeholder/Label2".text = "Level\n" + str(Level) + "\n" + str($Invinicibilty.time_left)
+    $"UI placeholder/Label3".text = "Difficulty: " + str(DIFFICULTY.difficulty)
     var direction := Input.get_vector("left", "right", "up", "down")
     if direction != Vector2.ZERO:
         velocity = direction * stats.speed
@@ -47,12 +48,15 @@ func _physics_process(delta: float) -> void:
             $"Pause Menu".hide();
             Engine.time_scale = 1.0;
 
+func _process(delta: float) -> void:
+    _player_physics_process(delta)
+
 func _on_health_component_health_changed(Health: float) -> void:
-    $"UI placeholder/Label".text = "Health: " + str(Health);
+    $HealthBar.value = Health;
 
 func _on_health_component_health_depleted() -> void:
-    # kill das game wie den spieler pog.
-    get_tree().quit();
+    $DeathScreen.visible = true;
+    Engine.time_scale = 0.0;
 
 
 func _on_xp_xp_change(xp: float) -> void:
@@ -64,18 +68,23 @@ func _on_xp_xp_change(xp: float) -> void:
 func _on_xp_level_up() -> void:
     Level += 1;
     
+    # hier beachten das frequent pause und unpausing performance issues caused.
+    
     var inst = POWER_UP_MENU.instantiate();
     get_tree().current_scene.add_child(inst)
     Engine.time_scale = 0.0;
     
-    $"UI placeholder/Label2".text = "Level\n" + str(Level)
+    $"UI placeholder/Label2".text = "Level\n" + str(Level) + "\n" + str($Invinicibilty.time_left)
 
 
-func _on_health_component_health_damaged() -> void:
-    $"Damage Cooldown".start();
-
-
-func _on_take_damage(damage: int, damage_from: CharacterBody2D) -> void:
-    if $Invinicibilty.is_stopped():
+func _on_take_damage(damage: int) -> void:
+    print("OOF!")
+    if $Invinicibilty.time_left == 0.0:
+        print("YOUCH!")
         $Invinicibilty.start();
         health_component.Health -= damage
+
+
+func _on_take_damage_area_body_entered(body: Node2D) -> void:
+    if body is Enemy:
+        TakeDamage.emit(5, body)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dje5qvuvlofqn"]
+
+[ext_resource type="Script" uid="uid://qrrbjwc8qiew" path="res://scenes/Attacks/ViscoraSkull/viscora_skull.gd" id="1_8qgyy"]
+[ext_resource type="Texture2D" uid="uid://ca1d1s6rasxak" path="res://sprites/spr_viscora_skull2.png" id="1_nj1jk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qgyy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nj1jk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8qgyy"]
+radius = 101.833
+
+[node name="ViscoraSkull" type="Node2D"]
+script = ExtResource("1_8qgyy")
+metadata/_custom_type_script = "uid://de3mwsdxj70po"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_8qgyy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8qgyy")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

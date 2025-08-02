@@ -24,23 +24,25 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
         return
     
     if $Timer.time_left == 0.0:
-        var dmgNumInst = DAMAGE_NUMBER.instantiate();
-        dmgNumInst.position.y -= 8;
-        dmgNumInst.damage = damage;
-        add_child(dmgNumInst);
-        
-        if damage > $HealthComponent.Health:
-            dmgNumInst.reparent(get_tree().current_scene)
-        
+        if get_tree().get_node_count_in_group("damage_numbers") < 32:
+            var dmgNumInst = DAMAGE_NUMBER.instantiate();
+            dmgNumInst.position.y -= 8;
+            dmgNumInst.damage = damage;
+            add_child(dmgNumInst);
+            
+            if damage > $HealthComponent.Health:
+                dmgNumInst.reparent(get_tree().current_scene)
+            
         $HealthComponent.Health -= damage;
-        position += damage_from.position.direction_to(global_position) * 15
+        if damage_from != null:
+            position += damage_from.position.direction_to(global_position) * 15
         $Timer.start();
 
 func _on_health_component_health_depleted() -> void:
     PLAYER_ENEMIES_KILLED.enemies_killed += 1;
-    #var inst = XP_ORB.instantiate();
-    #inst.position = position;
-    #get_tree().current_scene.call_deferred("add_child", inst);
+    var inst = XP_ORB.instantiate();
+    inst.position = position;
+    get_tree().current_scene.call_deferred("add_child", inst);
     call_deferred("queue_free")
 
 
@@ -51,13 +53,3 @@ func _on_health_component_health_changed(Health: float) -> void:
     
     var perc = (health.Health / health.Max_Health) * 100;
     $TextureProgressBar.value = perc;
-
-
-func _on_cast_timer_timeout() -> void:
-    var dirslice = 360 / 8;
-    for i in range(8):
-        var inst = CASTERLOOP_PROJ.instantiate();
-        inst.position = global_position;
-        
-        inst.direction = Vector2.RIGHT.rotated(dirslice * i)
-        get_tree().current_scene.add_child(inst);

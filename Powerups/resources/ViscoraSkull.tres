@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://bdvojb2nfi8qa"]
+
+[ext_resource type="PackedScene" uid="uid://c1inoc54un6wi" path="res://scenes/Attacks/Blooded Sword/Blooded Sword.tscn" id="1_1yfeg"]
+[ext_resource type="Script" uid="uid://dftynetcek42x" path="res://Powerups/Weapon.gd" id="2_uwfyb"]
+
+[resource]
+script = ExtResource("2_uwfyb")
+instantiated_weapon = ExtResource("1_1yfeg")
+name = "Viscora Skull"
+description = "shoots out a necromatic cloud dealing flat 5 damage every 3s"
+metadata/_custom_type_script = "uid://dftynetcek42x"

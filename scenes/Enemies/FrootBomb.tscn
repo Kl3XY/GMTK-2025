@@ -1,15 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://boyjiyeh4l28r"]
+[gd_scene load_steps=10 format=3 uid="uid://boyjiyeh4l28r"]
 
-[ext_resource type="Shader" uid="uid://bt1ibdd7nlmbk" path="res://scenes/Enemies/FrootBomb.gdshader" id="1_6kaqa"]
 [ext_resource type="Texture2D" uid="uid://bba2flbo2odpg" path="res://sprites/bomb-Sheet.png" id="1_dyvel"]
 [ext_resource type="Script" uid="uid://dmf4asqi3tfx6" path="res://scenes/Enemies/froot_bomb.gd" id="1_ns4ae"]
 [ext_resource type="PackedScene" uid="uid://lggam6luofdi" path="res://scenes/Shadow.tscn" id="2_a1xri"]
 [ext_resource type="PackedScene" uid="uid://glhlq2sy2llx" path="res://scenes/Enemies/explosion.tscn" id="3_l8hpg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xwvw5"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6kaqa"]
-shader = ExtResource("1_6kaqa")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1xri"]
 atlas = ExtResource("1_dyvel")
@@ -41,16 +37,16 @@ animations = [{
 }]
 
 [node name="FrootBomb" type="Node2D"]
+z_index = 45
 material = SubResource("ShaderMaterial_xwvw5")
 script = ExtResource("1_ns4ae")
 explosion = ExtResource("3_l8hpg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-material = SubResource("ShaderMaterial_6kaqa")
 sprite_frames = SubResource("SpriteFrames_6kaqa")
 autoplay = "default"
-frame_progress = 0.269823
+frame_progress = 0.246303
 
 [node name="Shadow" parent="." instance=ExtResource("2_a1xri")]
 

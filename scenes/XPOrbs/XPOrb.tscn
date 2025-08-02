@@ -71,6 +71,7 @@ animations = [{
 radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l22vw"]
+radius = 22.0907
 
 [node name="XpOrb" type="Node2D"]
 script = ExtResource("1_l22vw")
@@ -90,7 +91,6 @@ frame_progress = 0.807932
 [node name="Init" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
-monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Init"]
@@ -100,7 +100,6 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 [node name="PlayerCollision" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
-monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]

@@ -11,7 +11,10 @@ func _ready():
     $HealthComponent.Max_Health += difficulty / 3;
     $HealthComponent.Health = $HealthComponent.Max_Health;
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
+    _enemy_physics_process(delta);
+
+func _enemy_physics_process(delta: float):
     var player = get_tree().get_first_node_in_group("player")
     
     velocity = position.direction_to(player.position) * SPEED
@@ -23,23 +26,26 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
         return
     
     if $Timer.time_left == 0.0:
-        var dmgNumInst = DAMAGE_NUMBER.instantiate();
-        dmgNumInst.position.y -= 8;
-        dmgNumInst.damage = damage;
-        add_child(dmgNumInst);
-        
-        if damage > $HealthComponent.Health:
-            dmgNumInst.reparent(get_tree().current_scene)
-        
+        if get_tree().get_node_count_in_group("damage_numbers") < 32:
+            var dmgNumInst = DAMAGE_NUMBER.instantiate();
+            dmgNumInst.position.y -= 8;
+            dmgNumInst.damage = damage;
+            add_child(dmgNumInst);
+            
+            if damage > $HealthComponent.Health:
+                dmgNumInst.reparent(get_tree().current_scene)
+            
         $HealthComponent.Health -= damage;
-        position += damage_from.position.direction_to(global_position) * 15
+        
+        if damage_from != null:
+            position += damage_from.position.direction_to(global_position) * 15
         $Timer.start();
 
 func _on_health_component_health_depleted() -> void:
     PLAYER_ENEMIES_KILLED.enemies_killed += 1;
-    #var inst = XP_ORB.instantiate();
-    #inst.position = position;
-    #get_tree().current_scene.call_deferred("add_child", inst);
+    var inst = XP_ORB.instantiate();
+    inst.position = position;
+    get_tree().current_scene.call_deferred("add_child", inst);
     call_deferred("queue_free")
 
 

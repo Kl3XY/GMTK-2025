@@ -4,12 +4,15 @@ class_name XPComponent
 signal level_up()
 signal xp_change(xp: float)
 
+var amountLeveledUp = 0;
+
 @export var XP: float = 0.0 :
     set(val):
         if val > Max_XP:
             val -= Max_XP;
             level_up.emit();
-            Max_XP += 30;
+            Max_XP += 30 + 10 * amountLeveledUp;
+            amountLeveledUp += 1;
         xp_change.emit(XP)
         XP = val;
 @export var Max_XP: float = 100.0;

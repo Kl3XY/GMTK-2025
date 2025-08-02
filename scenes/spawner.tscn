@@ -1,10 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfxwm82w1afrv"]
+[gd_scene load_steps=3 format=3 uid="uid://bfxwm82w1afrv"]
 
 [ext_resource type="Script" uid="uid://ib33dpuatu54" path="res://scripts/spawner.gd" id="1_2vbf6"]
-[ext_resource type="Script" uid="uid://br0ejtaket4j1" path="res://scenes/sceneWeight.gd" id="2_tx2ig"]
-[ext_resource type="PackedScene" uid="uid://bijoeqe7v55se" path="res://scenes/Enemies/CasterLoop.tscn" id="3_6bbd6"]
-[ext_resource type="PackedScene" uid="uid://chga4o4c4a2ow" path="res://scenes/Enemies/FrootLoop.tscn" id="3_cmhla"]
-[ext_resource type="PackedScene" uid="uid://ud3la1rwxa5j" path="res://scenes/Enemies/BombLoopEnemy.tscn" id="4_4wbs5"]
 
 [sub_resource type="Curve2D" id="Curve2D_32lhk"]
 _data = {
@@ -12,35 +8,16 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="Resource" id="Resource_6bbd6"]
-script = ExtResource("2_tx2ig")
-scene = ExtResource("3_cmhla")
-weight = 900
-metadata/_custom_type_script = "uid://br0ejtaket4j1"
-
-[sub_resource type="Resource" id="Resource_cmhla"]
-script = ExtResource("2_tx2ig")
-scene = ExtResource("4_4wbs5")
-weight = 300
-metadata/_custom_type_script = "uid://br0ejtaket4j1"
-
-[sub_resource type="Resource" id="Resource_4wbs5"]
-script = ExtResource("2_tx2ig")
-scene = ExtResource("3_6bbd6")
-weight = 100
-metadata/_custom_type_script = "uid://br0ejtaket4j1"
-
 [node name="Path2D" type="Path2D"]
 curve = SubResource("Curve2D_32lhk")
 script = ExtResource("1_2vbf6")
-enemies = Array[ExtResource("2_tx2ig")]([SubResource("Resource_6bbd6"), SubResource("Resource_cmhla"), SubResource("Resource_4wbs5")])
 
 [node name="Difficulty Increaser" type="Timer" parent="."]
 wait_time = 0.695
 autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.01
+wait_time = 0.001
 one_shot = true
 autostart = true
 
