@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://c4dw2abpcyv5m"]
+
+[ext_resource type="Script" uid="uid://dqwsw0sphyedy" path="res://Achievements/Achievement.gd" id="1_80b17"]
+
+[resource]
+script = ExtResource("1_80b17")
+name = "A LIKE SUPREME"
+short_desc = "Survive a total 30 minutes without getting hit."
+hasUnlocked = false
+metadata/_custom_type_script = "uid://dqwsw0sphyedy"

@@ -1,43 +1,16 @@
 extends CharacterBody2D
 class_name Player;
 
-const SPEED = 80.0
 var Level = 1;
 
+const POWER_UP_MENU = preload("res://scenes/Power Up Menu.tscn")
 
-enum CharacterType {
-    Wizard,
-    Archer,
-    Warrior
-}
-
+@export var stats: PlayerStats;
 @onready var sprite = $AnimatedSprite2D
 @onready var attacks = $Attacks
-@export var character_type: CharacterType
-@export var wand: PackedScene
-
-func cycle():
-    match self.character_type:
-        CharacterType.Wizard:
-            self.character_type = CharacterType.Warrior
-        CharacterType.Warrior:
-             self.character_type = CharacterType.Archer
-        CharacterType.Archer:
-             self.character_type = CharacterType.Wizard
-            
-    sprite.play(self.get_animation())
-    sprite.stop()
-
+    
 func get_animation() -> String:
-    match self.character_type:
-        CharacterType.Wizard:
-            return "wizard"
-        CharacterType.Warrior:
-            return "warrior"
-        CharacterType.Archer:
-            return "archer"
-            
-    return "default"
+    return "wizard"
     
 func _ready() -> void:
     sprite.play(self.get_animation())
@@ -48,26 +21,24 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
     var direction := Input.get_vector("left", "right", "up", "down")
     if direction != Vector2.ZERO:
-        velocity = direction * SPEED
+        velocity = direction * stats.speed
         sprite.play(self.get_animation())
     else:
-        velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+        velocity = velocity.move_toward(Vector2.ZERO, stats.speed)
         sprite.stop()
 
     if velocity.x != 0:
         sprite.flip_h = velocity.x > 0
 
     move_and_slide()
-    
-    if Input.is_action_just_pressed("cycle"):
-        self.cycle()
         
-    if Input.is_action_just_pressed("ui_down") && attacks.get_child_count() > 0:
-        attacks.get_child(0).queue_free()
-        
-    if Input.is_action_just_pressed("ui_up"):
-        attacks.add_child(wand.instantiate())
-
+    if Input.is_action_just_pressed("Toggle Pause Menu"):
+        if $"Pause Menu".visible == false:
+            $"Pause Menu".show();
+            Engine.time_scale = 0.0;
+        else:
+            $"Pause Menu".hide();
+            Engine.time_scale = 1.0;
 
 func _on_health_component_health_changed(Health: float) -> void:
     $"UI placeholder/Label".text = "Health: " + str(Health);
@@ -83,8 +54,11 @@ func _on_xp_xp_change(xp: float) -> void:
     var perc = (XP.XP / XP.Max_XP) * 100;
     $"UI placeholder/TextureProgressBar".value = perc;
     
-
-
 func _on_xp_level_up() -> void:
     Level += 1;
+    
+    var inst = POWER_UP_MENU.instantiate();
+    get_tree().current_scene.add_child(inst)
+    Engine.time_scale = 0.0;
+    
     $"UI placeholder/Label2".text = "Level\n" + str(Level)

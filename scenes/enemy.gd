@@ -7,6 +7,8 @@ const XP_ORB = preload("res://scenes/XPOrbs/XPOrb.tscn")
 signal TookDamage(damage: int, damage_from: CharacterBody2D)
 var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources/player_enemies_killed.tres")
 
+
+
 func _physics_process(delta: float) -> void:
     var player = get_tree().get_first_node_in_group("player")
     
@@ -19,13 +21,17 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
         return
     
     if $Timer.time_left == 0.0:
+        var dmgNumInst = DAMAGE_NUMBER.instantiate();
+        dmgNumInst.position.y -= 8;
+        dmgNumInst.damage = damage;
+        add_child(dmgNumInst);
+        
+        if damage > $HealthComponent.Health:
+            dmgNumInst.reparent(get_tree().current_scene)
+        
         $HealthComponent.Health -= damage;
         position += damage_from.position.direction_to(global_position) * 15
         $Timer.start();
-        
-        var dmgNumInst = DAMAGE_NUMBER.instantiate();
-        dmgNumInst.position.y -= 8;
-        add_child(dmgNumInst);
 
 func _on_health_component_health_depleted() -> void:
     PLAYER_ENEMIES_KILLED.enemies_killed += 1;
