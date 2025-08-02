@@ -87,7 +87,6 @@ platform_on_leave = 2
 platform_floor_layers = 4294967040
 safe_margin = 0.2
 script = ExtResource("1_v6fml")
-character_type = 1
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_qu4a1")]
 position = Vector2(0, 1)
@@ -189,6 +188,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ToDark" type="ColorRect" parent="UI placeholder"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

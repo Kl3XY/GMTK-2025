@@ -364,6 +364,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ism2r")
 text = "Close"
 
 [node name="Options" type="NinePatchRect" parent="."]
+visible = false
 texture_filter = 3
 layout_mode = 1
 anchors_preset = 8
