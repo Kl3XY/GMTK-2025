@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://drso77q7v4hd1"]
+[gd_scene load_steps=6 format=3 uid="uid://bfxwm82w1afrv"]
 
 [ext_resource type="Script" uid="uid://ib33dpuatu54" path="res://scripts/spawner.gd" id="1_2vbf6"]
-[ext_resource type="PackedScene" uid="uid://bjqx5yyafrdxx" path="res://scenes/Enemies/FrootLoopEnemy.tscn" id="2_ik2nu"]
-[ext_resource type="PackedScene" uid="uid://ud3la1rwxa5j" path="res://scenes/Enemies/BombLoopEnemy.tscn" id="3_tx2ig"]
+[ext_resource type="PackedScene" uid="uid://bjqx5yyafrdxx" path="res://scenes/Enemies/FrootLoopEnemy.tscn" id="2_6bbd6"]
+[ext_resource type="PackedScene" uid="uid://ud3la1rwxa5j" path="res://scenes/Enemies/BombLoopEnemy.tscn" id="2_tx2ig"]
+[ext_resource type="PackedScene" uid="uid://bijoeqe7v55se" path="res://scenes/CasterLoop.tscn" id="3_6bbd6"]
 
 [sub_resource type="Curve2D" id="Curve2D_32lhk"]
 _data = {
@@ -13,7 +14,7 @@ point_count = 5
 [node name="Path2D" type="Path2D"]
 curve = SubResource("Curve2D_32lhk")
 script = ExtResource("1_2vbf6")
-<<<<<<< HEAD
+enemies = Array[PackedScene]([ExtResource("2_6bbd6"), ExtResource("2_tx2ig"), ExtResource("3_6bbd6")])
 
 [node name="Difficulty Increaser" type="Timer" parent="."]
 wait_time = 3.0
@@ -26,6 +27,3 @@ autostart = true
 
 [connection signal="timeout" from="Difficulty Increaser" to="." method="_on_difficulty_increaser_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-=======
-enemies = Array[PackedScene]([ExtResource("2_ik2nu"), ExtResource("3_tx2ig")])
->>>>>>> eed5432d23d51878a35f84ef452a944b8038ffdb

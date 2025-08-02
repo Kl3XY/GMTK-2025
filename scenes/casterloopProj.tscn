@@ -147,7 +147,6 @@ frame_progress = 0.604102
 [node name="Shadow" parent="." instance=ExtResource("32_mr87d")]
 texture_filter = 3
 position = Vector2(0, 6.06061)
-scale = Vector2(1, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 6.06061)

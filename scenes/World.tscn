@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxndlukc63w11"]
+[gd_scene load_steps=11 format=3 uid="uid://bxndlukc63w11"]
 
 [ext_resource type="Script" uid="uid://sbg2brb6dh6r" path="res://scripts/world.gd" id="1_1lgw5"]
 [ext_resource type="Texture2D" uid="uid://evuunvvwf0ai" path="res://sprites/Tilesets/Forest.png" id="1_7g83o"]
 [ext_resource type="PackedScene" uid="uid://dnpkjtix0emqi" path="res://scenes/Player.tscn" id="1_kqs1s"]
-[ext_resource type="PackedScene" uid="uid://drso77q7v4hd1" path="res://scenes/spawner.tscn" id="2_7g83o"]
-[ext_resource type="PackedScene" uid="uid://pkkydt76etb3" path="res://scenes/FrootLoop.tscn" id="3_7g83o"]
+[ext_resource type="PackedScene" uid="uid://bfxwm82w1afrv" path="res://scenes/spawner.tscn" id="4_1lgw5"]
+[ext_resource type="PackedScene" uid="uid://ud3la1rwxa5j" path="res://scenes/Enemies/BombLoopEnemy.tscn" id="6_0uv0p"]
 [ext_resource type="PackedScene" uid="uid://bijoeqe7v55se" path="res://scenes/CasterLoop.tscn" id="6_hlk0d"]
+[ext_resource type="PackedScene" uid="uid://bjqx5yyafrdxx" path="res://scenes/Enemies/FrootLoopEnemy.tscn" id="7_0uv0p"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1lgw5"]
 noise_type = 2
@@ -262,8 +263,10 @@ texture_filter = 1
 use_parent_material = true
 tile_set = SubResource("TileSet_1lgw5")
 
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_0uv0p")]
+position = Vector2(88, 15)
+
 [node name="Player" parent="." instance=ExtResource("1_kqs1s")]
 
-[node name="Player#Path2D" parent="Player" instance=ExtResource("2_7g83o")]
-scale = Vector2(0.991124, 1.04455)
-enemies = Array[PackedScene]([ExtResource("3_7g83o"), ExtResource("6_hlk0d")])
+[node name="Path2D" parent="Player" instance=ExtResource("4_1lgw5")]
+enemies = Array[PackedScene]([ExtResource("4_1lgw5"), ExtResource("6_hlk0d"), ExtResource("6_0uv0p")])
