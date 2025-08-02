@@ -9,7 +9,6 @@ var SERVANT_OF_DEATH = preload("res://Achievements/Achievements/servant_of_death
 @export var enemies_killed: int = 0 :
     set(val):
         enemies_killed = val;
-        print(enemies_killed)
         if enemies_killed >= 1:
             ONE_OF_MANY.hasUnlocked = true;
         if enemies_killed >= 100:

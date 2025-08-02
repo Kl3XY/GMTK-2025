@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="FlatStat" load_steps=4 format=3 uid="uid://uomq6lrgkyrf"]
+
+[ext_resource type="Script" uid="uid://mnksn4snppo1" path="res://Powerups/FlatStat.gd" id="1_4g53u"]
+[ext_resource type="Script" uid="uid://bpgc278woycng" path="res://PlayerStats/PlayerStats.gd" id="2_jahu6"]
+
+[sub_resource type="Resource" id="Resource_baj6d"]
+script = ExtResource("2_jahu6")
+attack = 0
+speed = 0
+attackSpeedSec = 0.05
+metadata/_custom_type_script = "uid://bpgc278woycng"
+
+[resource]
+script = ExtResource("1_4g53u")
+statAdd = SubResource("Resource_baj6d")
+name = "Medium Attack Speed Boost"
+description = "Reduces Attack Speed Cooldown by 0.05s"
+metadata/_custom_type_script = "uid://mnksn4snppo1"

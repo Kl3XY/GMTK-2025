@@ -9,6 +9,9 @@ const ROTATION_SPEED_MULTIPLIER = 3
 # Each frame, we rotate the parent, so that all weapons are moved along the circle.
 # The weapons themselves are rotated in the opposite direction, so that they remain level.
 func _process(delta: float) -> void:
+    _attack_process(delta);
+
+func _attack_process(delta: float):
     self.rotation += delta * ROTATION_SPEED_MULTIPLIER
     
     for child in self.get_children():

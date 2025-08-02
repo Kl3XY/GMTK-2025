@@ -1,12 +1,15 @@
 extends Enemy
 
+var difficulty = 0;
 const SPEED = 50.0
 const DAMAGE_NUMBER = preload("res://scenes/UI/DamageNumber.tscn")
 const XP_ORB = preload("res://scenes/XPOrbs/XPOrb.tscn")
 signal TookDamage(damage: int, damage_from: CharacterBody2D)
 var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources/player_enemies_killed.tres")
 
-
+func _ready():
+    $HealthComponent.Max_Health += difficulty / 3;
+    $HealthComponent.Health = $HealthComponent.Max_Health;
 
 func _physics_process(delta: float) -> void:
     var player = get_tree().get_first_node_in_group("player")
@@ -34,10 +37,10 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
 
 func _on_health_component_health_depleted() -> void:
     PLAYER_ENEMIES_KILLED.enemies_killed += 1;
-    var inst = XP_ORB.instantiate();
-    inst.position = position;
-    get_tree().current_scene.call_deferred("add_child", inst);
-    queue_free()
+    #var inst = XP_ORB.instantiate();
+    #inst.position = position;
+    #get_tree().current_scene.call_deferred("add_child", inst);
+    call_deferred("queue_free")
 
 
 func _on_health_component_health_changed(Health: float) -> void:

@@ -53,6 +53,10 @@ radius = 4.03113
 
 [node name="CharacterBody2D" instance=ExtResource("1_dtuj8")]
 
+[node name="HealthComponent" parent="." index="1"]
+Health = 15.0
+Max_Health = 15.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_52sh8")
 autoplay = "default"

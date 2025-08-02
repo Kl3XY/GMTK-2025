@@ -47,6 +47,9 @@ func chunk_offset_to_player(pin: Vector2, chunk_delta: Vector2i) -> Vector2:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+    _world_process(delta)
+
+func _world_process(delta: float):
     for dx in range(-CHUNKS_TO_LOAD, CHUNKS_TO_LOAD):
         for dy in range(-CHUNKS_TO_LOAD, CHUNKS_TO_LOAD):
             var chunk_delta = Vector2i(dx, dy)
@@ -54,7 +57,7 @@ func _process(delta: float) -> void:
             
             if !is_chunk_generated(master_cell):
                 generate_chunk(master_cell)
-            
+      
 const GRASS = Vector2i(1, 0)
 const TREE = Vector2i(1, 4)
 const STONE = Vector2i(2, 4)

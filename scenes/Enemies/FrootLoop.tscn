@@ -83,8 +83,8 @@ texture_over = ExtResource("5_evj1p")
 texture_progress = ExtResource("6_iwuxl")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_wudbl")]
-Health = 60.0
-Max_Health = 60.0
+Health = 30.0
+Max_Health = 30.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05

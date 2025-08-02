@@ -13,7 +13,9 @@ func _on_visibility_changed() -> void:
         # Da Engine.time_scale = 0.0 jegliche nutzung von delta nutzlos macht force ich die fps in menüs auf 60.
 
 func _process(delta: float) -> void:
+    _pause_menu_process(delta);
+
+func _pause_menu_process(delta: float):
     if $"anim container".position.x < -0.1:
         $"anim container".position.x = lerp($"anim container".position.x, 0.0, 0.083);
-        print($"anim container".position.x);
             

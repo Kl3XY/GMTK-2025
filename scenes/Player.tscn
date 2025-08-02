@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cowso8awu5lpp" path="res://components/HealthComponent.tscn" id="6_cw2d6"]
 [ext_resource type="PackedScene" uid="uid://b5yigcx8ej36i" path="res://components/XPComponent.tscn" id="7_6eyey"]
 [ext_resource type="Texture2D" uid="uid://bep07t61eny41" path="res://sprites/UI/XPBar3.png" id="8_bruh7"]
-[ext_resource type="Script" path="res://scripts/attacks.gd" id="8_d3wef"]
+[ext_resource type="Script" uid="uid://deo7ghxynwka8" path="res://scripts/attacks.gd" id="8_d3wef"]
 [ext_resource type="Texture2D" uid="uid://bgohh64k8m0oi" path="res://sprites/UI/XPBar2.png" id="9_6eyey"]
 [ext_resource type="Texture2D" uid="uid://douc2v4urovg5" path="res://sprites/mage_loading.png" id="10_lkdrv"]
 [ext_resource type="Script" uid="uid://6cxn1jgjg6fg" path="res://scenes/to_dark_player.gd" id="11_o4126"]
@@ -34,8 +34,9 @@
 
 [sub_resource type="Resource" id="Resource_fvsjc"]
 script = ExtResource("2_fvsjc")
-attack = 10
+attack = 250
 speed = 80
+attackSpeedSec = 0.8
 metadata/_custom_type_script = "uid://bpgc278woycng"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qu4a1"]
@@ -191,7 +192,6 @@ animation = &"wizard"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-position_smoothing_enabled = true
 
 [node name="Invinicibilty" type="Timer" parent="."]
 one_shot = true
@@ -204,12 +204,56 @@ Max_Health = 3.0
 
 [node name="XP" parent="Components" instance=ExtResource("7_6eyey")]
 unique_name_in_owner = true
-Max_XP = 300.0
+Max_XP = 30.0
 
 [node name="Attacks" type="Node2D" parent="."]
 script = ExtResource("8_d3wef")
 
 [node name="BasicMageWand" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand2" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand3" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand4" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand5" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand6" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand7" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand8" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand9" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand10" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand11" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand12" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand13" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand14" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand15" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand16" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand17" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand18" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand19" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand20" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand21" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand22" parent="Attacks" instance=ExtResource("6_70d11")]
+
+[node name="BasicMageWand23" parent="Attacks" instance=ExtResource("6_70d11")]
 
 [node name="UI placeholder" type="CanvasLayer" parent="."]
 
@@ -220,6 +264,7 @@ anchor_right = 1.0
 offset_bottom = 8.0
 grow_horizontal = 2
 size_flags_horizontal = 3
+nine_patch_stretch = true
 texture_under = ExtResource("8_bruh7")
 texture_progress = ExtResource("9_6eyey")
 metadata/_edit_use_anchors_ = true
@@ -229,6 +274,12 @@ offset_top = 18.0
 offset_right = 56.0
 offset_bottom = 41.0
 text = "Health:"
+
+[node name="Label3" type="Label" parent="UI placeholder"]
+offset_top = 43.0
+offset_right = 56.0
+offset_bottom = 66.0
+text = "Difficulty: "
 
 [node name="Label2" type="Label" parent="UI placeholder"]
 anchors_preset = 5

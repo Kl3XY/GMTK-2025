@@ -9,7 +9,7 @@ signal xp_change(xp: float)
         if val > Max_XP:
             val -= Max_XP;
             level_up.emit();
-            Max_XP += 300;
+            Max_XP += 30;
         xp_change.emit(XP)
         XP = val;
 @export var Max_XP: float = 100.0;

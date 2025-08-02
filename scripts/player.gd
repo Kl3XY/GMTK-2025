@@ -16,6 +16,7 @@ func get_animation() -> String:
     return "wizard"
     
 func _ready() -> void:
+    Engine.time_scale = 6.0;
     sprite.play(self.get_animation())
     sprite.stop()
     
@@ -34,7 +35,10 @@ func _physics_process(delta: float) -> void:
         sprite.flip_h = velocity.x > 0
 
     move_and_slide()
-        
+    
+    for n in $Attacks.get_children():
+        n.playerStats = stats;
+    
     if Input.is_action_just_pressed("Toggle Pause Menu"):
         if $"Pause Menu".visible == false:
             $"Pause Menu".show();

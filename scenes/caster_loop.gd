@@ -1,5 +1,6 @@
 extends Enemy
 
+var difficulty = 0;
 const SPEED = 50.0
 const DAMAGE_NUMBER = preload("res://scenes/UI/DamageNumber.tscn")
 const XP_ORB = preload("res://scenes/XPOrbs/XPOrb.tscn")
@@ -8,7 +9,10 @@ var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources
 
 const CASTERLOOP_PROJ = preload("res://scenes/casterloopProj.tscn")
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
+    _caster_loop_process(delta);
+
+func _caster_loop_process(delta: float):
     var player = get_tree().get_first_node_in_group("player")
     
     velocity = position.direction_to(player.position) * SPEED
@@ -34,10 +38,10 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
 
 func _on_health_component_health_depleted() -> void:
     PLAYER_ENEMIES_KILLED.enemies_killed += 1;
-    var inst = XP_ORB.instantiate();
-    inst.position = position;
-    get_tree().current_scene.call_deferred("add_child", inst);
-    queue_free()
+    #var inst = XP_ORB.instantiate();
+    #inst.position = position;
+    #get_tree().current_scene.call_deferred("add_child", inst);
+    call_deferred("queue_free")
 
 
 func _on_health_component_health_changed(Health: float) -> void:
@@ -50,12 +54,10 @@ func _on_health_component_health_changed(Health: float) -> void:
 
 
 func _on_cast_timer_timeout() -> void:
-    print("casterrr")
     var dirslice = 360 / 8;
     for i in range(8):
         var inst = CASTERLOOP_PROJ.instantiate();
         inst.position = global_position;
         
-        print(dirslice * i)
         inst.direction = Vector2.RIGHT.rotated(dirslice * i)
         get_tree().current_scene.add_child(inst);

@@ -7,3 +7,7 @@ class_name Projectile
 
 func modify(stats: PlayerStats):
     damage = stats.attack;
+
+
+func _on_timer_timeout() -> void:
+    queue_free()
