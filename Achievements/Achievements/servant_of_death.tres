@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://b21ftu058fgg5"]
+
+[ext_resource type="Script" uid="uid://dqwsw0sphyedy" path="res://Achievements/Achievement.gd" id="1_5y638"]
+
+[resource]
+script = ExtResource("1_5y638")
+name = "Servant of Death"
+short_desc = "Kill 10000 Enemies"
+hasUnlocked = false
+metadata/_custom_type_script = "uid://dqwsw0sphyedy"

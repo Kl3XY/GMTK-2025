@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://8tk8sf5pyq1g"]
+
+[ext_resource type="Script" uid="uid://dqwsw0sphyedy" path="res://Achievements/Achievement.gd" id="1_ar1yq"]
+
+[resource]
+script = ExtResource("1_ar1yq")
+name = "One of many"
+short_desc = "Kill your first loop"
+hasUnlocked = false
+metadata/_custom_type_script = "uid://dqwsw0sphyedy"

@@ -5,6 +5,7 @@ const SPEED = 50.0
 const DAMAGE_NUMBER = preload("res://scenes/UI/DamageNumber.tscn")
 const XP_ORB = preload("res://scenes/XPOrbs/XPOrb.tscn")
 signal TookDamage(damage: int, damage_from: CharacterBody2D)
+var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources/player_enemies_killed.tres")
 
 func _physics_process(delta: float) -> void:
     var player = get_tree().get_first_node_in_group("player")
@@ -25,6 +26,7 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
 
 func _on_health_component_health_depleted() -> void:
     queue_free()
+    PLAYER_ENEMIES_KILLED.enemies_killed += 1;
     if randi_range(0, 100) < 50:
         var inst = XP_ORB.instantiate();
         inst.position = position;

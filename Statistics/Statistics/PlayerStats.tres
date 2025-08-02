@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StatisticManager" load_steps=3 format=3 uid="uid://ydqkxwxnunnu"]
+
+[ext_resource type="Script" uid="uid://qf0nyacthoai" path="res://Statistics/Statistics.gd" id="1_e13f3"]
+[ext_resource type="Script" uid="uid://1ha3hd88tamj" path="res://Statistics/Statistic.gd" id="2_ejcdw"]
+
+[resource]
+script = ExtResource("1_e13f3")
+statistics = Array[ExtResource("2_ejcdw")]([null])
+metadata/_custom_type_script = "uid://qf0nyacthoai"

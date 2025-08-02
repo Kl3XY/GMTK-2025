@@ -11,7 +11,6 @@ signal xp_change(xp: float)
             level_up.emit();
             Max_XP += 300;
         xp_change.emit(XP)
-        print(XP)
         XP = val;
 @export var Max_XP: float = 100.0;
 

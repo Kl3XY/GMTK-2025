@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AchievementManager" load_steps=7 format=3 uid="uid://coprreqrxdxs7"]
+
+[ext_resource type="Script" uid="uid://dqwsw0sphyedy" path="res://Achievements/Achievement.gd" id="1_p0s7g"]
+[ext_resource type="Script" uid="uid://0o7py748j3jw" path="res://Achievements/AchievementManager.gd" id="2_1apsb"]
+[ext_resource type="Resource" uid="uid://8tk8sf5pyq1g" path="res://Achievements/Achievements/one_of_many.tres" id="2_hvm6r"]
+[ext_resource type="Resource" uid="uid://c8jiqhn65eqdu" path="res://Achievements/Achievements/i_am_electric.tres" id="3_0f38a"]
+[ext_resource type="Resource" uid="uid://ct2kgpgls5r5" path="res://Achievements/Achievements/cant_be_stopped.tres" id="4_bdlgy"]
+[ext_resource type="Resource" uid="uid://b21ftu058fgg5" path="res://Achievements/Achievements/servant_of_death.tres" id="5_tnqpd"]
+
+[resource]
+script = ExtResource("2_1apsb")
+Achievements = Array[ExtResource("1_p0s7g")]([ExtResource("2_hvm6r"), ExtResource("3_0f38a"), ExtResource("4_bdlgy"), ExtResource("5_tnqpd")])
+metadata/_custom_type_script = "uid://0o7py748j3jw"

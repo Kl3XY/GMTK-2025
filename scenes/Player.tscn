@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=21 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b5yigcx8ej36i" path="res://components/XPComponent.tscn" id="7_6eyey"]
 [ext_resource type="Texture2D" uid="uid://bep07t61eny41" path="res://sprites/UI/XPBar3.png" id="8_bruh7"]
 [ext_resource type="Texture2D" uid="uid://bgohh64k8m0oi" path="res://sprites/UI/XPBar2.png" id="9_6eyey"]
+[ext_resource type="Texture2D" uid="uid://douc2v4urovg5" path="res://sprites/mage_loading.png" id="10_lkdrv"]
+[ext_resource type="Script" uid="uid://6cxn1jgjg6fg" path="res://scenes/to_dark_player.gd" id="11_o4126"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qu4a1"]
 radius = 3.04138
@@ -66,6 +68,12 @@ animations = [{
 "name": &"wizard",
 "speed": 5.0
 }]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_p7iby"]
+frames = 2
+frame_0/texture = ExtResource("10_lkdrv")
+frame_1/texture = ExtResource("10_lkdrv")
+frame_1/duration = 1.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 3
@@ -176,6 +184,31 @@ text = "Level
 1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ToDark" type="ColorRect" parent="UI placeholder"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("11_o4126")
+
+[node name="TextureRect" type="TextureRect" parent="UI placeholder/ToDark"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_p7iby")
 
 [connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="health_depleted" from="Components/HealthComponent" to="." method="_on_health_component_health_depleted"]
