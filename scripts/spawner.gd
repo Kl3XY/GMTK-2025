@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
     if get_tree().get_node_count_in_group("enemies") >= 64:
         return
     
-    if randi_range(0, 100) > 50:
+    if randi_range(0, 100) > 5:
         return
         
     var point: Vector2 = self.curve.samplef(randf() * 4) + get_parent().position

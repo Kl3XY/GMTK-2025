@@ -1,12 +1,13 @@
 extends CharacterBody2D
 class_name Player;
 
-const SPEED = 80.0
 var Level = 1;
 
+const POWER_UP_MENU = preload("res://scenes/Power Up Menu.tscn")
+
+@export var stats: PlayerStats;
 @onready var sprite = $AnimatedSprite2D
 @onready var attacks = $Attacks
-@export var wand: PackedScene
     
 func get_animation() -> String:
     return "wizard"
@@ -20,22 +21,16 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
     var direction := Input.get_vector("left", "right", "up", "down")
     if direction != Vector2.ZERO:
-        velocity = direction * SPEED
+        velocity = direction * stats.speed
         sprite.play(self.get_animation())
     else:
-        velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+        velocity = velocity.move_toward(Vector2.ZERO, stats.speed)
         sprite.stop()
 
     if velocity.x != 0:
         sprite.flip_h = velocity.x > 0
 
     move_and_slide()
-    
-    if Input.is_action_just_pressed("ui_down") && attacks.get_child_count() > 0:
-        attacks.get_child(0).queue_free()
-        
-    if Input.is_action_pressed("ui_up"):
-        attacks.add_child(wand.instantiate())
         
     if Input.is_action_just_pressed("Toggle Pause Menu"):
         if $"Pause Menu".visible == false:
@@ -61,4 +56,9 @@ func _on_xp_xp_change(xp: float) -> void:
     
 func _on_xp_level_up() -> void:
     Level += 1;
+    
+    var inst = POWER_UP_MENU.instantiate();
+    get_tree().current_scene.add_child(inst)
+    Engine.time_scale = 0.0;
+    
     $"UI placeholder/Label2".text = "Level\n" + str(Level)

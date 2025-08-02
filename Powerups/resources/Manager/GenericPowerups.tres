@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="PowerupManager" load_steps=21 format=3 uid="uid://cwboius7na817"]
+
+[ext_resource type="Script" uid="uid://dhdeh8n7xfu41" path="res://Powerups/PowerUpWeight.gd" id="1_t4v5d"]
+[ext_resource type="Resource" uid="uid://dg5e6tx5aecc6" path="res://Powerups/resources/SmallAttackBoost.tres" id="2_n6e70"]
+[ext_resource type="Resource" uid="uid://c1e7v72yxcpmc" path="res://Powerups/resources/MediumAttackBoost.tres" id="3_cnise"]
+[ext_resource type="Resource" uid="uid://de0r0w0c5xd5u" path="res://Powerups/resources/LargeAttackBoost.tres" id="4_ynfo8"]
+[ext_resource type="Script" uid="uid://dpt53lkimkvv1" path="res://Powerups/PowerupManager.gd" id="5_dnytk"]
+[ext_resource type="Resource" uid="uid://cyt28ihgkgdq1" path="res://Powerups/resources/BasicMageWand.tres" id="5_n6e70"]
+[ext_resource type="Resource" uid="uid://g66iig33nd8c" path="res://Powerups/resources/Tank Stance.tres" id="6_7rrt6"]
+[ext_resource type="Resource" uid="uid://cwbwtjtv17w1s" path="res://Powerups/resources/gluttony.tres" id="7_vsw4s"]
+[ext_resource type="Resource" uid="uid://tyr5n35rr3mf" path="res://Powerups/resources/SmallSpeedBoost.tres" id="8_b63rw"]
+[ext_resource type="Resource" uid="uid://wbjg1si4q6kv" path="res://Powerups/resources/LargeSpeedBoost.tres" id="9_f44lw"]
+[ext_resource type="Resource" uid="uid://cxj4jvip1oewg" path="res://Powerups/resources/MediumSpeedBoost.tres" id="10_82nrb"]
+
+[sub_resource type="Resource" id="Resource_f4744"]
+script = ExtResource("1_t4v5d")
+powerup = ExtResource("2_n6e70")
+weight = 800.0
+metadata/_custom_type_script = "uid://dhdeh8n7xfu41"
+
+[sub_resource type="Resource" id="Resource_7rrt6"]
+script = ExtResource("1_t4v5d")
+powerup = ExtResource("3_cnise")
+weight = 400.0
+metadata/_custom_type_script = "uid://dhdeh8n7xfu41"
+
+[sub_resource type="Resource" id="Resource_vsw4s"]
+script = ExtResource("1_t4v5d")
+powerup = ExtResource("4_ynfo8")
+weight = 100.0
+metadata/_custom_type_script = "uid://dhdeh8n7xfu41"
+
+[sub_resource type="Resource" id="Resource_cnise"]
+script = ExtResource("1_t4v5d")
+powerup = ExtResource("5_n6e70")
+weight = 340.0
+metadata/_custom_type_script = "uid://dhdeh8n7xfu41"
+
+[sub_resource type="Resource" id="Resource_dn5sd"]
+script = ExtResource("1_t4v5d")
+powerup = ExtResource("6_7rrt6")
+weight = 250.0
+metadata/_custom_type_script = "uid://dhdeh8n7xfu41"
+
+[sub_resource type="Resource" id="Resource_3wbdu"]
+script = ExtResource("1_t4v5d")
+powerup = ExtResource("7_vsw4s")
+weight = 180.0
+metadata/_custom_type_script = "uid://dhdeh8n7xfu41"
+
+[sub_resource type="Resource" id="Resource_4xd1v"]
+script = ExtResource("1_t4v5d")
+powerup = ExtResource("8_b63rw")
+weight = 410.0
+metadata/_custom_type_script = "uid://dhdeh8n7xfu41"
+
+[sub_resource type="Resource" id="Resource_ky7ji"]
+script = ExtResource("1_t4v5d")
+powerup = ExtResource("9_f44lw")
+weight = 50.0
+metadata/_custom_type_script = "uid://dhdeh8n7xfu41"
+
+[sub_resource type="Resource" id="Resource_apeqd"]
+script = ExtResource("1_t4v5d")
+powerup = ExtResource("10_82nrb")
+weight = 60.0
+metadata/_custom_type_script = "uid://dhdeh8n7xfu41"
+
+[resource]
+script = ExtResource("5_dnytk")
+powerups = Array[ExtResource("1_t4v5d")]([SubResource("Resource_f4744"), SubResource("Resource_7rrt6"), SubResource("Resource_vsw4s"), SubResource("Resource_cnise"), SubResource("Resource_dn5sd"), SubResource("Resource_3wbdu"), SubResource("Resource_4xd1v"), SubResource("Resource_ky7ji"), SubResource("Resource_apeqd")])
+metadata/_custom_type_script = "uid://dpt53lkimkvv1"
