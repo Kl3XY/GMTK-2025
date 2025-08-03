@@ -1,10 +1,10 @@
 extends Control
 
-var PowerUpManager: PowerupManager = preload("res://Powerups/resources/Manager/StandardPool.tres")
+@export var manager: PowerupManager
 var PowerUp: Powerup;
 
 func _ready():
-    PowerUp = PowerUpManager.get_powerup();
+    PowerUp = manager.get_powerup();
     
     if PowerUp == null:
         queue_free();

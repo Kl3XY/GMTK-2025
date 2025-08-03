@@ -6,10 +6,13 @@ var player;
 var speed = 30;
 var xp_amount = 10;
 
+func disable_collision():
+    $Init/CollisionShape2D.disabled = true
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
     if body is Player:
         follow_player = true;
-        $Init/CollisionShape2D.disabled = true;
+        call_deferred("disable_collision")
 
 func _ready() -> void:
     player = get_tree().get_first_node_in_group("player");
