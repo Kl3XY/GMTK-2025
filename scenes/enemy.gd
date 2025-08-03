@@ -47,9 +47,7 @@ func _on_health_component_health_depleted() -> void:
     PLAYER_ENEMIES_KILLED.enemies_killed += 1;
 
     if DIFFICULTY.difficulty > 200 :
-        print("diff")
         var ran = randi_range(0, 100)
-        print("diff" + str(ran))
         if randi_range(0, 100) <= 40:
             var inst = XP_ORB.instantiate();
             inst.position = global_position;

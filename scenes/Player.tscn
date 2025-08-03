@@ -27,9 +27,9 @@
 [ext_resource type="Script" uid="uid://daqpscnjmt0v" path="res://scenes/Extra Credits.gd" id="18_pfeki"]
 [ext_resource type="Texture2D" uid="uid://hlorn0qbabxg" path="res://sprites/window_rect.png" id="20_fvsjc"]
 [ext_resource type="Script" uid="uid://b88dc6jiwp254" path="res://scenes/back_to_main_menu.gd" id="20_xsi7p"]
-[ext_resource type="Script" uid="uid://5gddj0y888bf" path="res://scenes/exit_btn.gd" id="21_1jpwa"]
 [ext_resource type="Script" uid="uid://d2a11s5emdwf4" path="res://scenes/extra_credits.gd" id="21_hxdpb"]
 [ext_resource type="Script" uid="uid://cgife5tbk4cmh" path="res://scenes/achievements_menu.gd" id="22_agngo"]
+[ext_resource type="Script" uid="uid://cfo1k30j1ejg" path="res://scenes/exit.gd" id="26_hxdpb"]
 [ext_resource type="Script" uid="uid://chpnfy51y8p1m" path="res://scenes/to_dark_pause.gd" id="28_1jpwa"]
 [ext_resource type="Script" uid="uid://oawkxohj2rtk" path="res://scenes/hurt_flash.gd" id="31_hxdpb"]
 [ext_resource type="Script" path="res://scenes/death_screen.gd" id="35_qmt83"]
@@ -417,7 +417,7 @@ layout_mode = 2
 theme = SubResource("Theme_b1r6t")
 text = "Exit"
 alignment = 0
-script = ExtResource("21_1jpwa")
+script = ExtResource("26_hxdpb")
 
 [node name="Credts" type="Label" parent="Pause Menu/anim container"]
 layout_mode = 1

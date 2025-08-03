@@ -5,7 +5,6 @@ const PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resourc
 func _process(delta: float) -> void:
     if visible:
         var plr = get_tree().get_first_node_in_group("player") as Player;
-        print($ColorRect.modulate.a)
         $ColorRect.color.a = lerp($ColorRect.color.a, 0.6, 0.085)
         $Title2.text = "";
         $Title2.text += "- PLAYER STATS -\n";

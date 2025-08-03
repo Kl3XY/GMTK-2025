@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://bdvojb2nfi8qa"]
 
-[ext_resource type="PackedScene" uid="uid://dje5qvuvlofqn" path="res://scenes/Attacks/ViscoraSkull/ViscoraSkull.tscn" id="1_1yfeg"]
+[ext_resource type="PackedScene" uid="uid://dje5qvuvlofqn" path="res://scenes/ViscoraSkull.tscn" id="1_1yfeg"]
 [ext_resource type="Script" uid="uid://dftynetcek42x" path="res://Powerups/Weapon.gd" id="2_uwfyb"]
 
 [resource]

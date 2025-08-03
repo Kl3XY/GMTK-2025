@@ -10,7 +10,6 @@ func _init() -> void:
     _preload();
 
 func _preload():
-    print("Preloading Items...")
     for n in range(items_to_preload):
         pool.append(item_to_pool.instantiate());
         

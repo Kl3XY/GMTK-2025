@@ -115,10 +115,8 @@ func _on_xp_level_up() -> void:
 
 
 func _on_take_damage(damage: int) -> void:
-    print("OOF!")
     tookDamage = true;
     if $Invinicibilty.time_left == 0.0:
-        print("YOUCH!")
         $Invinicibilty.start();
         health_component.Health -= damage
         $HurtFlash/ColorRect.color.a = 0.8;
