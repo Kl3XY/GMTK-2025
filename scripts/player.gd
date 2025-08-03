@@ -89,7 +89,7 @@ func _process(delta: float) -> void:
     _player_physics_process(delta)
 
 func _on_health_component_health_changed(Health: float) -> void:
-    $HealthBar.value = Health;
+    $%HealthBar.value = Health;
 
 func _on_health_component_health_depleted() -> void:
     isDead = true;

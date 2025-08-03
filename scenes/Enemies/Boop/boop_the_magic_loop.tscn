@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://vtqit3iftm7c"]
+[gd_scene load_steps=12 format=3 uid="uid://vtqit3iftm7c"]
 
 [ext_resource type="PackedScene" uid="uid://pkkydt76etb3" path="res://scenes/Enemies/Enemy.tscn" id="1_g34c3"]
 [ext_resource type="Script" uid="uid://brdq3a6s5i8kr" path="res://scenes/Enemies/Boop/boop_the_magic_loop.gd" id="2_5e0l2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bep07t61eny41" path="res://sprites/UI/XPBar3.png" id="5_1fohn"]
 [ext_resource type="Texture2D" uid="uid://bmhdif75e7pam" path="res://sprites/UI/HPBar.png" id="6_1fohn"]
 [ext_resource type="Script" uid="uid://ymahyhv170sh" path="res://scenes/Enemies/Boop/texture_progress_bar.gd" id="7_xepcd"]
+[ext_resource type="Script" uid="uid://krj3cmval3tk" path="res://scenes/Enemies/Boop/area_2d.gd" id="8_5e0l2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ybuw2"]
 radius = 30.82
@@ -16,6 +17,9 @@ font = ExtResource("4_s5nm5")
 font_size = 64
 outline_size = 25
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xepcd"]
+radius = 25.318
 
 [node name="CharacterBody2D" instance=ExtResource("1_g34c3")]
 collision_layer = 1
@@ -68,5 +72,12 @@ texture_under = ExtResource("5_1fohn")
 texture_progress = ExtResource("6_1fohn")
 script = ExtResource("7_xepcd")
 
+[node name="Area2D" type="Area2D" parent="." index="7"]
+script = ExtResource("8_5e0l2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_xepcd")
+
 [connection signal="TookDamage" from="." to="." method="_on_took_damage"]
 [connection signal="health_changed" from="HealthComponent" to="CanvasLayer/TextureProgressBar" method="_on_health_component_health_changed"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

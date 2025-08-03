@@ -228,6 +228,7 @@ script = ExtResource("8_d3wef")
 [node name="UI placeholder" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" type="TextureProgressBar" parent="UI placeholder"]
+unique_name_in_owner = true
 texture_filter = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -316,7 +317,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ToDark" type="ColorRect" parent="UI placeholder"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
