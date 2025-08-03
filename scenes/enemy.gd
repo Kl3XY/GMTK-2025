@@ -28,7 +28,6 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
         return
     
     if $Timer.time_left == 0.0:
-        $AudioSource.play();
         if get_tree().get_node_count_in_group("damage_numbers") < 32:
             var dmgNumInst = DAMAGE_NUMBER_POOL.retrieve();
             dmgNumInst.position.y -= 8;
@@ -36,7 +35,6 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
             add_child(dmgNumInst);
             
             if damage > $HealthComponent.Health:
-                $AudioSource.emit();
                 dmgNumInst.reparent(get_tree().current_scene)
             
         $HealthComponent.Health -= damage;

@@ -25,7 +25,6 @@ func _gem_orb_process(delta: float):
 func _on_player_collision_body_entered(body: Node2D) -> void:
     if body is Player:
         body.health_component.Health += 10;
-        $AudioSource.emit();
         call_deferred("queue_free");
 
 

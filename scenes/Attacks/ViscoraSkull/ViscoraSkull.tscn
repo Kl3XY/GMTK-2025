@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dje5qvuvlofqn"]
+[gd_scene load_steps=6 format=3 uid="uid://b2n1sltihgyu3"]
 
 [ext_resource type="Script" uid="uid://qrrbjwc8qiew" path="res://scenes/Attacks/ViscoraSkull/viscora_skull.gd" id="1_2ehtm"]
 [ext_resource type="Texture2D" uid="uid://ca1d1s6rasxak" path="res://sprites/spr_viscora_skull2.png" id="2_d8rs8"]

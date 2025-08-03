@@ -1,132 +1,27 @@
-[gd_resource type="Resource" script_class="PowerupManager" load_steps=37 format=3 uid="uid://cb2e0mk32t5b"]
+[gd_resource type="Resource" script_class="PowerupManager" load_steps=21 format=3 uid="uid://c183k0cqvc5sd"]
 
-[ext_resource type="Script" path="res://Powerups/resources/PowerupWeight.gd" id="1_qrfne"]
-[ext_resource type="Resource" uid="uid://dg5e6tx5aecc6" path="res://Powerups/resources/SmallAttackBoost.tres" id="2_jn3rt"]
-[ext_resource type="Resource" uid="uid://tyr5n35rr3mf" path="res://Powerups/resources/SmallSpeedBoost.tres" id="3_ip81g"]
-[ext_resource type="Resource" uid="uid://c1e7v72yxcpmc" path="res://Powerups/resources/MediumAttackBoost.tres" id="4_jh0gx"]
-[ext_resource type="Resource" uid="uid://uomq6lrgkyrf" path="res://Powerups/resources/MediumAttackSpeedBoost.tres" id="5_dakp7"]
-[ext_resource type="Resource" uid="uid://cxj4jvip1oewg" path="res://Powerups/resources/MediumSpeedBoost.tres" id="6_wwveq"]
-[ext_resource type="Resource" uid="uid://de0r0w0c5xd5u" path="res://Powerups/resources/LargeAttackBoost.tres" id="7_402bf"]
-[ext_resource type="Resource" uid="uid://dhsqmmjska3ww" path="res://Powerups/resources/LargeAttackSpeedBoost.tres" id="8_iljwc"]
-[ext_resource type="Resource" uid="uid://wbjg1si4q6kv" path="res://Powerups/resources/LargeSpeedBoost.tres" id="9_u5xbd"]
-[ext_resource type="Resource" uid="uid://m0imadxohhak" path="res://Powerups/resources/MilkFirstInTheBowl.tres" id="10_21j54"]
-[ext_resource type="Resource" uid="uid://g66iig33nd8c" path="res://Powerups/resources/Tank Stance.tres" id="11_d4qsc"]
-[ext_resource type="Resource" uid="uid://cx1mk5j3sorm0" path="res://Powerups/resources/AmuletOfAsira.tres" id="12_p4d4a"]
-[ext_resource type="Resource" uid="uid://bdvojb2nfi8qa" path="res://Powerups/resources/ViscoraSkull.tres" id="13_xnff4"]
-[ext_resource type="Resource" uid="uid://cyt28ihgkgdq1" path="res://Powerups/resources/BasicMageWand.tres" id="14_6o1f4"]
-[ext_resource type="Resource" uid="uid://cwbwtjtv17w1s" path="res://Powerups/resources/gluttony.tres" id="15_sxni3"]
-[ext_resource type="Resource" uid="uid://qw6eigetbskv" path="res://Powerups/resources/Necronomicon.tres" id="16_gn8oo"]
-<<<<<<< HEAD
-[ext_resource type="Resource" uid="uid://cbekp523kgxgo" path="res://Powerups/resources/WoodenSword.tres" id="17_1ryaf"]
-[ext_resource type="Script" uid="uid://bxd82dt7p3gce" path="res://Powerups/resources/Manager/PowerupManager.gd" id="17_wjy2s"]
-[ext_resource type="Resource" uid="uid://d03dte37gsu6m" path="res://Powerups/resources/LightningRod.tres" id="18_dp3br"]
-=======
-[ext_resource type="Script" path="res://Powerups/resources/Manager/PowerupManager.gd" id="17_wjy2s"]
->>>>>>> 31f379859d00c2cf4c9b72eda3ef376302de6198
-
-[sub_resource type="Resource" id="Resource_k8e15"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("2_jn3rt")
-weight = 999.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_f4448"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("3_ip81g")
-weight = 970.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_nm4bb"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("4_jh0gx")
-weight = 540.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_kk77y"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("5_dakp7")
-weight = 500.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_auf08"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("6_wwveq")
-weight = 480.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_bxnss"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("7_402bf")
-weight = 230.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_omspw"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("8_iljwc")
-weight = 200.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_3itbl"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("9_u5xbd")
-weight = 150.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_gf8vy"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("10_21j54")
-weight = 90.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_ahktd"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("11_d4qsc")
-weight = 80.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_23w4d"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("12_p4d4a")
-weight = 270.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_lb25e"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("13_xnff4")
-weight = 260.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_36eyq"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("14_6o1f4")
-weight = 250.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_28wl2"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("15_sxni3")
-weight = 750.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_6xgj4"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("16_gn8oo")
-weight = 50.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_m06tk"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("17_1ryaf")
-weight = 0.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
-
-[sub_resource type="Resource" id="Resource_n5v5a"]
-script = ExtResource("1_qrfne")
-powerup = ExtResource("18_dp3br")
-weight = 0.0
-metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+[ext_resource type="Script" uid="uid://dav1enu00bpys" path="res://Powerups/powerup.gd" id="1_bcfjp"]
+[ext_resource type="Resource" uid="uid://g66iig33nd8c" path="res://Powerups/resources/Tank Stance.tres" id="2_1ryaf"]
+[ext_resource type="Script" uid="uid://bxd82dt7p3gce" path="res://Powerups/resources/Manager/PowerupManager.gd" id="2_k8e15"]
+[ext_resource type="Resource" uid="uid://cwbwtjtv17w1s" path="res://Powerups/resources/gluttony.tres" id="3_dp3br"]
+[ext_resource type="Resource" uid="uid://de0r0w0c5xd5u" path="res://Powerups/resources/LargeAttackBoost.tres" id="4_m06tk"]
+[ext_resource type="Resource" uid="uid://dhsqmmjska3ww" path="res://Powerups/resources/LargeAttackSpeedBoost.tres" id="5_n5v5a"]
+[ext_resource type="Resource" uid="uid://wbjg1si4q6kv" path="res://Powerups/resources/LargeSpeedBoost.tres" id="6_e2l67"]
+[ext_resource type="Resource" uid="uid://tyr5n35rr3mf" path="res://Powerups/resources/SmallSpeedBoost.tres" id="7_c7gai"]
+[ext_resource type="Resource" uid="uid://c1e7v72yxcpmc" path="res://Powerups/resources/MediumAttackBoost.tres" id="8_ps13c"]
+[ext_resource type="Resource" uid="uid://uomq6lrgkyrf" path="res://Powerups/resources/MediumAttackSpeedBoost.tres" id="9_8ut5n"]
+[ext_resource type="Resource" uid="uid://cxj4jvip1oewg" path="res://Powerups/resources/MediumSpeedBoost.tres" id="10_rosyf"]
+[ext_resource type="Resource" uid="uid://m0imadxohhak" path="res://Powerups/resources/MilkFirstInTheBowl.tres" id="11_yw0ba"]
+[ext_resource type="Resource" uid="uid://dg5e6tx5aecc6" path="res://Powerups/resources/SmallAttackBoost.tres" id="12_auf08"]
+[ext_resource type="Resource" uid="uid://cbekp523kgxgo" path="res://Powerups/resources/WoodenSword.tres" id="13_bxnss"]
+[ext_resource type="Resource" uid="uid://qw6eigetbskv" path="res://Powerups/resources/Necronomicon.tres" id="14_omspw"]
+[ext_resource type="Resource" uid="uid://d03dte37gsu6m" path="res://Powerups/resources/LightningRod.tres" id="15_3itbl"]
+[ext_resource type="Resource" uid="uid://h7qc4m28m7ep" path="res://Powerups/resources/BloodiedSword.tres" id="16_gf8vy"]
+[ext_resource type="Resource" uid="uid://cyt28ihgkgdq1" path="res://Powerups/resources/BasicMageWand.tres" id="17_ahktd"]
+[ext_resource type="Resource" uid="uid://cx1mk5j3sorm0" path="res://Powerups/resources/AmuletOfAsira.tres" id="18_23w4d"]
+[ext_resource type="Resource" uid="uid://dxjvtfpj5dnoi" path="res://Powerups/resources/ViscoraSkull.tres" id="19_dp3br"]
 
 [resource]
-script = ExtResource("17_wjy2s")
-PowerupWeights = Array[ExtResource("1_qrfne")]([SubResource("Resource_k8e15"), SubResource("Resource_f4448"), SubResource("Resource_nm4bb"), SubResource("Resource_kk77y"), SubResource("Resource_auf08"), SubResource("Resource_bxnss"), SubResource("Resource_omspw"), SubResource("Resource_3itbl"), SubResource("Resource_gf8vy"), SubResource("Resource_ahktd"), SubResource("Resource_23w4d"), SubResource("Resource_lb25e"), SubResource("Resource_36eyq"), SubResource("Resource_28wl2"), SubResource("Resource_6xgj4"), SubResource("Resource_m06tk"), SubResource("Resource_n5v5a")])
+script = ExtResource("2_k8e15")
+Powerups = Array[ExtResource("1_bcfjp")]([ExtResource("2_1ryaf"), ExtResource("3_dp3br"), ExtResource("4_m06tk"), ExtResource("5_n5v5a"), ExtResource("6_e2l67"), ExtResource("7_c7gai"), ExtResource("8_ps13c"), ExtResource("9_8ut5n"), ExtResource("10_rosyf"), ExtResource("11_yw0ba"), ExtResource("12_auf08"), ExtResource("13_bxnss"), ExtResource("14_omspw"), ExtResource("15_3itbl"), ExtResource("16_gf8vy"), ExtResource("17_ahktd"), ExtResource("18_23w4d"), ExtResource("19_dp3br")])
 metadata/_custom_type_script = "uid://bxd82dt7p3gce"

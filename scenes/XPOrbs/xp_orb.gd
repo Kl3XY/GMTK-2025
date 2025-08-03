@@ -32,8 +32,6 @@ func _on_player_collision_body_entered(body: Node2D) -> void:
         var xp = player.get_node("Components").get_node("XP") as XPComponent;
         xp.XP += xp_amount;
         
-        $AudioSource.pitch_scale = randf_range(0.8, 1.3)
-        $AudioSource.emit()
         call_deferred("queue_free");
 
 
