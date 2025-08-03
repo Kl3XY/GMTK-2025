@@ -225,18 +225,30 @@ script = ExtResource("8_d3wef")
 
 [node name="BasicMageWand" parent="Attacks" instance=ExtResource("6_70d11")]
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-z_index = 128
-offset_left = -8.0
-offset_top = 5.0
-offset_right = 8.0
-offset_bottom = 21.0
+[node name="UI placeholder" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="TextureProgressBar" parent="UI placeholder"]
+texture_filter = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 284.0
+offset_right = 48.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+pivot_offset = Vector2(48, 8)
 value = 27.0
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_right = 8
 texture_under = ExtResource("11_qrixf")
 texture_over = ExtResource("12_qmt83")
 texture_progress = ExtResource("13_m4as6")
-
-[node name="UI placeholder" type="CanvasLayer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="UI placeholder"]
 texture_filter = 3
@@ -293,9 +305,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -70.0
-offset_top = -50.0
+offset_top = -75.0
 offset_right = 70.0
-offset_bottom = -22.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "00:00"
@@ -304,6 +316,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ToDark" type="ColorRect" parent="UI placeholder"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
