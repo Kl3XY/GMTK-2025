@@ -1,8 +1,10 @@
 extends Control
 
+var DIFFICULTY = preload("res://Difficulty/difficulty.tres")
 
 func _on_new_game_pressed() -> void:
     $ToDark.start = true;
+    DIFFICULTY.difficulty = 2.0;
 
 
 func _on_exit_pressed() -> void:
