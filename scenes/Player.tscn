@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://81hfp6vnexwk" path="res://sprites/logo2.png" id="15_xsi7p"]
 [ext_resource type="Script" uid="uid://cn2l7mdtoa1gr" path="res://scenes/achievements.gd" id="17_1jpwa"]
 [ext_resource type="Script" uid="uid://bvf6bdawd7ban" path="res://scenes/new_game.gd" id="17_pfeki"]
-[ext_resource type="Script" uid="uid://daqpscnjmt0v" path="res://scenes/Extra Credits.gd" id="18_pfeki"]
 [ext_resource type="Texture2D" uid="uid://hlorn0qbabxg" path="res://sprites/window_rect.png" id="20_fvsjc"]
 [ext_resource type="Script" uid="uid://b88dc6jiwp254" path="res://scenes/back_to_main_menu.gd" id="20_xsi7p"]
 [ext_resource type="Script" uid="uid://d2a11s5emdwf4" path="res://scenes/extra_credits.gd" id="21_hxdpb"]
@@ -397,13 +396,6 @@ text = "Achievements"
 alignment = 0
 script = ExtResource("17_1jpwa")
 
-[node name="Extra Credits" type="Button" parent="Pause Menu/anim container/GridContainer"]
-layout_mode = 2
-theme = SubResource("Theme_b1r6t")
-text = "Extra Credits"
-alignment = 0
-script = ExtResource("18_pfeki")
-
 [node name="Back to Main Menu" type="Button" parent="Pause Menu/anim container/GridContainer"]
 layout_mode = 2
 theme = SubResource("Theme_b1r6t")
@@ -741,7 +733,6 @@ wait_time = 1800.0
 [connection signal="visibility_changed" from="Pause Menu" to="Pause Menu" method="_on_visibility_changed"]
 [connection signal="pressed" from="Pause Menu/anim container/GridContainer/New Game" to="Pause Menu/anim container/GridContainer/New Game" method="_on_pressed"]
 [connection signal="pressed" from="Pause Menu/anim container/GridContainer/Achievements" to="Pause Menu/anim container/GridContainer/Achievements" method="_on_pressed"]
-[connection signal="button_down" from="Pause Menu/anim container/GridContainer/Extra Credits" to="Pause Menu/anim container/GridContainer/Extra Credits" method="_on_button_down"]
 [connection signal="pressed" from="Pause Menu/anim container/GridContainer/Back to Main Menu" to="Pause Menu/anim container/GridContainer/Back to Main Menu" method="_on_pressed"]
 [connection signal="pressed" from="Pause Menu/anim container/GridContainer/Exit" to="Pause Menu/anim container/GridContainer/Exit" method="_on_pressed"]
 [connection signal="pressed" from="Pause Menu/Extra Credits/TextureButton" to="Pause Menu/Extra Credits" method="_on_texture_button_pressed"]
