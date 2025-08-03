@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=60 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://d2a11s5emdwf4" path="res://scenes/extra_credits.gd" id="21_hxdpb"]
 [ext_resource type="Script" uid="uid://cgife5tbk4cmh" path="res://scenes/achievements_menu.gd" id="22_agngo"]
 [ext_resource type="Script" uid="uid://chpnfy51y8p1m" path="res://scenes/to_dark_pause.gd" id="28_1jpwa"]
+[ext_resource type="Script" uid="uid://oawkxohj2rtk" path="res://scenes/hurt_flash.gd" id="31_hxdpb"]
 [ext_resource type="Script" uid="uid://71vrffsu4elo" path="res://scenes/death_screen.gd" id="35_qmt83"]
 
 [sub_resource type="Resource" id="Resource_m4as6"]
@@ -301,7 +302,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ToDark" type="ColorRect" parent="UI placeholder"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -637,7 +637,19 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("28_1jpwa")
 
+[node name="HurtFlash" type="CanvasLayer" parent="."]
+script = ExtResource("31_hxdpb")
+
+[node name="ColorRect" type="ColorRect" parent="HurtFlash"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6, 0, 0, 0)
+
 [node name="DeathScreen" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("35_qmt83")
 
 [node name="ColorRect" type="ColorRect" parent="DeathScreen"]
