@@ -173,6 +173,7 @@ text = "Exit"
 alignment = 0
 
 [node name="Locker" type="ColorRect" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -183,6 +184,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.607843)
 
 [node name="Extra Credits" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
 visible = false
 texture_filter = 3
 layout_mode = 1
@@ -258,6 +260,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ism2r")
 text = "Close"
 
 [node name="Achievements" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
 visible = false
 texture_filter = 3
 layout_mode = 1
@@ -364,6 +367,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ism2r")
 text = "Close"
 
 [node name="Options" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
 visible = false
 texture_filter = 3
 layout_mode = 1

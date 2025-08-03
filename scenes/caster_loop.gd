@@ -1,5 +1,5 @@
 extends Enemy
-
+const DAMAGE_NUMBER_POOL = preload("res://Pools/damageNumberPool.tres")
 var difficulty = 0;
 const SPEED = 50.0
 const DAMAGE_NUMBER = preload("res://scenes/UI/DamageNumber.tscn")
@@ -7,7 +7,7 @@ const XP_ORB = preload("res://scenes/XPOrbs/XPOrb.tscn")
 signal TookDamage(damage: int, damage_from: CharacterBody2D)
 var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources/player_enemies_killed.tres")
 
-const CASTERLOOP_PROJ = preload("res://scenes/casterloopProj.tscn")
+var CASTERLOOP_PROJ = preload("res://scenes/casterloopProj.tscn")
 
 func _process(delta: float) -> void:
     _caster_loop_process(delta);
@@ -25,7 +25,7 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
     
     if $Timer.time_left == 0.0:
         if get_tree().get_node_count_in_group("damage_numbers") < 32:
-            var dmgNumInst = DAMAGE_NUMBER.instantiate();
+            var dmgNumInst = DAMAGE_NUMBER_POOL.retrieve();
             dmgNumInst.position.y -= 8;
             dmgNumInst.damage = damage;
             add_child(dmgNumInst);

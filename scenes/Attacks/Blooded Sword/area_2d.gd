@@ -21,7 +21,7 @@ func _on_attack_timer_timeout() -> void:
     var dirslice = 360 / 8;
     var ran = randi() * 360;
     for i in range(8):
-        print("cunmin")
+
         var inst = SWORD_PROJECTILE.instantiate();
         inst.position = global_position;
         inst.rotation = Vector2.RIGHT.rotated(dirslice * i).angle()

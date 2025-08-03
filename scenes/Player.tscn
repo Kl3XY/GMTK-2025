@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=68 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bep07t61eny41" path="res://sprites/UI/XPBar3.png" id="8_bruh7"]
 [ext_resource type="Script" uid="uid://deo7ghxynwka8" path="res://scripts/attacks.gd" id="8_d3wef"]
 [ext_resource type="Texture2D" uid="uid://bgohh64k8m0oi" path="res://sprites/UI/XPBar2.png" id="9_6eyey"]
+[ext_resource type="PackedScene" uid="uid://bhwslc41s7t3r" path="res://scenes/Attacks/Amulet Of Asira/Amulet Of Asira.tscn" id="10_b1r6t"]
 [ext_resource type="Texture2D" uid="uid://douc2v4urovg5" path="res://sprites/mage_loading.png" id="10_lkdrv"]
 [ext_resource type="PackedScene" uid="uid://dje5qvuvlofqn" path="res://scenes/Attacks/ViscoraSkull/ViscoraSkull.tscn" id="10_m4as6"]
 [ext_resource type="Script" uid="uid://6cxn1jgjg6fg" path="res://scenes/to_dark_player.gd" id="11_o4126"]
@@ -102,6 +103,12 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fvsjc"]
 radius = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1r6t"]
+font = ExtResource("14_p7iby")
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_p7iby"]
 frames = 2
@@ -234,6 +241,10 @@ Max_XP = 30.0
 [node name="Attacks" type="Node2D" parent="."]
 script = ExtResource("8_d3wef")
 
+[node name="AmuletOfAsira2" parent="Attacks" instance=ExtResource("10_b1r6t")]
+
+[node name="AmuletOfAsira" parent="Attacks" instance=ExtResource("10_b1r6t")]
+
 [node name="ViscoraSkull2" parent="Attacks" instance=ExtResource("10_m4as6")]
 
 [node name="BasicMageWand" parent="Attacks" instance=ExtResource("6_70d11")]
@@ -241,6 +252,7 @@ script = ExtResource("8_d3wef")
 [node name="ViscoraSkull" parent="Attacks" instance=ExtResource("10_m4as6")]
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
+z_index = 128
 offset_left = -8.0
 offset_top = 5.0
 offset_right = 8.0
@@ -254,33 +266,82 @@ texture_progress = ExtResource("13_m4as6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="UI placeholder"]
 texture_filter = 3
-anchors_preset = 10
+anchors_preset = -1
+anchor_top = -0.00462963
 anchor_right = 1.0
-offset_bottom = 8.0
+anchor_bottom = -0.00462963
+offset_top = 631.0
+offset_bottom = 639.0
 grow_horizontal = 2
+scale = Vector2(1, 9.245)
 size_flags_horizontal = 3
 nine_patch_stretch = true
 texture_under = ExtResource("8_bruh7")
 texture_progress = ExtResource("9_6eyey")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label3" type="Label" parent="UI placeholder"]
-offset_top = 43.0
-offset_right = 56.0
-offset_bottom = 66.0
-text = "Difficulty: "
+[node name="LevelDisplay" type="Label" parent="UI placeholder"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -43.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "LVL: 30"
+label_settings = SubResource("LabelSettings_b1r6t")
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="UI placeholder"]
-anchors_preset = 5
+[node name="KillCounter" type="Label" parent="UI placeholder"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -59.0
+offset_bottom = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "KILLS: 30000000"
+label_settings = SubResource("LabelSettings_b1r6t")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GemCounter" type="Label" parent="UI placeholder"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -76.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "GEMS: 9999"
+label_settings = SubResource("LabelSettings_b1r6t")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Timer" type="Label" parent="UI placeholder"]
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -28.0
-offset_top = 25.0
-offset_right = 28.0
-offset_bottom = 74.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -50.0
+offset_right = 70.0
+offset_bottom = -22.0
 grow_horizontal = 2
-text = "Level
-1"
+grow_vertical = 0
+text = "00:00"
+label_settings = SubResource("LabelSettings_b1r6t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -423,6 +484,7 @@ Kilian \"Hoetty\" Behnke"
 label_settings = SubResource("LabelSettings_qv10x")
 
 [node name="Locker" type="ColorRect" parent="Pause Menu"]
+unique_name_in_owner = true
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -432,6 +494,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.607843)
 
 [node name="Extra Credits" type="NinePatchRect" parent="Pause Menu"]
+unique_name_in_owner = true
 visible = false
 texture_filter = 3
 anchors_preset = 8
@@ -506,6 +569,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_gu4mg")
 text = "Close"
 
 [node name="Achievements" type="NinePatchRect" parent="Pause Menu"]
+unique_name_in_owner = true
 visible = false
 texture_filter = 3
 anchors_preset = 8
@@ -611,6 +675,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_gu4mg")
 text = "Close"
 
 [node name="Options" type="NinePatchRect" parent="Pause Menu"]
+unique_name_in_owner = true
 visible = false
 texture_filter = 3
 anchors_preset = 8
@@ -745,6 +810,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_gu4mg")
 text = "Close"
 
 [node name="ToDark" type="ColorRect" parent="Pause Menu"]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -825,6 +891,9 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_qrixf")
 text = "Return to the Main Menu"
 
+[node name="alikesupremetimer" type="Timer" parent="."]
+wait_time = 1800.0
+
 [connection signal="TakeDamage" from="." to="." method="_on_take_damage"]
 [connection signal="body_entered" from="Take Damage Area" to="." method="_on_take_damage_area_body_entered"]
 [connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
@@ -846,3 +915,4 @@ text = "Return to the Main Menu"
 [connection signal="pressed" from="Pause Menu/Achievements/TextureButton" to="Pause Menu/Achievements" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Pause Menu/Options/TextureButton" to="Pause Menu/Options" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="DeathScreen/Button" to="DeathScreen" method="_on_button_pressed"]
+[connection signal="timeout" from="alikesupremetimer" to="." method="_on_alikesupremetimer_timeout"]

@@ -7,6 +7,7 @@
 script = ExtResource("2_lq30p")
 attack = 20
 speed = -10
+attackSpeedSec = 0.0
 metadata/_custom_type_script = "uid://bpgc278woycng"
 
 [resource]

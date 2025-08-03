@@ -1,12 +1,14 @@
 extends Enemy
 
+const GEM = preload("res://scenes/Gems/Gem.tscn")
+const DAMAGE_NUMBER_POOL = preload("res://Pools/damageNumberPool.tres")
 var difficulty = 0;
 const SPEED = 50.0
 const DAMAGE_NUMBER = preload("res://scenes/UI/DamageNumber.tscn")
 const XP_ORB = preload("res://scenes/XPOrbs/XPOrb.tscn")
 signal TookDamage(damage: int, damage_from: CharacterBody2D)
 var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources/player_enemies_killed.tres")
-
+var DIFFICULTY = preload("res://Difficulty/difficulty.tres")
 func _ready():
     $HealthComponent.Max_Health += difficulty / 3;
     $HealthComponent.Health = $HealthComponent.Max_Health;
@@ -27,7 +29,7 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
     
     if $Timer.time_left == 0.0:
         if get_tree().get_node_count_in_group("damage_numbers") < 32:
-            var dmgNumInst = DAMAGE_NUMBER.instantiate();
+            var dmgNumInst = DAMAGE_NUMBER_POOL.retrieve();
             dmgNumInst.position.y -= 8;
             dmgNumInst.damage = damage;
             add_child(dmgNumInst);
@@ -43,9 +45,26 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
 
 func _on_health_component_health_depleted() -> void:
     PLAYER_ENEMIES_KILLED.enemies_killed += 1;
-    var inst = XP_ORB.instantiate();
-    inst.position = position;
-    get_tree().current_scene.call_deferred("add_child", inst);
+
+    if DIFFICULTY.difficulty > 200 :
+        print("diff")
+        if randi_range(0, 100) < 10:
+            var inst = XP_ORB.instantiate();
+            inst.position = position;
+            inst.xp_amount = 100;
+            inst.scale = Vector2(2, 2)
+            get_tree().current_scene.call_deferred("add_child", inst);
+    else:
+        var inst = XP_ORB.instantiate();
+        inst.position = position;
+        get_tree().current_scene.call_deferred("add_child", inst);
+        
+    if randi_range(0, 1000) == 1:
+        var inst = GEM.instantiate();
+        inst.position = position;
+        inst.scale = Vector2(1, 1)
+        get_tree().current_scene.call_deferred("add_child", inst);
+    
     call_deferred("queue_free")
 
 

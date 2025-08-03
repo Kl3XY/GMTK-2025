@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GemCollection" load_steps=2 format=3 uid="uid://gr7xmy0s53fv"]
+
+[ext_resource type="Script" uid="uid://bedxu7unp86hg" path="res://Statistics/Statistics/Stats/player_collected_gems.gd" id="1_mub74"]
+
+[resource]
+script = ExtResource("1_mub74")
+gems = 0
+name = ""
+metadata/_custom_type_script = "uid://bedxu7unp86hg"

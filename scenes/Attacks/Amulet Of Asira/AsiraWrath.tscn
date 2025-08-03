@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://86spq2u6cqv8"]
+
+[ext_resource type="Script" uid="uid://b0kgvme8uljyp" path="res://scenes/Attacks/Amulet Of Asira/asira_wrath.gd" id="1_12bah"]
+[ext_resource type="Texture2D" uid="uid://debuonjcv8peu" path="res://sprites/asiras_wrath.png" id="2_12bah"]
+[ext_resource type="Script" uid="uid://i830isjfwrgt" path="res://scenes/Attacks/Amulet Of Asira/timer.gd" id="3_6x01v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6x01v"]
+radius = 55.0364
+
+[node name="AsiraWrath" type="Node2D"]
+script = ExtResource("1_12bah")
+metadata/_custom_type_script = "uid://3vqfdlk0rung"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(3.15625, 3.15625)
+texture = ExtResource("2_12bah")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("3_6x01v")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6x01v")
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,124 @@
+[gd_scene load_steps=22 format=3 uid="uid://b6wcert5ws1mm"]
+
+[ext_resource type="Script" uid="uid://bchpyq1plq42v" path="res://scenes/Gems/gem.gd" id="1_0x8ih"]
+[ext_resource type="Texture2D" uid="uid://iv1xad0pis8f" path="res://sprites/Gems/spr_gem1.png" id="1_gmgjn"]
+[ext_resource type="Texture2D" uid="uid://y52qtgyjbahi" path="res://sprites/Gems/spr_gem2.png" id="2_0x8ih"]
+[ext_resource type="Texture2D" uid="uid://jl8yna7xb8ph" path="res://sprites/Gems/spr_gem3.png" id="3_snudf"]
+[ext_resource type="Texture2D" uid="uid://c0xtwluy3sk35" path="res://sprites/Gems/spr_gem4.png" id="4_mlcqm"]
+[ext_resource type="Texture2D" uid="uid://bjqwedjhl7oko" path="res://sprites/Gems/spr_gem5.png" id="5_c43mo"]
+[ext_resource type="Texture2D" uid="uid://cuqcn12vagej6" path="res://sprites/Gems/spr_gem6.png" id="6_dwsoy"]
+[ext_resource type="Texture2D" uid="uid://cxsy6lv5ppusk" path="res://sprites/Gems/spr_gem7.png" id="7_34wo7"]
+[ext_resource type="Texture2D" uid="uid://b5825o484keyn" path="res://sprites/Gems/spr_gem8.png" id="8_108ve"]
+[ext_resource type="Texture2D" uid="uid://c03y3icoq1ey2" path="res://sprites/Gems/spr_gem9.png" id="9_re67f"]
+[ext_resource type="Texture2D" uid="uid://1i3f0084i5y0" path="res://sprites/Gems/spr_gem10.png" id="10_nci84"]
+[ext_resource type="Texture2D" uid="uid://csgxllhhvrnnx" path="res://sprites/Gems/spr_gem11.png" id="11_tuddv"]
+[ext_resource type="Texture2D" uid="uid://b08s3g8casc1n" path="res://sprites/Gems/spr_gem12.png" id="12_md834"]
+[ext_resource type="Texture2D" uid="uid://csh3c81n6bfrk" path="res://sprites/Gems/spr_gem13.png" id="13_03h6q"]
+[ext_resource type="Texture2D" uid="uid://clyw3xft21ygn" path="res://sprites/Gems/spr_gem14.png" id="14_cffpl"]
+[ext_resource type="Texture2D" uid="uid://cdri2uugfa0kf" path="res://sprites/Gems/spr_gem15.png" id="15_24w7p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jl18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gmgjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0x8ih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_snudf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mlcqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c43mo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dwsoy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_34wo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_108ve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_re67f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nci84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tuddv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_md834")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_03h6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cffpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_24w7p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmgjn"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0x8ih"]
+radius = 22.0907
+
+[sub_resource type="Gradient" id="Gradient_0x8ih"]
+offsets = PackedFloat32Array(0, 0.511312, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.087438, 0.381081, 0.22962, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_snudf"]
+gradient = SubResource("Gradient_0x8ih")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.944444, 0.24359)
+
+[node name="Gem" type="Node2D"]
+z_index = 100
+script = ExtResource("1_0x8ih")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_4jl18")
+autoplay = "default"
+frame_progress = 0.224856
+
+[node name="Init" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Init"]
+shape = SubResource("CircleShape2D_gmgjn")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="PlayerCollision" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
+shape = SubResource("CircleShape2D_0x8ih")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_snudf")
+
+[connection signal="body_entered" from="Init" to="." method="_on_init_body_entered"]
+[connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]

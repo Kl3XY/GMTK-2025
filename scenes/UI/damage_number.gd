@@ -4,11 +4,20 @@ extends Control
 
 @onready var label: Label = $Label
 
+var GETTING_DAMAGE = preload("res://Achievements/Achievements/getting_damage.tres")
+var SUPREME_DAMAGE = preload("res://Achievements/Achievements/supreme_damage.tres")
+
 var speed = 300.0;
 
 func _ready() -> void:
     label.text = "-" + str(damage)
     add_to_group("damage_numbers")
+    
+    if damage >= 100:
+        GETTING_DAMAGE.hasUnlocked = true;
+    
+    if damage >= 300:
+        SUPREME_DAMAGE.hasUnlocked = true;
 
 func _process(delta: float) -> void:
     _damage_number_process(delta);
