@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://sbg2brb6dh6r" path="res://scripts/world.gd" id="1_1lgw5"]
 [ext_resource type="Texture2D" uid="uid://evuunvvwf0ai" path="res://sprites/Tilesets/Forest.png" id="1_7g83o"]
 [ext_resource type="PackedScene" uid="uid://dnpkjtix0emqi" path="res://scenes/Player.tscn" id="1_kqs1s"]
-[ext_resource type="Material" uid="uid://bs57450j3inbx" path="res://scenes/Terrain.tres" id="2_ygioq"]
-[ext_resource type="PackedScene" uid="uid://drso77q7v4hd1" path="res://scenes/spawner.tscn" id="4_1lgw5"]
+[ext_resource type="Material" uid="uid://bdbn6k2yj28y0" path="res://scenes/Terrain.tres" id="2_ygioq"]
+[ext_resource type="PackedScene" uid="uid://bfxwm82w1afrv" path="res://scenes/spawner.tscn" id="4_1lgw5"]
 [ext_resource type="PackedScene" uid="uid://ud3la1rwxa5j" path="res://scenes/Enemies/BombLoopEnemy.tscn" id="6_0uv0p"]
-[ext_resource type="Script" path="res://scenes/sceneWeight.gd" id="6_hlk0d"]
+[ext_resource type="Script" uid="uid://br0ejtaket4j1" path="res://scenes/sceneWeight.gd" id="6_hlk0d"]
 [ext_resource type="PackedScene" uid="uid://chga4o4c4a2ow" path="res://scenes/Enemies/FrootLoop.tscn" id="7_ygioq"]
 [ext_resource type="PackedScene" uid="uid://bijoeqe7v55se" path="res://scenes/Enemies/CasterLoop.tscn" id="9_pdh0q"]
 

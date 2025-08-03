@@ -121,6 +121,7 @@ func _on_take_damage(damage: int) -> void:
         print("YOUCH!")
         $Invinicibilty.start();
         health_component.Health -= damage
+        $HurtFlash/ColorRect.color.a = 0.8;
 
 
 
