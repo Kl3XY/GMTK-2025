@@ -1,14 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://pkkydt76etb3"]
+[gd_scene load_steps=6 format=3 uid="uid://pkkydt76etb3"]
 
 [ext_resource type="Script" uid="uid://cymtfnkubrid1" path="res://scenes/enemy.gd" id="1_cgghf"]
 [ext_resource type="Texture2D" uid="uid://dveil8vyd0vom" path="res://sprites/UI/EnemyHealthBar3.png" id="4_f5ynd"]
 [ext_resource type="PackedScene" uid="uid://cowso8awu5lpp" path="res://components/HealthComponent.tscn" id="4_wudbl"]
 [ext_resource type="Texture2D" uid="uid://cy8yp2e43qgo0" path="res://sprites/UI/EnemyHealthBar1.png" id="5_evj1p"]
 [ext_resource type="Texture2D" uid="uid://c7tqjxvybdvyu" path="res://sprites/UI/EnemyHealthBar2.png" id="6_iwuxl"]
-[ext_resource type="Script" uid="uid://bu6qj8dmg0ulf" path="res://scenes/Enemies/area_2d.gd" id="6_rxugn"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_pkqrk"]
-radius = 9.48683
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 texture_filter = 3
@@ -42,16 +38,6 @@ Max_Health = 60.0
 wait_time = 0.05
 one_shot = true
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-monitorable = false
-script = ExtResource("6_rxugn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_pkqrk")
-
 [connection signal="TookDamage" from="." to="." method="_on_took_damage"]
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -4,7 +4,7 @@ extends Path2D
 var DIFFICULTY = preload("res://Difficulty/difficulty.tres")
 var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources/player_enemies_killed.tres")
 var lastKilled = 0;
-var threshholdtospawnboss = 1000;
+var threshholdtospawnboss = 250;
 var rng = RandomNumberGenerator.new();
 
 var enemyList: Array[Node2D] = [];
@@ -56,8 +56,6 @@ func _on_spawn_timer_timeout() -> void:
         print(PLAYER_ENEMIES_KILLED.enemies_killed - lastKilled)
         
         if PLAYER_ENEMIES_KILLED.enemies_killed - lastKilled > threshholdtospawnboss:
-            threshholdtospawnboss -= 50;
-            threshholdtospawnboss = max(threshholdtospawnboss, 50);
             lastKilled = PLAYER_ENEMIES_KILLED.enemies_killed;
             if get_tree().get_node_count_in_group("bosses") == 0:
                 var point: Vector2 = self.curve.samplef(randf() * 4) + get_parent().position
@@ -75,8 +73,12 @@ func _on_spawn_timer_timeout() -> void:
                     enemy
                 )
         
-        $SpawnTimer.wait_time = max(2 - DIFFICULTY.difficulty / 100, 0.001);
+        var base_time = 2.0
+        var reduction = log(1 + DIFFICULTY.difficulty) / 3.42
+        $SpawnTimer.wait_time = max(base_time - reduction, 0.001)
         $SpawnTimer.start()
+
+        print($SpawnTimer.wait_time)
 
         var point: Vector2 = self.curve.samplef(randf() * 4) + get_parent().position
         

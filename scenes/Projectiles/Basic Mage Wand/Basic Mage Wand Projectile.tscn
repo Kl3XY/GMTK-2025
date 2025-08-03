@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ctqipwu0hawj4"]
+[gd_scene load_steps=36 format=3 uid="uid://ctqipwu0hawj4"]
 
 [ext_resource type="Script" uid="uid://42hopnpapo1" path="res://scenes/Projectiles/Basic Mage Wand/basic_mage_wand_projectile.gd" id="1_h3r1b"]
 [ext_resource type="Texture2D" uid="uid://d1wgi2mnyg1uu" path="res://sprites/Spells/basic_mage_spell.png_0.png" id="2_h3r1b"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://v00nubd4feo6" path="res://sprites/Spells/basic_mage_spell.png_28.png" id="30_6riyy"]
 [ext_resource type="Texture2D" uid="uid://d14jjj2x2102g" path="res://sprites/Spells/basic_mage_spell.png_29.png" id="31_1l0xd"]
 [ext_resource type="Script" uid="uid://d3087hdlkatpu" path="res://scenes/Projectiles/Basic Mage Wand/timer.gd" id="32_qe5dm"]
+[ext_resource type="AudioStream" uid="uid://b60uos7o3ni5u" path="res://Audio/BasicMagicWand.wav" id="33_7k38a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fd4j1"]
 animations = [{
@@ -153,6 +154,11 @@ shape = SubResource("CircleShape2D_h3r1b")
 wait_time = 3.0
 autostart = true
 script = ExtResource("32_qe5dm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("33_7k38a")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

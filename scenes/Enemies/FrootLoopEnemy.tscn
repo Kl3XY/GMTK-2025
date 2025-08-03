@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjqx5yyafrdxx"]
+[gd_scene load_steps=11 format=3 uid="uid://bjqx5yyafrdxx"]
 
 [ext_resource type="PackedScene" uid="uid://pkkydt76etb3" path="res://scenes/Enemies/Enemy.tscn" id="1_sajgg"]
 [ext_resource type="Texture2D" uid="uid://c23obvkdh1w0n" path="res://sprites/froot_loop_basic_enemy.png" id="2_tmucy"]
@@ -46,6 +46,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmucy"]
 radius = 2.5
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bfbc0"]
+
 [node name="CharacterBody2D" instance=ExtResource("1_sajgg")]
 collision_layer = 1
 collision_mask = 1
@@ -60,6 +62,11 @@ autoplay = "default"
 
 [node name="Shadow" parent="." index="4" instance=ExtResource("3_bfbc0")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
-position = Vector2(0, 0.5)
+[node name="Area2D#CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_tmucy")
+
+[node name="Area2D" type="Area2D" parent="." index="6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_bfbc0")

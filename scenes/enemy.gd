@@ -48,21 +48,17 @@ func _on_health_component_health_depleted() -> void:
 
     if DIFFICULTY.difficulty > 200 :
         print("diff")
-        if randi_range(0, 100) < 10:
+        var ran = randi_range(0, 100)
+        print("diff" + str(ran))
+        if randi_range(0, 100) <= 40:
             var inst = XP_ORB.instantiate();
-            inst.position = position;
+            inst.position = global_position;
             inst.xp_amount = 100;
             inst.scale = Vector2(2, 2)
-            get_tree().current_scene.call_deferred("add_child", inst);
+            get_tree().current_scene.add_child(inst);
     else:
         var inst = XP_ORB.instantiate();
         inst.position = position;
-        get_tree().current_scene.call_deferred("add_child", inst);
-        
-    if randi_range(0, 1000) == 1:
-        var inst = GEM.instantiate();
-        inst.position = position;
-        inst.scale = Vector2(1, 1)
         get_tree().current_scene.call_deferred("add_child", inst);
     
     call_deferred("queue_free")
@@ -75,3 +71,8 @@ func _on_health_component_health_changed(Health: float) -> void:
     
     var perc = (health.Health / health.Max_Health) * 100;
     $TextureProgressBar.value = perc;
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+    if body is Player:
+        body.TakeDamage.emit(5)

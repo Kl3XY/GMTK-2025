@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bijoeqe7v55se"]
+[gd_scene load_steps=13 format=3 uid="uid://bijoeqe7v55se"]
 
 [ext_resource type="Script" uid="uid://dqotulldkhpsg" path="res://scenes/caster_loop.gd" id="1_3fv3g"]
 [ext_resource type="Texture2D" uid="uid://ey1j1oj4h5g7" path="res://sprites/caster_loop.png" id="2_it7ue"]
@@ -32,6 +32,8 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3fv3g"]
 
 [node name="CasterLoop" type="CharacterBody2D"]
 script = ExtResource("1_3fv3g")
@@ -70,6 +72,14 @@ Max_Health = 20.0
 wait_time = 0.05
 one_shot = true
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3fv3g")
+
 [connection signal="TookDamage" from="." to="." method="_on_took_damage"]
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

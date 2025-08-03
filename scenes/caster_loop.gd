@@ -53,3 +53,8 @@ func _on_health_component_health_changed(Health: float) -> void:
     
     var perc = (health.Health / health.Max_Health) * 100;
     $TextureProgressBar.value = perc;
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+    if body is Player:
+        body.TakeDamage.emit(10)

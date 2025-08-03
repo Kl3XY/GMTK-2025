@@ -16,6 +16,7 @@ const DEATH_AOE = preload("res://scenes/Attacks/DeathAOE.tscn")
 var death_anim_state = 0;
 var death_anim_state_2_wait = 100;
 
+var total_time_in_secs: int = 0;
 
 var tookDamage = false;
 signal TakeDamage(damage: int);
@@ -31,9 +32,11 @@ func _ready() -> void:
 
 func _player_physics_process(delta: float):
     if isDead != true:
+        var m = int(total_time_in_secs / 60.0);
+        var s = total_time_in_secs - m * 60;
+        $"UI placeholder/Timer".text = str(m) + ":" + str(s) 
         $"UI placeholder/LevelDisplay".text = "LVL: " + str(Level);
         $"UI placeholder/KillCounter".text = "KILLS: " + str(PLAYER_ENEMIES_KILLED.enemies_killed);
-        $"UI placeholder/GemCounter".text = "GEMS: " + str(PLAYER_COLLECTED_GEMS.gems);
         var direction := Input.get_vector("left", "right", "up", "down")
         if direction != Vector2.ZERO:
             velocity = direction * stats.speed
@@ -108,6 +111,7 @@ func _on_xp_level_up() -> void:
     Engine.time_scale = 0.1;
     
     $"UI placeholder/LevelDisplay".text = "LVL: " + str(Level);
+    health_component.Health += 3;
 
 
 func _on_take_damage(damage: int) -> void:
@@ -129,3 +133,7 @@ func _on_take_damage_area_body_entered(body: Node2D) -> void:
 func _on_alikesupremetimer_timeout() -> void:
     if tookDamage == false:
         A_LIKE_SUPREME.hasUnlocked = true;
+
+
+func _on_timer_2_timeout() -> void:
+    total_time_in_secs += 1;

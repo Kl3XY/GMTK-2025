@@ -1,7 +1,8 @@
-[gd_scene load_steps=204 format=3 uid="uid://0ku4g4bp1alg"]
+[gd_scene load_steps=206 format=3 uid="uid://0ku4g4bp1alg"]
 
 [ext_resource type="Script" uid="uid://dtj4jswu3i1vx" path="res://scenes/Attacks/Necronomicon/necrotic_attack.gd" id="1_up1rw"]
 [ext_resource type="Texture2D" uid="uid://cfss7n2dwgfbd" path="res://sprites/Spells/Necronomicon/necronomicon.png" id="2_up1rw"]
+[ext_resource type="AudioStream" uid="uid://rr0jegtu1t5j" path="res://Audio/Necronomicon.mp3" id="3_xqj2t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xqj2t"]
 atlas = ExtResource("2_up1rw")
@@ -1411,11 +1412,28 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vaegv"]
+radius = 35.6931
+
 [node name="NecroticAttack" type="Node2D"]
 script = ExtResource("1_up1rw")
 metadata/_custom_type_script = "uid://3vqfdlk0rung"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_lgkvi")
 autoplay = "default"
 frame_progress = 0.0864999
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xqj2t")
+autoplay = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vaegv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

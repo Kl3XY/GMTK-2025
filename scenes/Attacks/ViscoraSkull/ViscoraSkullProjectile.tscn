@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b2cv10qqjn8w6"]
+[gd_scene load_steps=36 format=3 uid="uid://b2cv10qqjn8w6"]
 
 [ext_resource type="Script" uid="uid://brsun4ol3oeyk" path="res://scenes/Attacks/ViscoraSkull/viscora_skull_projectile.gd" id="1_r2ldr"]
 [ext_resource type="Texture2D" uid="uid://jfoq2gkx4ww6" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_0.png" id="2_r2ldr"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://2ppyfrbypdew" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_28.png" id="30_wmorx"]
 [ext_resource type="Texture2D" uid="uid://c7gqv3h5xf5lf" path="res://sprites/Spells/ViscoraSkull/viscoraskull.png_29.png" id="31_ccj7s"]
 [ext_resource type="Script" uid="uid://8ch0h7waxjcw" path="res://scenes/Attacks/ViscoraSkull/timer.gd" id="32_f3prs"]
+[ext_resource type="AudioStream" uid="uid://cjnx8fik3ckt5" path="res://Audio/ViscoraSkull.mp3" id="33_qytjg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q8hxs"]
 animations = [{
@@ -154,6 +155,10 @@ shape = SubResource("CircleShape2D_r2ldr")
 wait_time = 6.0
 autostart = true
 script = ExtResource("32_f3prs")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("33_qytjg")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
