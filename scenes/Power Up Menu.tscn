@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://br17kshn6mq2a"]
+[gd_scene load_steps=4 format=3 uid="uid://br17kshn6mq2a"]
 
 [ext_resource type="Script" uid="uid://dpnxfkf5al8rp" path="res://scenes/power_up_menu.gd" id="1_f61ti"]
 [ext_resource type="Script" uid="uid://dxsphsfxe3o2y" path="res://scenes/grid_container.gd" id="1_mhgpg"]
 [ext_resource type="PackedScene" uid="uid://b5mnl1v2conri" path="res://scenes/UI/PowerupSelection.tscn" id="2_ualev"]
-[ext_resource type="Resource" uid="uid://cwboius7na817" path="res://Powerups/resources/Manager/GenericPowerups.tres" id="3_mhgpg"]
 
 [node name="PowerUpMenu" type="Control"]
 layout_mode = 3
@@ -13,7 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f61ti")
-chosenPowerUpPool = ExtResource("3_mhgpg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -43,12 +41,9 @@ script = ExtResource("1_mhgpg")
 
 [node name="PowerupSelection" parent="CanvasLayer/ColorRect/GridContainer" instance=ExtResource("2_ualev")]
 layout_mode = 2
-PowerUpManager = ExtResource("3_mhgpg")
 
 [node name="PowerupSelection2" parent="CanvasLayer/ColorRect/GridContainer" instance=ExtResource("2_ualev")]
 layout_mode = 2
-PowerUpManager = ExtResource("3_mhgpg")
 
 [node name="PowerupSelection3" parent="CanvasLayer/ColorRect/GridContainer" instance=ExtResource("2_ualev")]
 layout_mode = 2
-PowerUpManager = ExtResource("3_mhgpg")

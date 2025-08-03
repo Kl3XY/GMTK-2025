@@ -2,9 +2,13 @@ extends Path2D
 
 @export var enemies: Array[SceneWeight]
 var DIFFICULTY = preload("res://Difficulty/difficulty.tres")
+var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources/player_enemies_killed.tres")
+var lastKilled = 0;
+var threshholdtospawnboss = 1000;
 var rng = RandomNumberGenerator.new();
 
 var enemyList: Array[Node2D] = [];
+var player;
 
 func preload_enemy_list(amount: int):
     print("PRELOADING ENEMIES");
@@ -17,6 +21,7 @@ func retrieve_enemy() -> Node2D:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     randomize()  
+    player = get_tree().get_first_node_in_group("player");
 
 func get_enemy() -> PackedScene:
     rng.randomize();
@@ -37,28 +42,52 @@ func get_enemy() -> PackedScene:
         chosen_weight -= entry.weight;
     
     return null;
-
+    
+const BOOP_THE_MAGIC_LOOP = preload("res://scenes/Enemies/Boop/boop_the_magic_loop.tscn")
 
 func _on_difficulty_increaser_timeout() -> void:
     DIFFICULTY.difficulty += 1;
 
 func _on_spawn_timer_timeout() -> void:
-    if enemyList.is_empty():
-        preload_enemy_list(5000);
-    
-    $SpawnTimer.wait_time = max(2 - DIFFICULTY.difficulty / 100, 0.001);
-    $SpawnTimer.start()
+    if player.isDead != true:
+        if enemyList.is_empty():
+            preload_enemy_list(5000);
+        
+        print(PLAYER_ENEMIES_KILLED.enemies_killed - lastKilled)
+        
+        if PLAYER_ENEMIES_KILLED.enemies_killed - lastKilled > threshholdtospawnboss:
+            threshholdtospawnboss -= 50;
+            threshholdtospawnboss = max(threshholdtospawnboss, 50);
+            lastKilled = PLAYER_ENEMIES_KILLED.enemies_killed;
+            if get_tree().get_node_count_in_group("bosses") == 0:
+                var point: Vector2 = self.curve.samplef(randf() * 4) + get_parent().position
+                
+                var enemy: Node2D = BOOP_THE_MAGIC_LOOP.instantiate();
+                
+                enemy.difficulty = DIFFICULTY.difficulty;
+            
+                enemy.position = point
 
-    var point: Vector2 = self.curve.samplef(randf() * 4) + get_parent().position
-    
-    var enemy: Node2D = retrieve_enemy();
+                enemy.add_to_group("enemies")
+                enemy.add_to_group("bosses")
 
-    enemy.difficulty = DIFFICULTY.difficulty;
-    
-    enemy.position = point
+                get_parent().get_parent().add_child(
+                    enemy
+                )
+        
+        $SpawnTimer.wait_time = max(2 - DIFFICULTY.difficulty / 100, 0.001);
+        $SpawnTimer.start()
 
-    enemy.add_to_group("enemies")
+        var point: Vector2 = self.curve.samplef(randf() * 4) + get_parent().position
+        
+        var enemy: Node2D = retrieve_enemy();
 
-    get_parent().get_parent().add_child(
-        enemy
-    )
+        enemy.difficulty = DIFFICULTY.difficulty;
+        
+        enemy.position = point
+
+        enemy.add_to_group("enemies")
+
+        get_parent().get_parent().add_child(
+            enemy
+        )

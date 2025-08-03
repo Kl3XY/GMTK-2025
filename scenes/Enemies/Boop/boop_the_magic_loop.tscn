@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://vtqit3iftm7c"]
+
+[ext_resource type="PackedScene" uid="uid://pkkydt76etb3" path="res://scenes/Enemies/Enemy.tscn" id="1_g34c3"]
+[ext_resource type="Script" uid="uid://brdq3a6s5i8kr" path="res://scenes/Enemies/Boop/boop_the_magic_loop.gd" id="2_5e0l2"]
+[ext_resource type="Script" uid="uid://krj3cmval3tk" path="res://scenes/Enemies/Boop/area_2d.gd" id="2_s5nm5"]
+[ext_resource type="Texture2D" uid="uid://mc8tx0o1g58b" path="res://sprites/boop_the_magic_loop.png" id="3_n4o5m"]
+[ext_resource type="FontFile" uid="uid://coq1aojhddgk0" path="res://fonts/cc.yal.6w4.ttf" id="4_s5nm5"]
+[ext_resource type="Texture2D" uid="uid://bep07t61eny41" path="res://sprites/UI/XPBar3.png" id="5_1fohn"]
+[ext_resource type="Texture2D" uid="uid://bmhdif75e7pam" path="res://sprites/UI/HPBar.png" id="6_1fohn"]
+[ext_resource type="Script" uid="uid://ymahyhv170sh" path="res://scenes/Enemies/Boop/texture_progress_bar.gd" id="7_xepcd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xepcd"]
+radius = 19.2354
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ybuw2"]
+radius = 30.82
+
+[sub_resource type="LabelSettings" id="LabelSettings_n4o5m"]
+font = ExtResource("4_s5nm5")
+font_size = 64
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CharacterBody2D" instance=ExtResource("1_g34c3")]
+collision_layer = 1
+collision_mask = 1
+platform_floor_layers = 4294967042
+platform_wall_layers = 2
+script = ExtResource("2_5e0l2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_xepcd")
+
+[node name="HealthComponent" parent="." index="2"]
+Health = 500.0
+Max_Health = 500.0
+
+[node name="Area2D" parent="." index="4"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_s5nm5")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_ybuw2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="5"]
+texture_filter = 3
+texture = ExtResource("3_n4o5m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="6"]
+
+[node name="Label" type="Label" parent="CanvasLayer" index="0"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 29.0
+offset_right = 194.0
+offset_bottom = 65.0
+grow_horizontal = 2
+text = "BOOP THE BIG LOOP"
+label_settings = SubResource("LabelSettings_n4o5m")
+horizontal_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" index="1"]
+texture_filter = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 82.0
+offset_right = 203.0
+offset_bottom = 90.0
+grow_horizontal = 2
+scale = Vector2(1, 9.245)
+size_flags_horizontal = 3
+value = 12.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_1fohn")
+texture_progress = ExtResource("6_1fohn")
+script = ExtResource("7_xepcd")
+
+[connection signal="health_changed" from="HealthComponent" to="CanvasLayer/TextureProgressBar" method="_on_health_component_health_changed"]

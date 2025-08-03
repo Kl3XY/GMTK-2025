@@ -8,7 +8,6 @@ func _ready():
         _b.PowerUpManager = power_up_menu.chosenPowerUpPool;
         _b.get_node("Button").pressed.connect(select_skill)
 
-
 func select_skill():
     $"../../..".queue_free();
     Engine.time_scale = 1.0;

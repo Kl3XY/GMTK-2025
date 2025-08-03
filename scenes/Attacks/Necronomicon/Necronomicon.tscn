@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://xhcfi28vt1m2"]
+
+[ext_resource type="Script" uid="uid://b3lw4jhclbg8y" path="res://scenes/Attacks/Necronomicon/necronomicon.gd" id="1_asdxx"]
+[ext_resource type="Texture2D" uid="uid://dly1p5fjsaepa" path="res://sprites/necronomicon.png" id="2_asdxx"]
+
+[node name="Necronomicon" type="Node2D"]
+script = ExtResource("1_asdxx")
+metadata/_custom_type_script = "uid://de3mwsdxj70po"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("2_asdxx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

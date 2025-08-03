@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://doubo5o51egxx"]
+
+[ext_resource type="Script" uid="uid://dqwsw0sphyedy" path="res://Achievements/Achievement.gd" id="1_sw8vi"]
+
+[resource]
+script = ExtResource("1_sw8vi")
+name = "Oooh shiny!"
+short_desc = "Find your first gem!"
+hasUnlocked = false
+metadata/_custom_type_script = "uid://dqwsw0sphyedy"

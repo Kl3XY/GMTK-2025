@@ -1,6 +1,6 @@
 extends Control
 
-@export var PowerUpManager: PowerupManager;
+var PowerUpManager: PowerupManager = preload("res://Powerups/resources/Manager/GenericPowerups.tres")
 var PowerUp: Powerup;
 
 func _ready():

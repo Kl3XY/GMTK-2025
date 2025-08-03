@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player;
 
+var isDead = false;
 var Level = 1;
 var DIFFICULTY = preload("res://Difficulty/difficulty.tres")
 var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources/player_enemies_killed.tres")
@@ -11,6 +12,10 @@ var A_LIKE_SUPREME = preload("res://Achievements/Achievements/a_like_supreme.tre
 @export var stats: PlayerStats;
 @onready var sprite = $AnimatedSprite2D
 @onready var attacks = $Attacks
+const DEATH_AOE = preload("res://scenes/Attacks/DeathAOE.tscn")
+var death_anim_state = 0;
+var death_anim_state_2_wait = 100;
+
 
 var tookDamage = false;
 signal TakeDamage(damage: int);
@@ -25,32 +30,57 @@ func _ready() -> void:
     self.global_position = get_tree().get_first_node_in_group("world").player_spawn_pos()
 
 func _player_physics_process(delta: float):
-    $"UI placeholder/LevelDisplay".text = "LVL: " + str(Level);
-    $"UI placeholder/KillCounter".text = "KILLS: " + str(PLAYER_ENEMIES_KILLED.enemies_killed);
-    $"UI placeholder/GemCounter".text = "GEMS: " + str(PLAYER_COLLECTED_GEMS.gems);
-    var direction := Input.get_vector("left", "right", "up", "down")
-    if direction != Vector2.ZERO:
-        velocity = direction * stats.speed
-        sprite.play(self.get_animation())
-    else:
-        velocity = velocity.move_toward(Vector2.ZERO, stats.speed)
-        sprite.stop()
-
-    if velocity.x != 0:
-        sprite.flip_h = velocity.x > 0
-
-    move_and_slide()
-    
-    for n in $Attacks.get_children():
-        n.playerStats = stats;
-    
-    if Input.is_action_just_pressed("Toggle Pause Menu"):
-        if $"Pause Menu".visible == false:
-            $"Pause Menu".show();
-            Engine.time_scale = 0.00001;
+    if isDead != true:
+        $"UI placeholder/LevelDisplay".text = "LVL: " + str(Level);
+        $"UI placeholder/KillCounter".text = "KILLS: " + str(PLAYER_ENEMIES_KILLED.enemies_killed);
+        $"UI placeholder/GemCounter".text = "GEMS: " + str(PLAYER_COLLECTED_GEMS.gems);
+        var direction := Input.get_vector("left", "right", "up", "down")
+        if direction != Vector2.ZERO:
+            velocity = direction * stats.speed
+            sprite.play(self.get_animation())
         else:
-            $"Pause Menu".hide();
-            Engine.time_scale = 1.0;
+            velocity = velocity.move_toward(Vector2.ZERO, stats.speed)
+            sprite.stop()
+
+        if velocity.x != 0:
+            sprite.flip_h = velocity.x > 0
+
+        move_and_slide()
+        
+        for n in $Attacks.get_children():
+            n.playerStats = stats;
+        
+        if Input.is_action_just_pressed("Toggle Pause Menu"):
+            if $"Pause Menu".visible == false:
+                $"Pause Menu".show();
+                Engine.time_scale = 0.00001;
+            else:
+                $"Pause Menu".hide();
+                Engine.time_scale = 1.0;
+    else:
+        match death_anim_state:
+            0:
+                if is_instance_valid(attacks):
+                    attacks.queue_free();
+                Engine.time_scale = lerp(Engine.time_scale, 0.2, 4.0 * delta);
+                $Camera2D.zoom = lerp($Camera2D.zoom, Vector2(6.0, 6.0), 4.0 * delta);
+                if Engine.time_scale <= 0.3:
+                    death_anim_state = 1;
+            1:
+                Engine.time_scale = lerp(Engine.time_scale, 1.0, 8.0 * delta);
+                $Camera2D.zoom = lerp($Camera2D.zoom, Vector2(3.0, 3.0), 25.0 * delta);
+                var aoe = DEATH_AOE.instantiate();
+                aoe.position = global_position;
+                get_tree().current_scene.add_child(aoe);
+                if get_tree().get_node_count_in_group("enemies") < 10:
+                    if death_anim_state_2_wait <= 0:
+                        death_anim_state = 2;
+                    else:
+                        death_anim_state_2_wait -= 50 * delta;
+                    
+            2:
+                $DeathScreen.visible = true;
+        
 
 func _process(delta: float) -> void:
     _player_physics_process(delta)
@@ -59,8 +89,7 @@ func _on_health_component_health_changed(Health: float) -> void:
     $HealthBar.value = Health;
 
 func _on_health_component_health_depleted() -> void:
-    $DeathScreen.visible = true;
-    Engine.time_scale = 0.0;
+    isDead = true;
 
 
 func _on_xp_xp_change(xp: float) -> void:

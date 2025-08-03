@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5vdabjo37q00"]
+
+[ext_resource type="Texture2D" uid="uid://hlorn0qbabxg" path="res://sprites/window_rect.png" id="1_r3kl7"]
+[ext_resource type="Texture2D" uid="uid://dly1p5fjsaepa" path="res://sprites/necronomicon.png" id="2_b3pg5"]
+[ext_resource type="Script" uid="uid://bdj5uyhr2oshh" path="res://scenes/shop_button.gd" id="2_v4l3c"]
+[ext_resource type="FontFile" uid="uid://coq1aojhddgk0" path="res://fonts/cc.yal.6w4.ttf" id="2_yojg0"]
+[ext_resource type="Texture2D" uid="uid://iv1xad0pis8f" path="res://sprites/Gems/spr_gem1.png" id="4_v5w21"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yojg0"]
+texture = ExtResource("1_r3kl7")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_b3pg5"]
+font = ExtResource("2_yojg0")
+font_size = 8
+
+[node name="Button" type="Button"]
+texture_filter = 3
+custom_minimum_size = Vector2(50, 32)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_yojg0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_yojg0")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yojg0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_yojg0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_yojg0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_yojg0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yojg0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_yojg0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yojg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_yojg0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yojg0")
+script = ExtResource("2_v4l3c")
+
+[node name="Item Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.5
+offset_top = -10.0
+offset_right = 5.5
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_b3pg5")
+
+[node name="Item Name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 20.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Necronomicon"
+label_settings = SubResource("LabelSettings_b3pg5")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Gem" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = 9.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "9999999x"
+label_settings = SubResource("LabelSettings_b3pg5")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Gem Icon" type="TextureRect" parent="Gem"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 11.5
+offset_top = -1.5
+offset_right = 15.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_v5w21")
+expand_mode = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

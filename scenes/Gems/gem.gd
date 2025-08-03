@@ -5,7 +5,7 @@ var follow_player = false;
 var player;
 var speed = 30;
 var xp_amount = 10;
-
+var GET_GEM = preload("res://Achievements/Achievements/get_gem.tres")
 var PLAYER_COLLECTED_GEMS = preload("res://Statistics/Statistics/Stats/Resources/player_collected_gems.tres")
 
 func _ready() -> void:
@@ -26,6 +26,7 @@ func _gem_orb_process(delta: float):
 func _on_player_collision_body_entered(body: Node2D) -> void:
     if body is Player:
         PLAYER_COLLECTED_GEMS.gems += 1;
+        GET_GEM.hasUnlocked = true;
         call_deferred("queue_free");
 
 

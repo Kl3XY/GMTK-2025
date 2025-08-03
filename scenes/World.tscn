@@ -260,7 +260,7 @@ scene = ExtResource("9_pdh0q")
 weight = 200
 metadata/_custom_type_script = "uid://br0ejtaket4j1"
 
-[node name="World" type="Node2D" groups=["damage_numbers", "world"]]
+[node name="World" type="Node2D" groups=["world"]]
 texture_filter = 1
 script = ExtResource("1_1lgw5")
 noise = SubResource("FastNoiseLite_1lgw5")

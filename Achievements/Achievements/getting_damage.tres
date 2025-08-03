@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_ujtq8")
-name = "A LIKE SUPREME"
-short_desc = "Survive a total 30 minutes without getting hit."
+name = "Getting There"
+short_desc = "Deal 100 damage with one attack"
 hasUnlocked = false
 metadata/_custom_type_script = "uid://dqwsw0sphyedy"

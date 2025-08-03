@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AchievementManager" load_steps=10 format=3 uid="uid://coprreqrxdxs7"]
+[gd_resource type="Resource" script_class="AchievementManager" load_steps=12 format=3 uid="uid://coprreqrxdxs7"]
 
 [ext_resource type="Script" uid="uid://dqwsw0sphyedy" path="res://Achievements/Achievement.gd" id="1_p0s7g"]
 [ext_resource type="Script" uid="uid://0o7py748j3jw" path="res://Achievements/AchievementManager.gd" id="2_1apsb"]
@@ -9,8 +9,10 @@
 [ext_resource type="Resource" uid="uid://c4dw2abpcyv5m" path="res://Achievements/Achievements/a_like_supreme.tres" id="6_0f38a"]
 [ext_resource type="Resource" uid="uid://38fbebxlypxy" path="res://Achievements/Achievements/getting_damage.tres" id="7_tnqpd"]
 [ext_resource type="Resource" uid="uid://jql1gf2vt5i2" path="res://Achievements/Achievements/supreme_damage.tres" id="8_t22oy"]
+[ext_resource type="Resource" uid="uid://doubo5o51egxx" path="res://Achievements/Achievements/get_gem.tres" id="9_06k23"]
+[ext_resource type="Resource" uid="uid://bp0h6qdq4uats" path="res://Achievements/Achievements/shop.tres" id="10_cqvf7"]
 
 [resource]
 script = ExtResource("2_1apsb")
-Achievements = Array[ExtResource("1_p0s7g")]([ExtResource("2_hvm6r"), ExtResource("3_0f38a"), ExtResource("4_bdlgy"), ExtResource("5_tnqpd"), ExtResource("6_0f38a"), ExtResource("7_tnqpd"), ExtResource("8_t22oy")])
+Achievements = Array[ExtResource("1_p0s7g")]([ExtResource("2_hvm6r"), ExtResource("3_0f38a"), ExtResource("4_bdlgy"), ExtResource("5_tnqpd"), ExtResource("6_0f38a"), ExtResource("7_tnqpd"), ExtResource("8_t22oy"), ExtResource("9_06k23"), ExtResource("10_cqvf7")])
 metadata/_custom_type_script = "uid://0o7py748j3jw"
