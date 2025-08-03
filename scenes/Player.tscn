@@ -638,7 +638,6 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("28_1jpwa")
 
 [node name="DeathScreen" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("35_qmt83")
 
 [node name="ColorRect" type="ColorRect" parent="DeathScreen"]
@@ -704,6 +703,8 @@ offset_right = 101.5
 offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_p7iby")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_qrixf")
 text = "Return to the Main Menu"
 
