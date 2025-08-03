@@ -126,7 +126,7 @@ func _on_take_damage(damage: int) -> void:
 
 func _on_take_damage_area_body_entered(body: Node2D) -> void:
     if body is Enemy:
-        TakeDamage.emit(5, body)
+        TakeDamage.emit(5)
 
 
 func _on_alikesupremetimer_timeout() -> void:

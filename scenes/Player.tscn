@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=60 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://deo7ghxynwka8" path="res://scripts/attacks.gd" id="8_d3wef"]
 [ext_resource type="Texture2D" uid="uid://bgohh64k8m0oi" path="res://sprites/UI/XPBar2.png" id="9_6eyey"]
 [ext_resource type="Texture2D" uid="uid://douc2v4urovg5" path="res://sprites/mage_loading.png" id="10_lkdrv"]
-[ext_resource type="PackedScene" uid="uid://c1inoc54un6wi" path="res://scenes/Attacks/Blooded Sword/Blooded Sword.tscn" id="11_agngo"]
 [ext_resource type="Script" uid="uid://6cxn1jgjg6fg" path="res://scenes/to_dark_player.gd" id="11_o4126"]
 [ext_resource type="Texture2D" uid="uid://y87mbqnh4gn7" path="res://sprites/UI/PlayerHealthBar3.png" id="11_qrixf"]
 [ext_resource type="Texture2D" uid="uid://bh7owf4a8533c" path="res://sprites/UI/PlayerHealthBar1.png" id="12_qmt83"]
@@ -33,7 +32,7 @@
 [ext_resource type="Script" uid="uid://cfo1k30j1ejg" path="res://scenes/exit.gd" id="26_hxdpb"]
 [ext_resource type="Script" uid="uid://chpnfy51y8p1m" path="res://scenes/to_dark_pause.gd" id="28_1jpwa"]
 [ext_resource type="Script" uid="uid://oawkxohj2rtk" path="res://scenes/hurt_flash.gd" id="31_hxdpb"]
-[ext_resource type="Script" path="res://scenes/death_screen.gd" id="35_qmt83"]
+[ext_resource type="Script" uid="uid://71vrffsu4elo" path="res://scenes/death_screen.gd" id="35_qmt83"]
 
 [sub_resource type="Resource" id="Resource_m4as6"]
 script = ExtResource("2_fvsjc")
@@ -226,8 +225,6 @@ Max_XP = 30.0
 script = ExtResource("8_d3wef")
 
 [node name="BasicMageWand" parent="Attacks" instance=ExtResource("6_70d11")]
-
-[node name="Blooded Sword" parent="Attacks" instance=ExtResource("11_agngo")]
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 z_index = 128

@@ -55,7 +55,7 @@ func _on_health_component_health_depleted() -> void:
             inst.position = global_position;
             inst.xp_amount = 100;
             inst.scale = Vector2(2, 2)
-            get_tree().current_scene.add_child(inst);
+            get_tree().current_scene.call_deferred("add_child", inst);
     else:
         var inst = XP_ORB.instantiate();
         inst.position = position;

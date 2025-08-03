@@ -1,9 +1,120 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5mnl1v2conri"]
+[gd_scene load_steps=38 format=3 uid="uid://b5mnl1v2conri"]
 
 [ext_resource type="FontFile" uid="uid://coq1aojhddgk0" path="res://fonts/cc.yal.6w4.ttf" id="1_adncq"]
 [ext_resource type="Script" uid="uid://be6lolbqvx156" path="res://scenes/UI/powerup_selection.gd" id="1_wvq7g"]
+[ext_resource type="Script" path="res://Powerups/resources/PowerupWeight.gd" id="2_rx1ga"]
 [ext_resource type="Texture2D" uid="uid://hlorn0qbabxg" path="res://sprites/window_rect.png" id="2_wvq7g"]
-[ext_resource type="Texture2D" uid="uid://codt7cxttt1so" path="res://sprites/golden_wand.png" id="4_pf0hw"]
+[ext_resource type="Resource" uid="uid://dg5e6tx5aecc6" path="res://Powerups/resources/SmallAttackBoost.tres" id="3_clrib"]
+[ext_resource type="Resource" uid="uid://tyr5n35rr3mf" path="res://Powerups/resources/SmallSpeedBoost.tres" id="4_e1eg4"]
+[ext_resource type="Resource" uid="uid://c1e7v72yxcpmc" path="res://Powerups/resources/MediumAttackBoost.tres" id="5_3hl5j"]
+[ext_resource type="Resource" uid="uid://uomq6lrgkyrf" path="res://Powerups/resources/MediumAttackSpeedBoost.tres" id="6_v1pjn"]
+[ext_resource type="Resource" uid="uid://cxj4jvip1oewg" path="res://Powerups/resources/MediumSpeedBoost.tres" id="7_gti38"]
+[ext_resource type="Resource" uid="uid://de0r0w0c5xd5u" path="res://Powerups/resources/LargeAttackBoost.tres" id="8_cae6e"]
+[ext_resource type="Resource" uid="uid://dhsqmmjska3ww" path="res://Powerups/resources/LargeAttackSpeedBoost.tres" id="9_0nu04"]
+[ext_resource type="Resource" uid="uid://wbjg1si4q6kv" path="res://Powerups/resources/LargeSpeedBoost.tres" id="10_xsmqa"]
+[ext_resource type="Resource" uid="uid://m0imadxohhak" path="res://Powerups/resources/MilkFirstInTheBowl.tres" id="11_rbk1v"]
+[ext_resource type="Resource" uid="uid://g66iig33nd8c" path="res://Powerups/resources/Tank Stance.tres" id="12_akrkh"]
+[ext_resource type="Resource" uid="uid://cx1mk5j3sorm0" path="res://Powerups/resources/AmuletOfAsira.tres" id="13_si5bd"]
+[ext_resource type="Resource" uid="uid://bdvojb2nfi8qa" path="res://Powerups/resources/ViscoraSkull.tres" id="14_g5fuy"]
+[ext_resource type="Resource" uid="uid://cyt28ihgkgdq1" path="res://Powerups/resources/BasicMageWand.tres" id="15_5v0ri"]
+[ext_resource type="Resource" uid="uid://cwbwtjtv17w1s" path="res://Powerups/resources/gluttony.tres" id="16_g4qga"]
+[ext_resource type="Resource" uid="uid://qw6eigetbskv" path="res://Powerups/resources/Necronomicon.tres" id="17_d5ahu"]
+[ext_resource type="Script" path="res://Powerups/resources/Manager/PowerupManager.gd" id="18_yuxrn"]
+
+[sub_resource type="Resource" id="Resource_k8e15"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("3_clrib")
+weight = 999.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_f4448"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("4_e1eg4")
+weight = 970.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_nm4bb"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("5_3hl5j")
+weight = 540.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_kk77y"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("6_v1pjn")
+weight = 500.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_auf08"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("7_gti38")
+weight = 480.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_bxnss"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("8_cae6e")
+weight = 230.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_omspw"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("9_0nu04")
+weight = 200.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_3itbl"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("10_xsmqa")
+weight = 150.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_gf8vy"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("11_rbk1v")
+weight = 90.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_ahktd"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("12_akrkh")
+weight = 80.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_23w4d"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("13_si5bd")
+weight = 270.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_lb25e"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("14_g5fuy")
+weight = 260.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_36eyq"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("15_5v0ri")
+weight = 250.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_28wl2"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("16_g4qga")
+weight = 750.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_6xgj4"]
+script = ExtResource("2_rx1ga")
+powerup = ExtResource("17_d5ahu")
+weight = 50.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_feuys"]
+script = ExtResource("18_yuxrn")
+PowerupWeights = Array[ExtResource("2_rx1ga")]([SubResource("Resource_k8e15"), SubResource("Resource_f4448"), SubResource("Resource_nm4bb"), SubResource("Resource_kk77y"), SubResource("Resource_auf08"), SubResource("Resource_bxnss"), SubResource("Resource_omspw"), SubResource("Resource_3itbl"), SubResource("Resource_gf8vy"), SubResource("Resource_ahktd"), SubResource("Resource_23w4d"), SubResource("Resource_lb25e"), SubResource("Resource_36eyq"), SubResource("Resource_28wl2"), SubResource("Resource_6xgj4")])
+metadata/_custom_type_script = "uid://bxd82dt7p3gce"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pf0hw"]
 texture = ExtResource("2_wvq7g")
@@ -22,6 +133,7 @@ offset_bottom = 122.848
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wvq7g")
+manager = SubResource("Resource_feuys")
 
 [node name="Button" type="Button" parent="."]
 texture_filter = 3
