@@ -60,7 +60,7 @@ func _on_health_component_health_depleted() -> void:
         inst.xp_amount = 100;
         get_tree().current_scene.call_deferred("add_child", inst);
         
-    if randi_range(0, 1000) == 1 or randi_range(0, 1000) == 2 or randi_range(0, 1000) == 3:
+    if randi_range(0, 1000) <= 20:
         var inst = GEM.instantiate();
         inst.position = position;
         inst.scale = Vector2(1, 1)

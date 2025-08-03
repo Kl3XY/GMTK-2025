@@ -8,7 +8,7 @@ signal TookDamage(damage: int, damage_from: CharacterBody2D)
 var PLAYER_ENEMIES_KILLED = preload("res://Statistics/Statistics/Stats/Resources/player_enemies_killed.tres")
 
 var CASTERLOOP_PROJ = preload("res://scenes/casterloopProj.tscn")
-
+const GEM = preload("res://scenes/Gems/Gem.tscn")
 func _process(delta: float) -> void:
     _caster_loop_process(delta);
 
@@ -39,6 +39,11 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
         if damage_from != null:
             position += damage_from.position.direction_to(global_position) * 15
         $Timer.start();
+    
+    if randi_range(0, 1000) <= 20:
+        var inst = GEM.instantiate();
+        inst.position = global_position;
+        get_tree().current_scene.add_child(inst);
 
 func _on_health_component_health_depleted() -> void:
     PLAYER_ENEMIES_KILLED.enemies_killed += 1;
