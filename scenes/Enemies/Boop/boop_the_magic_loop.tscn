@@ -68,4 +68,5 @@ texture_under = ExtResource("5_1fohn")
 texture_progress = ExtResource("6_1fohn")
 script = ExtResource("7_xepcd")
 
+[connection signal="TookDamage" from="." to="." method="_on_took_damage"]
 [connection signal="health_changed" from="HealthComponent" to="CanvasLayer/TextureProgressBar" method="_on_health_component_health_changed"]

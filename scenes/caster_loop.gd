@@ -40,7 +40,7 @@ func _on_took_damage(damage: int, damage_from: CharacterBody2D) -> void:
             position += damage_from.position.direction_to(global_position) * 15
         $Timer.start();
     
-    if randi_range(0, 1000) <= 20:
+    if randi_range(0, 1000) <= 5:
         var inst = GEM.instantiate();
         inst.position = global_position;
         get_tree().current_scene.add_child(inst);
