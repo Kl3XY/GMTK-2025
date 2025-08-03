@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://xhcfi28vt1m2"]
+[gd_scene load_steps=4 format=3 uid="uid://xhcfi28vt1m2"]
 
 [ext_resource type="Script" uid="uid://b3lw4jhclbg8y" path="res://scenes/Attacks/Necronomicon/necronomicon.gd" id="1_asdxx"]
 [ext_resource type="Texture2D" uid="uid://dly1p5fjsaepa" path="res://sprites/necronomicon.png" id="2_asdxx"]
+[ext_resource type="PackedScene" uid="uid://lggam6luofdi" path="res://scenes/Shadow.tscn" id="3_c4085"]
 
 [node name="Necronomicon" type="Node2D"]
 script = ExtResource("1_asdxx")
@@ -14,5 +15,9 @@ texture = ExtResource("2_asdxx")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="Shadow" parent="." instance=ExtResource("3_c4085")]
+texture_filter = 3
+position = Vector2(0, 2)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

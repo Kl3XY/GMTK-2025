@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhwslc41s7t3r"]
+[gd_scene load_steps=4 format=3 uid="uid://bhwslc41s7t3r"]
 
 [ext_resource type="Script" uid="uid://b1raou2vxjka" path="res://scenes/Attacks/Amulet Of Asira/amulet_of_asira.gd" id="1_qq7tn"]
 [ext_resource type="Texture2D" uid="uid://cqbv64nxvxo8i" path="res://sprites/amulet_of_asira.png" id="2_qq7tn"]
+[ext_resource type="PackedScene" uid="uid://lggam6luofdi" path="res://scenes/Shadow.tscn" id="3_vua8m"]
 
 [node name="AmuletOfAsira" type="Node2D"]
 script = ExtResource("1_qq7tn")
@@ -14,5 +15,9 @@ texture = ExtResource("2_qq7tn")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="Shadow" parent="." instance=ExtResource("3_vua8m")]
+texture_filter = 3
+position = Vector2(0, 2)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

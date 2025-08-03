@@ -11,7 +11,6 @@ var enemyList: Array[Node2D] = [];
 var player;
 
 func preload_enemy_list(amount: int):
-    print("PRELOADING ENEMIES");
     for n in range(amount):
         enemyList.append(get_enemy().instantiate())
 
@@ -52,9 +51,7 @@ func _on_spawn_timer_timeout() -> void:
     if player.isDead != true:
         if enemyList.is_empty():
             preload_enemy_list(5000);
-        
-        print(PLAYER_ENEMIES_KILLED.enemies_killed - lastKilled)
-        
+
         if PLAYER_ENEMIES_KILLED.enemies_killed - lastKilled > threshholdtospawnboss:
             lastKilled = PLAYER_ENEMIES_KILLED.enemies_killed;
             if get_tree().get_node_count_in_group("bosses") == 0:
@@ -77,8 +74,6 @@ func _on_spawn_timer_timeout() -> void:
         var reduction = log(1 + DIFFICULTY.difficulty) / 3.42
         $SpawnTimer.wait_time = max(base_time - reduction, 0.001)
         $SpawnTimer.start()
-
-        print($SpawnTimer.wait_time)
 
         var point: Vector2 = self.curve.samplef(randf() * 4) + get_parent().position
         
