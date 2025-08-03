@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PowerupManager" load_steps=33 format=3 uid="uid://cb2e0mk32t5b"]
 
-[ext_resource type="Script" path="res://Powerups/resources/PowerupWeight.gd" id="1_qrfne"]
+[ext_resource type="Script" uid="uid://c12sehdu0ojt6" path="res://Powerups/resources/PowerupWeight.gd" id="1_qrfne"]
 [ext_resource type="Resource" uid="uid://dg5e6tx5aecc6" path="res://Powerups/resources/SmallAttackBoost.tres" id="2_jn3rt"]
 [ext_resource type="Resource" uid="uid://tyr5n35rr3mf" path="res://Powerups/resources/SmallSpeedBoost.tres" id="3_ip81g"]
 [ext_resource type="Resource" uid="uid://c1e7v72yxcpmc" path="res://Powerups/resources/MediumAttackBoost.tres" id="4_jh0gx"]
@@ -16,7 +16,7 @@
 [ext_resource type="Resource" uid="uid://cyt28ihgkgdq1" path="res://Powerups/resources/BasicMageWand.tres" id="14_6o1f4"]
 [ext_resource type="Resource" uid="uid://cwbwtjtv17w1s" path="res://Powerups/resources/gluttony.tres" id="15_sxni3"]
 [ext_resource type="Resource" uid="uid://qw6eigetbskv" path="res://Powerups/resources/Necronomicon.tres" id="16_gn8oo"]
-[ext_resource type="Script" path="res://Powerups/resources/Manager/PowerupManager.gd" id="17_wjy2s"]
+[ext_resource type="Script" uid="uid://bxd82dt7p3gce" path="res://Powerups/resources/Manager/PowerupManager.gd" id="17_wjy2s"]
 
 [sub_resource type="Resource" id="Resource_k8e15"]
 script = ExtResource("1_qrfne")
