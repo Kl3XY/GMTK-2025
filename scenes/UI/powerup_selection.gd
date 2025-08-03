@@ -1,6 +1,6 @@
 extends Control
 
-var PowerUpManager: PowerupManager = preload("res://Powerups/resources/Manager/GenericPowerups.tres")
+var PowerUpManager: PowerupManager = preload("res://Powerups/resources/Manager/StandardPool.tres")
 var PowerUp: Powerup;
 
 func _ready():

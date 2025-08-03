@@ -1,5 +1,5 @@
 extends Resource
-class_name PowerUpWeight;
+class_name PowerupWeight
 
 @export var powerup: Powerup;
 @export var weight: float;

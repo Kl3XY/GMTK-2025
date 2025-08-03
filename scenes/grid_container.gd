@@ -5,7 +5,6 @@ extends GridContainer
 func _ready():
     for button in get_children():
         var _b = button;
-        _b.PowerUpManager = power_up_menu.chosenPowerUpPool;
         _b.get_node("Button").pressed.connect(select_skill)
 
 func select_skill():
