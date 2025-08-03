@@ -34,7 +34,7 @@ func _player_physics_process(delta: float):
     if isDead != true:
         var m = int(total_time_in_secs / 60.0);
         var s = total_time_in_secs - m * 60;
-        $"UI placeholder/Timer".text = str(m) + ":" + str(s) 
+        $"UI placeholder/Timer".text = str(m).pad_zeros(2) + ":" + str(s).pad_zeros(2)
         $"UI placeholder/LevelDisplay".text = "LVL: " + str(Level);
         $"UI placeholder/KillCounter".text = "KILLS: " + str(PLAYER_ENEMIES_KILLED.enemies_killed);
         var direction := Input.get_vector("left", "right", "up", "down")
