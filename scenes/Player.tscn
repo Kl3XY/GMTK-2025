@@ -30,7 +30,7 @@
 [ext_resource type="Script" uid="uid://d2a11s5emdwf4" path="res://scenes/extra_credits.gd" id="21_hxdpb"]
 [ext_resource type="Script" uid="uid://cgife5tbk4cmh" path="res://scenes/achievements_menu.gd" id="22_agngo"]
 [ext_resource type="Script" uid="uid://chpnfy51y8p1m" path="res://scenes/to_dark_pause.gd" id="28_1jpwa"]
-[ext_resource type="Script" uid="uid://71vrffsu4elo" path="res://scenes/death_screen.gd" id="35_qmt83"]
+[ext_resource type="Script" path="res://scenes/death_screen.gd" id="35_qmt83"]
 
 [sub_resource type="Resource" id="Resource_m4as6"]
 script = ExtResource("2_fvsjc")
@@ -638,6 +638,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("28_1jpwa")
 
 [node name="DeathScreen" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("35_qmt83")
 
 [node name="ColorRect" type="ColorRect" parent="DeathScreen"]
