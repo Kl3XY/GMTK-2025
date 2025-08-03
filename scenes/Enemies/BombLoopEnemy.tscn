@@ -73,4 +73,5 @@ shape = SubResource("CircleShape2D_tmucy")
 script = ExtResource("4_ibdgm")
 bomb = ExtResource("5_cnwtj")
 
+[connection signal="TookDamage" from="." to="." method="_on_took_damage"]
 [connection signal="health_depleted" from="HealthComponent" to="BombSpawner" method="_on_health_component_health_depleted"]
