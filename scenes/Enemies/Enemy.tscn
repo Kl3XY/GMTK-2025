@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://pkkydt76etb3"]
+[gd_scene load_steps=8 format=3 uid="uid://pkkydt76etb3"]
 
 [ext_resource type="Script" uid="uid://cymtfnkubrid1" path="res://scenes/enemy.gd" id="1_cgghf"]
 [ext_resource type="Texture2D" uid="uid://dveil8vyd0vom" path="res://sprites/UI/EnemyHealthBar3.png" id="4_f5ynd"]
 [ext_resource type="PackedScene" uid="uid://cowso8awu5lpp" path="res://components/HealthComponent.tscn" id="4_wudbl"]
 [ext_resource type="Texture2D" uid="uid://cy8yp2e43qgo0" path="res://sprites/UI/EnemyHealthBar1.png" id="5_evj1p"]
+[ext_resource type="PackedScene" uid="uid://bp4xg511vvtbb" path="res://Audio/audio_manager.tscn" id="6_5igq7"]
 [ext_resource type="Texture2D" uid="uid://c7tqjxvybdvyu" path="res://sprites/UI/EnemyHealthBar2.png" id="6_iwuxl"]
+[ext_resource type="AudioStream" uid="uid://mlqe58y11kkv" path="res://Audio/enemy_hurt.wav" id="6_rxugn"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 texture_filter = 3
@@ -38,6 +40,8 @@ Max_Health = 60.0
 wait_time = 0.05
 one_shot = true
 
-[connection signal="TookDamage" from="." to="." method="_on_took_damage"]
+[node name="AudioSource" parent="." instance=ExtResource("6_5igq7")]
+stream = ExtResource("6_rxugn")
+
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]

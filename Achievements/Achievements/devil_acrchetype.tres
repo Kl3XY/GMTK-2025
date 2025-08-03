@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://dijr0wnysdh6d"]
+
+[ext_resource type="Script" uid="uid://dqwsw0sphyedy" path="res://Achievements/Achievement.gd" id="1_7vgqa"]
+
+[resource]
+script = ExtResource("1_7vgqa")
+name = "Devil Archetype"
+short_desc = "Deal 2000 damage in one hit"
+hasUnlocked = false
+metadata/_custom_type_script = "uid://dqwsw0sphyedy"

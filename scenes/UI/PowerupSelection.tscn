@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5mnl1v2conri"]
+[gd_scene load_steps=6 format=3 uid="uid://b5mnl1v2conri"]
 
 [ext_resource type="FontFile" uid="uid://coq1aojhddgk0" path="res://fonts/cc.yal.6w4.ttf" id="1_adncq"]
 [ext_resource type="Script" uid="uid://be6lolbqvx156" path="res://scenes/UI/powerup_selection.gd" id="1_wvq7g"]
 [ext_resource type="Texture2D" uid="uid://hlorn0qbabxg" path="res://sprites/window_rect.png" id="2_wvq7g"]
+[ext_resource type="Texture2D" uid="uid://codt7cxttt1so" path="res://sprites/golden_wand.png" id="4_pf0hw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pf0hw"]
 texture = ExtResource("2_wvq7g")
@@ -38,5 +39,14 @@ text = "POWER UP
 
 COOL ASS WAND"
 autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 3
+layout_mode = 1
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 20.0
+offset_bottom = 19.0
+texture = ExtResource("4_pf0hw")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

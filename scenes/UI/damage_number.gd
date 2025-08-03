@@ -6,7 +6,7 @@ extends Control
 
 var GETTING_DAMAGE = preload("res://Achievements/Achievements/getting_damage.tres")
 var SUPREME_DAMAGE = preload("res://Achievements/Achievements/supreme_damage.tres")
-
+var DEVIL_ACRCHETYPE = preload("res://Achievements/Achievements/devil_acrchetype.tres")
 var speed = 300.0;
 
 func _ready() -> void:
@@ -18,6 +18,9 @@ func _ready() -> void:
     
     if damage >= 300:
         SUPREME_DAMAGE.hasUnlocked = true;
+    
+    if damage >= 2000:
+        DEVIL_ACRCHETYPE.hasUnlocked = true;
 
 func _process(delta: float) -> void:
     _damage_number_process(delta);

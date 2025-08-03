@@ -130,8 +130,7 @@ func _on_take_damage_area_body_entered(body: Node2D) -> void:
 
 
 func _on_alikesupremetimer_timeout() -> void:
-    if tookDamage == false:
-        A_LIKE_SUPREME.hasUnlocked = true;
+    A_LIKE_SUPREME.hasUnlocked = true;
 
 
 func _on_timer_2_timeout() -> void:

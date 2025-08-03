@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://h7qc4m28m7ep"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://h7qc4m28m7ep"]
 
 [ext_resource type="PackedScene" uid="uid://c1inoc54un6wi" path="res://scenes/Attacks/Blooded Sword/Blooded Sword.tscn" id="1_bvgpb"]
 [ext_resource type="Script" uid="uid://dftynetcek42x" path="res://Powerups/Weapon.gd" id="2_idhn6"]
+[ext_resource type="Texture2D" uid="uid://8whmr1qiclqj" path="res://sprites/lifesteal_sword.png" id="2_wvblm"]
 
 [resource]
 script = ExtResource("2_idhn6")
 instantiated_weapon = ExtResource("1_bvgpb")
 name = "Bloodied Sword"
 description = "After 4s shoots out 8 swords each dealing 0.135x of your damage."
+powerup_icon = ExtResource("2_wvblm")
 metadata/_custom_type_script = "uid://dftynetcek42x"

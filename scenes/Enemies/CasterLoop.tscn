@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bijoeqe7v55se"]
+[gd_scene load_steps=15 format=3 uid="uid://bijoeqe7v55se"]
 
 [ext_resource type="Script" uid="uid://dqotulldkhpsg" path="res://scenes/caster_loop.gd" id="1_3fv3g"]
 [ext_resource type="Texture2D" uid="uid://ey1j1oj4h5g7" path="res://sprites/caster_loop.png" id="2_it7ue"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cy8yp2e43qgo0" path="res://sprites/UI/EnemyHealthBar1.png" id="5_fdw5s"]
 [ext_resource type="Texture2D" uid="uid://c7tqjxvybdvyu" path="res://sprites/UI/EnemyHealthBar2.png" id="6_fmqsn"]
 [ext_resource type="PackedScene" uid="uid://cowso8awu5lpp" path="res://components/HealthComponent.tscn" id="7_aan5m"]
+[ext_resource type="AudioStream" uid="uid://mlqe58y11kkv" path="res://Audio/enemy_hurt.wav" id="8_it7ue"]
+[ext_resource type="PackedScene" uid="uid://bp4xg511vvtbb" path="res://Audio/audio_manager.tscn" id="8_phwom"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0nrru"]
 radius = 2.5
@@ -79,6 +81,9 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_3fv3g")
+
+[node name="AudioSource" parent="." instance=ExtResource("8_phwom")]
+stream = ExtResource("8_it7ue")
 
 [connection signal="TookDamage" from="." to="." method="_on_took_damage"]
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]

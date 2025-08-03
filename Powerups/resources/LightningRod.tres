@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://d03dte37gsu6m"]
+
+[ext_resource type="PackedScene" uid="uid://c2ufc1sbe4ggt" path="res://scenes/Attacks/Lightning Rod/Lightning Rod.tscn" id="1_cf41l"]
+[ext_resource type="Script" uid="uid://dftynetcek42x" path="res://Powerups/Weapon.gd" id="2_04t0e"]
+[ext_resource type="Texture2D" uid="uid://codt7cxttt1so" path="res://sprites/golden_wand.png" id="2_p77db"]
+
+[resource]
+script = ExtResource("2_04t0e")
+instantiated_weapon = ExtResource("1_cf41l")
+name = "Lightning Rod"
+description = "Every 1.5s emits a lightning strike near you. The Lightning Deals 200% of your damage"
+powerup_icon = ExtResource("2_p77db")
+metadata/_custom_type_script = "uid://dftynetcek42x"

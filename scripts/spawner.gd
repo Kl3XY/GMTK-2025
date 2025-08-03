@@ -71,8 +71,8 @@ func _on_spawn_timer_timeout() -> void:
                 )
         
         var base_time = 2.0
-        var reduction = log(1 + DIFFICULTY.difficulty) / 3.42
-        $SpawnTimer.wait_time = max(base_time - reduction, 0.001)
+        var reduction = log(1 + DIFFICULTY.difficulty) / 2.3
+        $SpawnTimer.wait_time = max(base_time - reduction, 0.01)
         $SpawnTimer.start()
 
         var point: Vector2 = self.curve.samplef(randf() * 4) + get_parent().position

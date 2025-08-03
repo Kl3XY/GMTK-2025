@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PowerupManager" load_steps=33 format=3 uid="uid://cb2e0mk32t5b"]
+[gd_resource type="Resource" script_class="PowerupManager" load_steps=37 format=3 uid="uid://cb2e0mk32t5b"]
 
 [ext_resource type="Script" uid="uid://c12sehdu0ojt6" path="res://Powerups/resources/PowerupWeight.gd" id="1_qrfne"]
 [ext_resource type="Resource" uid="uid://dg5e6tx5aecc6" path="res://Powerups/resources/SmallAttackBoost.tres" id="2_jn3rt"]
@@ -16,7 +16,9 @@
 [ext_resource type="Resource" uid="uid://cyt28ihgkgdq1" path="res://Powerups/resources/BasicMageWand.tres" id="14_6o1f4"]
 [ext_resource type="Resource" uid="uid://cwbwtjtv17w1s" path="res://Powerups/resources/gluttony.tres" id="15_sxni3"]
 [ext_resource type="Resource" uid="uid://qw6eigetbskv" path="res://Powerups/resources/Necronomicon.tres" id="16_gn8oo"]
+[ext_resource type="Resource" uid="uid://cbekp523kgxgo" path="res://Powerups/resources/WoodenSword.tres" id="17_1ryaf"]
 [ext_resource type="Script" uid="uid://bxd82dt7p3gce" path="res://Powerups/resources/Manager/PowerupManager.gd" id="17_wjy2s"]
+[ext_resource type="Resource" uid="uid://d03dte37gsu6m" path="res://Powerups/resources/LightningRod.tres" id="18_dp3br"]
 
 [sub_resource type="Resource" id="Resource_k8e15"]
 script = ExtResource("1_qrfne")
@@ -108,7 +110,19 @@ powerup = ExtResource("16_gn8oo")
 weight = 50.0
 metadata/_custom_type_script = "uid://c12sehdu0ojt6"
 
+[sub_resource type="Resource" id="Resource_m06tk"]
+script = ExtResource("1_qrfne")
+powerup = ExtResource("17_1ryaf")
+weight = 0.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
+[sub_resource type="Resource" id="Resource_n5v5a"]
+script = ExtResource("1_qrfne")
+powerup = ExtResource("18_dp3br")
+weight = 0.0
+metadata/_custom_type_script = "uid://c12sehdu0ojt6"
+
 [resource]
 script = ExtResource("17_wjy2s")
-PowerupWeights = Array[ExtResource("1_qrfne")]([SubResource("Resource_k8e15"), SubResource("Resource_f4448"), SubResource("Resource_nm4bb"), SubResource("Resource_kk77y"), SubResource("Resource_auf08"), SubResource("Resource_bxnss"), SubResource("Resource_omspw"), SubResource("Resource_3itbl"), SubResource("Resource_gf8vy"), SubResource("Resource_ahktd"), SubResource("Resource_23w4d"), SubResource("Resource_lb25e"), SubResource("Resource_36eyq"), SubResource("Resource_28wl2"), SubResource("Resource_6xgj4")])
+PowerupWeights = Array[ExtResource("1_qrfne")]([SubResource("Resource_k8e15"), SubResource("Resource_f4448"), SubResource("Resource_nm4bb"), SubResource("Resource_kk77y"), SubResource("Resource_auf08"), SubResource("Resource_bxnss"), SubResource("Resource_omspw"), SubResource("Resource_3itbl"), SubResource("Resource_gf8vy"), SubResource("Resource_ahktd"), SubResource("Resource_23w4d"), SubResource("Resource_lb25e"), SubResource("Resource_36eyq"), SubResource("Resource_28wl2"), SubResource("Resource_6xgj4"), SubResource("Resource_m06tk"), SubResource("Resource_n5v5a")])
 metadata/_custom_type_script = "uid://bxd82dt7p3gce"

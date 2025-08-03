@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cyt28ihgkgdq1"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://cyt28ihgkgdq1"]
 
 [ext_resource type="PackedScene" uid="uid://cngoj6pdvb1el" path="res://scenes/Attacks/Basic Mage Wand/BasicMageWand.tscn" id="1_fmxn0"]
 [ext_resource type="Script" uid="uid://dftynetcek42x" path="res://Powerups/Weapon.gd" id="1_hirvf"]
+[ext_resource type="Texture2D" uid="uid://dvaimiolcashi" path="res://sprites/frooty_loop_staff.png" id="2_6k62f"]
 
 [resource]
 script = ExtResource("1_hirvf")
 instantiated_weapon = ExtResource("1_fmxn0")
 name = "Mage Wand"
 description = "Shoots out projectiles. deals 100% of your damage. 1 second cooldown"
+powerup_icon = ExtResource("2_6k62f")
 metadata/_custom_type_script = "uid://dftynetcek42x"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://cbekp523kgxgo"]
+
+[ext_resource type="PackedScene" uid="uid://c2ufc1sbe4ggt" path="res://scenes/Attacks/Lightning Rod/Lightning Rod.tscn" id="1_7yw04"]
+[ext_resource type="Texture2D" uid="uid://vwih7w1qqish" path="res://sprites/wooden_sword.png" id="2_ee008"]
+[ext_resource type="Script" uid="uid://dftynetcek42x" path="res://Powerups/Weapon.gd" id="2_kkpib"]
+
+[resource]
+script = ExtResource("2_kkpib")
+instantiated_weapon = ExtResource("1_7yw04")
+name = "Wooden Sword"
+description = "Doesnt emit a projectile. Deals 300% of your damage on hit."
+powerup_icon = ExtResource("2_ee008")
+metadata/_custom_type_script = "uid://dftynetcek42x"

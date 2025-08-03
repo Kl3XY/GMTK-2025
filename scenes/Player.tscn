@@ -1,9 +1,10 @@
-[gd_scene load_steps=60 format=3 uid="uid://dnpkjtix0emqi"]
+[gd_scene load_steps=61 format=3 uid="uid://dnpkjtix0emqi"]
 
 [ext_resource type="Texture2D" uid="uid://csjv6vaka1ysp" path="res://sprites/mage.png" id="1_a2o12"]
 [ext_resource type="Script" uid="uid://b1klsfwakue4r" path="res://scripts/player.gd" id="1_v6fml"]
 [ext_resource type="Script" uid="uid://bpgc278woycng" path="res://PlayerStats/PlayerStats.gd" id="2_fvsjc"]
 [ext_resource type="PackedScene" uid="uid://lggam6luofdi" path="res://scenes/Shadow.tscn" id="2_qu4a1"]
+[ext_resource type="PackedScene" uid="uid://bp4xg511vvtbb" path="res://Audio/audio_manager.tscn" id="3_qrixf"]
 [ext_resource type="Texture2D" uid="uid://d3bnwkug721ye" path="res://sprites/archer.png" id="3_qu4a1"]
 [ext_resource type="Texture2D" uid="uid://cfpg7f6kt0350" path="res://sprites/warrior.png" id="4_70d11"]
 [ext_resource type="PackedScene" uid="uid://cngoj6pdvb1el" path="res://scenes/Attacks/Basic Mage Wand/BasicMageWand.tscn" id="6_70d11"]
@@ -183,6 +184,8 @@ platform_floor_layers = 4294967040
 safe_margin = 0.2
 script = ExtResource("1_v6fml")
 stats = SubResource("Resource_m4as6")
+
+[node name="AudioSource" parent="." instance=ExtResource("3_qrixf")]
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_qu4a1")]
 position = Vector2(0, 1)

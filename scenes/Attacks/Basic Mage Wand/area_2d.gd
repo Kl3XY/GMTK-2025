@@ -16,7 +16,7 @@ func find_closest_enemy() -> Enemy:
 
 func _on_attack_timer_timeout() -> void:
     var stat = basic_mage_wand.playerStats as PlayerStats;
-    $"../Attack Timer".wait_time = max(1.0 - (stat.attackSpeedSec), 0.001)
+    $"../Attack Timer".wait_time = max(1.0 - (stat.attackSpeedSec), 0.05)
     var closest_enemy = find_closest_enemy();
     if find_closest_enemy():
         enemy_is_in_area_on_tick.emit(closest_enemy)

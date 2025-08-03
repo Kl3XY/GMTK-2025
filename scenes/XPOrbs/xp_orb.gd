@@ -4,7 +4,7 @@ var follow_player = false;
 
 var player;
 var speed = 30;
-var xp_amount = 10;
+var xp_amount = 20;
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
     if body is Player:
@@ -28,6 +28,9 @@ func _on_player_collision_body_entered(body: Node2D) -> void:
     if body is Player:
         var xp = player.get_node("Components").get_node("XP") as XPComponent;
         xp.XP += xp_amount;
+        
+        $AudioSource.pitch_scale = randf_range(0.8, 1.3)
+        $AudioSource.emit()
         call_deferred("queue_free");
 
 

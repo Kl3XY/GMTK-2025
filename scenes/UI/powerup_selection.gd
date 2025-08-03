@@ -10,6 +10,7 @@ func _ready():
         queue_free();
     else: 
         $Button.text = str(PowerUp)
+        $TextureRect.texture = PowerUp.powerup_icon;
 
 func _on_button_pressed() -> void:
     PowerUp.apply(get_tree().get_first_node_in_group("player"));

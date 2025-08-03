@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2ufc1sbe4ggt"]
+
+[ext_resource type="Script" uid="uid://bo28s1ukwccm1" path="res://scenes/Attacks/Lightning Rod/lightning_rod.gd" id="1_fr620"]
+[ext_resource type="Texture2D" uid="uid://codt7cxttt1so" path="res://sprites/golden_wand.png" id="2_l7hpc"]
+[ext_resource type="PackedScene" uid="uid://lggam6luofdi" path="res://scenes/Shadow.tscn" id="3_fr620"]
+
+[node name="LightningRod" type="Node2D"]
+script = ExtResource("1_fr620")
+metadata/_custom_type_script = "uid://de3mwsdxj70po"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("2_l7hpc")
+
+[node name="Shadow" parent="." instance=ExtResource("3_fr620")]
+texture_filter = 3
+position = Vector2(0, 4)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

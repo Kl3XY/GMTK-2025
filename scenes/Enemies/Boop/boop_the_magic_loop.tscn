@@ -1,16 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://vtqit3iftm7c"]
+[gd_scene load_steps=10 format=3 uid="uid://vtqit3iftm7c"]
 
 [ext_resource type="PackedScene" uid="uid://pkkydt76etb3" path="res://scenes/Enemies/Enemy.tscn" id="1_g34c3"]
 [ext_resource type="Script" uid="uid://brdq3a6s5i8kr" path="res://scenes/Enemies/Boop/boop_the_magic_loop.gd" id="2_5e0l2"]
-[ext_resource type="Script" uid="uid://krj3cmval3tk" path="res://scenes/Enemies/Boop/area_2d.gd" id="2_s5nm5"]
 [ext_resource type="Texture2D" uid="uid://mc8tx0o1g58b" path="res://sprites/boop_the_magic_loop.png" id="3_n4o5m"]
 [ext_resource type="FontFile" uid="uid://coq1aojhddgk0" path="res://fonts/cc.yal.6w4.ttf" id="4_s5nm5"]
 [ext_resource type="Texture2D" uid="uid://bep07t61eny41" path="res://sprites/UI/XPBar3.png" id="5_1fohn"]
 [ext_resource type="Texture2D" uid="uid://bmhdif75e7pam" path="res://sprites/UI/HPBar.png" id="6_1fohn"]
 [ext_resource type="Script" uid="uid://ymahyhv170sh" path="res://scenes/Enemies/Boop/texture_progress_bar.gd" id="7_xepcd"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xepcd"]
-radius = 19.2354
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ybuw2"]
 radius = 30.82
@@ -28,20 +24,12 @@ platform_floor_layers = 4294967042
 platform_wall_layers = 2
 script = ExtResource("2_5e0l2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-shape = SubResource("CircleShape2D_xepcd")
+[node name="Area2D#CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_ybuw2")
 
 [node name="HealthComponent" parent="." index="2"]
 Health = 500.0
 Max_Health = 500.0
-
-[node name="Area2D" parent="." index="4"]
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("2_s5nm5")
-
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource("CircleShape2D_ybuw2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="5"]
 texture_filter = 3

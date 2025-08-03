@@ -20,4 +20,4 @@ func _explosion_physics_process(delta: float):
 func _on_area_2d_body_entered(body: Node2D) -> void:
     if body is Player:
         var plr = body as Player;
-        plr.TakeDamage.emit(5)
+        plr.TakeDamage.emit(50)

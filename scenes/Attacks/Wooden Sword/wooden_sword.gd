@@ -1,0 +1,6 @@
+extends Attack
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+    if body is Enemy:
+        (body as Enemy).TookDamage.emit(playerStats.attack * 4, null);

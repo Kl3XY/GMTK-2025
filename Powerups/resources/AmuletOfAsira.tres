@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cx1mk5j3sorm0"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://cx1mk5j3sorm0"]
 
 [ext_resource type="PackedScene" uid="uid://bhwslc41s7t3r" path="res://scenes/Attacks/Amulet Of Asira/Amulet Of Asira.tscn" id="1_ew7ak"]
 [ext_resource type="Script" uid="uid://dftynetcek42x" path="res://Powerups/Weapon.gd" id="2_0ou2p"]
+[ext_resource type="Texture2D" uid="uid://cqbv64nxvxo8i" path="res://sprites/amulet_of_asira.png" id="2_pe0ok"]
 
 [resource]
 script = ExtResource("2_0ou2p")
 instantiated_weapon = ExtResource("1_ew7ak")
 name = "Amulet Of Asira"
 description = "Every 10s, emits a huge area of effect attack that deals 25% of your current damage"
+powerup_icon = ExtResource("2_pe0ok")
 metadata/_custom_type_script = "uid://dftynetcek42x"

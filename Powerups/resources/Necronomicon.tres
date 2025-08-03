@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://qw6eigetbskv"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://qw6eigetbskv"]
 
 [ext_resource type="PackedScene" uid="uid://xhcfi28vt1m2" path="res://scenes/Attacks/Necronomicon/Necronomicon.tscn" id="1_abt6d"]
 [ext_resource type="Script" uid="uid://dftynetcek42x" path="res://Powerups/Weapon.gd" id="2_bgjcs"]
+[ext_resource type="Texture2D" uid="uid://dly1p5fjsaepa" path="res://sprites/necronomicon.png" id="2_he107"]
 
 [resource]
 script = ExtResource("2_bgjcs")
 instantiated_weapon = ExtResource("1_abt6d")
 name = "Necronomicon"
 description = "Shoots out a necrotic attack which deals 300% of your damage."
+powerup_icon = ExtResource("2_he107")
 metadata/_custom_type_script = "uid://dftynetcek42x"
